@@ -32,8 +32,8 @@ export default function ConversationPage({ data }) {
   const topParents = data?.conversations?.top_parents || [];
 
   const conversationPropData = [
-    { name: 'Komentar Utama', value: conv.main_comments || 89000, color: '#20524d', pct: conv.main_comments_pct || 70.0 },
-    { name: 'Balasan (Replies)', value: conv.reply_comments || 38139, color: '#aa161a', pct: conv.reply_comments_pct || 30.0 },
+    { name: 'Komentar Utama', value: conv.main_comments ?? 0, color: '#20524d', pct: conv.main_comments_pct ?? 0 },
+    { name: 'Balasan (Replies)', value: conv.reply_comments ?? 0, color: '#aa161a', pct: conv.reply_comments_pct ?? 0 },
   ];
 
   const parentChartData = topParents.slice(0, 10).map((p, i) => ({
@@ -45,7 +45,7 @@ export default function ConversationPage({ data }) {
   }));
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* 1. Deskripsi */}
       <SectionHeader
         badge="Engagement & Interaction Dynamics"
@@ -55,11 +55,11 @@ export default function ConversationPage({ data }) {
       />
 
       {/* 2. Statistik */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Komentar Utama (Level 1)"
-          value={conv.main_comments || 89000}
-          suffix={` (${conv.main_comments_pct || 70.0}%)`}
+          value={conv.main_comments ?? 0}
+          suffix={` (${conv.main_comments_pct ?? 0}%)`}
           subtext="Inisiator topik opini awal"
           icon={MessageSquare}
           colorScheme="forest"
@@ -67,8 +67,8 @@ export default function ConversationPage({ data }) {
         />
         <StatCard
           title="Komentar Balasan (Level 2)"
-          value={conv.reply_comments || 38139}
-          suffix={` (${conv.reply_comments_pct || 30.0}%)`}
+          value={conv.reply_comments ?? 0}
+          suffix={` (${conv.reply_comments_pct ?? 0}%)`}
           subtext="Tanggapan / sanggahan warga"
           icon={CornerDownRight}
           colorScheme="crimson"
@@ -76,16 +76,16 @@ export default function ConversationPage({ data }) {
         />
         <StatCard
           title="Rata-rata Panjang Balasan"
-          value={conv.avg_words_reply || 11.2}
+          value={conv.avg_words_reply ?? 0}
           suffix=" Kata"
-          subtext={`vs ${conv.avg_words_main || 8.4} kata (utama)`}
+          subtext={`vs ${conv.avg_words_main ?? 0} kata (utama)`}
           icon={AlignLeft}
           colorScheme="blue"
           tooltip="Komentar balasan cenderung lebih panjang karena berisi argumen penjelasan"
         />
         <StatCard
           title="Rekor Balasan Tertinggi"
-          value={topParents[0]?.reply_count || 342}
+          value={topParents[0]?.reply_count ?? 0}
           suffix=" Balasan"
           subtext={`Oleh @${topParents[0]?.username || 'user'}`}
           icon={Flame}
@@ -95,12 +95,12 @@ export default function ConversationPage({ data }) {
       </div>
 
       {/* 3. Visualisasi */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Donut Proporsi Hirarki Komentar */}
-        <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
+        <div className="lg:col-span-5 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h3 className="text-base font-bold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 Proporsi Utama vs Balasan
               </h3>
               <p className="text-xs text-slate-500">Struktur percakapan interaktif TikTok</p>
@@ -137,8 +137,8 @@ export default function ConversationPage({ data }) {
             </ResponsiveContainer>
 
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <span className="text-xl font-black text-slate-800">
-                {conv.reply_comments_pct || 30.0}%
+              <span className="text-xl font-bold text-slate-800">
+                {conv.reply_comments_pct ?? 0}%
               </span>
               <span className="text-[10px] font-bold text-crimson-600">
                 Balasan
@@ -149,20 +149,20 @@ export default function ConversationPage({ data }) {
           <div className="grid grid-cols-2 gap-3 mt-3 pt-3 border-t border-slate-100 text-xs">
             <div className="p-3 rounded-xl bg-forest-50/60 border border-forest-100">
               <p className="text-[10px] font-bold text-forest-700">Komentar Utama</p>
-              <p className="text-base font-black text-forest-900 mt-0.5">{(conv.main_comments || 89000).toLocaleString('id-ID')}</p>
+              <p className="text-base font-bold text-forest-900 mt-0.5">{(conv.main_comments ?? 0).toLocaleString('id-ID')}</p>
             </div>
             <div className="p-3 rounded-xl bg-rose-50/60 border border-rose-100">
               <p className="text-[10px] font-bold text-rose-700">Balasan Warga</p>
-              <p className="text-base font-black text-rose-900 mt-0.5">{(conv.reply_comments || 38139).toLocaleString('id-ID')}</p>
+              <p className="text-base font-bold text-rose-900 mt-0.5">{(conv.reply_comments ?? 0).toLocaleString('id-ID')}</p>
             </div>
           </div>
         </div>
 
         {/* 10 Komentar Induk Paling Banyak Dibalas Bar Chart */}
-        <div className="lg:col-span-7 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
+        <div className="lg:col-span-7 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h3 className="text-base font-bold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 Top 10 Komentar Paling Banyak Mendulang Balasan
               </h3>
               <p className="text-xs text-slate-500">Pusat perdebatan warganet pada kolom komentar</p>
@@ -197,10 +197,10 @@ export default function ConversationPage({ data }) {
       </div>
 
       {/* Tabel Komentar Induk Terpopuler & Teks Lengkap */}
-      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 overflow-hidden space-y-4">
+      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 overflow-hidden space-y-4">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
+            <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
               Teks Komentar Pemicu Diskusi Terbesar
             </h3>
             <p className="text-xs text-slate-500">Komentar induk yang memancing ratusan sanggahan dan dukungan</p>
@@ -252,9 +252,9 @@ export default function ConversationPage({ data }) {
         title="Interpretasi Struktur Interaksi & Dinamika Diskusi"
         variant="crimson"
         points={[
-          `Tingkat interaksi balasan mencapai 30,0% (${conv.reply_comments?.toLocaleString('id-ID')} balasan), menandakan bahwa topik KDMP bukan sekadar tontonan pasif, melainkan isu hangat yang memancing perdebatan interaktif dua arah antar-pengguna.`,
-          `Rata-rata panjang kata pada balasan (${conv.avg_words_reply} kata) secara konsisten lebih panjang dibanding komentar utama (${conv.avg_words_main} kata). Hal ini membuktikan bahwa warganet terdorong memberikan argumentasi, bukti pengalaman pribadi, dan sanggahan naratif ketika membalas komentar orang lain.`,
-          `Sebagian besar 'Thread Induk' terpopuler dipicu oleh komentar keraguan terhadap harga kulak bagi pemilik warung desa, yang kemudian dibalas oleh pendukung program maupun sesama pedagang.`
+          `Balasan mencakup ${conv.reply_comments_pct ?? 0}% dari seluruh komentar unik (${(conv.reply_comments ?? 0).toLocaleString('id-ID')} balasan), sedangkan komentar utama ${conv.main_comments_pct ?? 0}% (${(conv.main_comments ?? 0).toLocaleString('id-ID')}).`,
+          `Rata-rata panjang balasan ${conv.avg_words_reply ?? 0} kata dibandingkan ${conv.avg_words_main ?? 0} kata pada komentar utama, sehingga balasan ${(conv.avg_words_reply ?? 0) >= (conv.avg_words_main ?? 0) ? 'sedikit lebih panjang' : 'lebih pendek'}.`,
+          `Komentar induk dengan balasan terbanyak memiliki ${(topParents[0]?.reply_count ?? 0).toLocaleString('id-ID')} balasan (@${topParents[0]?.username ?? '-'}); isi komentar induk dapat dibaca pada daftar di bawah.`
         ]}
         recommendations={[
           "Fokuskan moderasi dan respons resmi kementerian/pengurus koperasi pada komentar induk terpopuler ini, karena satu thread induk menjangkau ratusan pengguna yang aktif membaca perdebatan.",

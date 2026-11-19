@@ -6,12 +6,19 @@
   * {
     border-color: #e5e3da;
   }
+  html, body, button, input, select, textarea, code, kbd, samp, pre, svg text, .recharts-text, .recharts-tooltip-wrapper {
+    font-family: 'Poppins', sans-serif !important;
+  }
   body {
     background-color: #ecebe4;
     color: #1a2e26;
     overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
   }
+  /* Skala tipografi (seragam di semua halaman):
+     judul halaman  = text-xl semibold   | subjudul bagian = text-sm medium
+     judul kartu    = text-sm semibold   | label kecil      = text-xs semibold
+     isi / keterangan = text-xs / normal | angka KPI        = text-2xl semibold */
 }
 
 /* Custom Scrollbar - Warm Sage */

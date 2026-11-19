@@ -93,7 +93,7 @@ export default function DataProcessingPage({ data }) {
   ];
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* 1. Deskripsi */}
       <SectionHeader
         badge="Text Normalization"
@@ -103,42 +103,42 @@ export default function DataProcessingPage({ data }) {
       />
 
       {/* 2. Statistik */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Total Dokumen Diproses"
-          value={meta.total_unique || 127139}
+          value={meta.total_unique ?? 0}
           subtext="Komentar unik teks lengkap"
           icon={FileText}
           colorScheme="crimson"
         />
         <StatCard
-          title="Kosakata Konten Terpilih"
-          value="50.000+"
-          subtext="Lema unik setelah stopword filter"
+          title="Kosakata Teratas Ditampilkan"
+          value={`${data?.vocabulary?.top_words?.length ?? 0} Kata`}
+          subtext="Kata konten paling sering setelah stopword filter"
           icon={Binary}
           colorScheme="forest"
         />
         <StatCard
           title="Stopwords Kontekstual"
-          value="32 Kata"
-          subtext="Disesuaikan dengan slang media sosial"
+          value={`${(data?.data_flow?.[3]?.details || []).map((d) => (d.match(/(\d+) stopword/) || [])[1]).find(Boolean) ?? '-'} Kata`}
+          subtext="Daftar stopword ringan (tanpa stemming)"
           icon={Filter}
           colorScheme="neutral"
         />
         <StatCard
-          title="Preservasi Emoji"
-          value="100%"
-          subtext="Rentang Unicode U+1F300 - U+1FAFF"
+          title="Komentar Berisi Emoji"
+          value={(data?.emojis?.total_comments_with_emoji ?? 0).toLocaleString('id-ID')}
+          subtext="Emoji dihitung dari teks asli sebelum dibersihkan"
           icon={Smile}
           colorScheme="blue"
         />
       </div>
 
       {/* 3. Visualisasi Alur Preprocessing */}
-      <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
+      <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
         <div className="flex items-center justify-between pb-4 border-b border-slate-100">
           <div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
+            <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
               Tahapan Alur Preprocessing Teks
             </h3>
             <p className="text-xs text-slate-500">Klik setiap tahapan untuk melihat rincian proses dan transformasi kata</p>
@@ -175,7 +175,7 @@ export default function DataProcessingPage({ data }) {
         {/* Step Detail Box */}
         <div className="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 space-y-4">
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+            <h4 className="text-sm font-semibold text-slate-900 flex items-center gap-2">
               <span className="w-6 h-6 rounded-lg gradient-crimson text-white flex items-center justify-center text-xs font-bold">
                 {activeStep + 1}
               </span>
@@ -210,10 +210,10 @@ export default function DataProcessingPage({ data }) {
       </div>
 
       {/* Kosakata Dominan Pasca Normalisasi */}
-      <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+      <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
+            <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
               15 Kosakata Konten Paling Dominan
             </h3>
             <p className="text-xs text-slate-500">Frekuensi kata bersih setelah eliminasi stopwords dan angka</p>
@@ -240,10 +240,10 @@ export default function DataProcessingPage({ data }) {
       </div>
 
       {/* Tabel Contoh Transformasi Teks */}
-      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 overflow-hidden">
+      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 overflow-hidden">
         <div className="flex items-center justify-between pb-4 border-b border-slate-100">
           <div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
+            <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
               Contoh Transformasi Teks Real
             </h3>
             <p className="text-xs text-slate-500">Perbandingan riil komentar TikTok dari input mentah ke token siap analitis</p>
@@ -287,9 +287,9 @@ export default function DataProcessingPage({ data }) {
         title="Interpretasi Efektivitas Preprocessing"
         variant="crimson"
         points={[
-          `Komentar TikTok didominasi oleh kata seru, tawa (wkwk, haha), singkatan (bgt, yg, dkk), serta emotikon yang kaya konteks emosional. Menghapus emoji bersamaan dengan regex akan menghilangkan lebih dari 28.000 sinyal polaritas penting.`,
-          `Pemisahan penanganan emoji di awal memungkinkan skor positif (👍, ❤️, 👏) dan negatif (👎, 😡, 😠) tetap dihitung akurat pada tahap klasifikasi sentimen tanpa terganggu pembersihan teks.`,
-          `Tiga kata teratas yang muncul setelah stopword removal adalah 'desa', 'koperasi', dan 'warung', menegaskan bahwa perbincangan publik terkonsentrasi kuat pada ekosistem perdagangan dan ekonomi pedesaan.`
+          `${(data?.emojis?.total_comments_with_emoji ?? 0).toLocaleString('id-ID')} komentar (${meta.total_unique ? ((data?.emojis?.total_comments_with_emoji ?? 0) / meta.total_unique * 100).toFixed(1).replace('.', ',') : 0}%) memuat emoji. Emoji dihitung dari teks asli sebelum pembersihan regex menghapus simbol, sehingga tetap bisa dipakai sebagai penanda.`,
+          `Skor kamus memberi bobot pada emoji berpolaritas jelas (👍 ❤️ 👏 positif; 👎 😡 😠 negatif), sedangkan emoji seperti 😂 🤣 😭 diperlakukan kontekstual dan tidak ikut menentukan label.`,
+          `Kata konten paling sering setelah stopword removal adalah ${topWords.slice(0, 3).map((w) => `"${w.kata}" (${w.frekuensi.toLocaleString('id-ID')})`).join(', ')}. Daftar stopword yang ringan membuat kata umum percakapan masih mendominasi; "warung" muncul ${(topWords.find((w) => w.kata === 'warung')?.frekuensi ?? 0).toLocaleString('id-ID')} kali.`
         ]}
         recommendations={[
           "Gunakan normalisasi regex bertahap agar tidak merusak token khusus seperti nama produk atau istilah daerah.",

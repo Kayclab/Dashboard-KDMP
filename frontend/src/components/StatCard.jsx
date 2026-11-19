@@ -10,8 +10,10 @@ export default function StatCard({
   badgeText
 }) {
   const [displayValue, setDisplayValue] = useState(0);
-  const numericVal = typeof value === 'number' ? value : parseFloat(value.toString().replace(/,/g, ''));
-  const isNumber = !isNaN(numericVal);
+  // Hanya tipe number yang dianimasikan. Teks (mis. "21,7 kata" atau "6.588") ditampilkan apa adanya
+  // agar format angka Indonesia tidak salah dibaca sebagai desimal.
+  const isNumber = typeof value === 'number' && !isNaN(value);
+  const numericVal = isNumber ? value : 0;
 
   useEffect(() => {
     if (!isNumber) return;
@@ -45,11 +47,11 @@ export default function StatCard({
       <motion.div
         whileHover={{ y: -3 }}
         transition={{ duration: 0.2 }}
-        className="relative p-6 rounded-[24px] bg-[#315343] text-white shadow-xs overflow-hidden flex items-center justify-between"
+        className="relative p-5 rounded-[24px] bg-[#315343] text-white shadow-xs overflow-hidden flex items-center justify-between gap-2"
       >
-        <div className="z-10">
+        <div className="z-10 min-w-0">
           <p className="text-xs font-medium text-white/80">{title}</p>
-          <h3 className="text-2xl font-bold tracking-tight text-white mt-1">
+          <h3 className={`${isNumber ? 'text-2xl' : 'text-base leading-snug break-words'} font-semibold tracking-tight text-white mt-1`}>
             {formattedDisplay}
           </h3>
           {subtext && (
@@ -78,17 +80,17 @@ export default function StatCard({
     <motion.div
       whileHover={{ y: -3 }}
       transition={{ duration: 0.2 }}
-      className="p-6 rounded-[24px] bg-white shadow-xs border border-transparent hover:shadow-md transition-all flex items-center justify-between"
+      className="p-5 rounded-[24px] bg-white shadow-xs border border-transparent hover:shadow-md transition-all flex items-center justify-between gap-2 min-w-0"
     >
-      <div className="flex items-center gap-3.5">
+      <div className="flex items-center gap-3 min-w-0">
         {Icon && (
           <div className="w-10 h-10 rounded-full bg-[#f4f3ec] text-[#315343] flex items-center justify-center flex-shrink-0">
             <Icon className="w-5 h-5" />
           </div>
         )}
-        <div>
+        <div className="min-w-0">
           <p className="text-xs font-medium text-[#737c76]">{title}</p>
-          <h3 className="text-2xl font-bold tracking-tight text-[#1a2e26] mt-0.5">
+          <h3 className={`${isNumber ? 'text-2xl' : 'text-base leading-snug break-words'} font-semibold tracking-tight text-[#1a2e26] mt-0.5`}>
             {formattedDisplay}
           </h3>
           {subtext && (

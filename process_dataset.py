@@ -7,10 +7,15 @@ from sklearn.cluster import KMeans
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import LinearSVC
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, accuracy_score, precision_recall_fscore_support, confusion_matrix
+from sklearn.metrics import classification_report, accuracy_score, precision_recall_fscore_support, confusion_matrix, f1_score
 
 warnings.filterwarnings("ignore")
 SEED = 42
+
+def pretty_aspect(key):
+    """UMKM_dan_persaingan -> 'UMKM & Persaingan' (hanya tampilan label, tidak memengaruhi analisis)."""
+    words = key.replace("_dan_", "_&_").split("_")
+    return " ".join("UMKM" if w.lower() == "umkm" else (w if w == "&" else w.capitalize()) for w in words)
 
 print("Starting KDMP Data Processing Pipeline...")
 start_time = time.time()
@@ -237,7 +242,7 @@ for a, words in ASPECTS.items():
     counts = sub.sentiment_group.value_counts().to_dict()
     aspect_stats.append({
         "aspek": a,
-        "label": a.replace("_", " ").title(),
+        "label": pretty_aspect(a),
         "jumlah": int(len(sub)),
         "persen": round(len(sub) / len(df) * 100, 2),
         "positif": int(counts.get("positif", 0)),
@@ -294,15 +299,51 @@ sugg_pat = "|".join(re.escape(x) for x in sorted(SUGGESTION_CUES, key=len, rever
 df["is_suggestion"] = df.text_norm.str.contains(sugg_pat, regex=True, na=False)
 sugg_count = int(df["is_suggestion"].sum())
 
+used_example_ids = set()
+
+def theme_examples(aspect_key, n=3):
+    """Contoh komentar ASLI dari dataset untuk satu tema saran (teks tidak diubah)."""
+    sub = df[df.is_suggestion & df["aspect_" + aspect_key]
+             & df.word_count.between(8, 45)
+             & ~df.comment.str.contains(r"https?://", regex=True, na=False)]
+    fresh = sub[~sub.comment_id.isin(used_example_ids)]
+    if len(fresh) >= n:
+        sub = fresh
+    if len(sub) == 0:
+        sub = df[df.is_suggestion & df["aspect_" + aspect_key]]
+    out = []
+    for _, r in sub.sample(min(n, len(sub)), random_state=SEED).iterrows():
+        used_example_ids.add(r["comment_id"])
+        out.append({
+            "comment_id": str(r["comment_id"]),
+            "comment": str(r["comment"]),
+            "username": str(r["username"]),
+            "create_time": str(r["create_time"])[:16],
+            "sentiment_primary": str(r["sentiment_primary"]),
+        })
+    return out
+
 suggestion_themes = []
 for a in ASPECTS:
     cnt = int((df.is_suggestion & df["aspect_" + a]).sum())
     suggestion_themes.append({
         "aspek": a,
-        "label": a.replace("_", " ").title(),
+        "label": pretty_aspect(a),
         "jumlah": cnt,
-        "persen": round(cnt / sugg_count * 100, 2) if sugg_count else 0
+        "persen": round(cnt / sugg_count * 100, 2) if sugg_count else 0,
+        "examples": theme_examples(a)
     })
+
+# Jumlah komentar per pemicu saran (satu komentar dapat memuat lebih dari satu pemicu)
+suggestion_cues = []
+for cue in SUGGESTION_CUES:
+    suggestion_cues.append({
+        "cue": cue,
+        "jumlah": int(df.text_norm.str.contains(re.escape(cue), na=False).sum())
+    })
+suggestion_cues.sort(key=lambda x: -x["jumlah"])
+avg_words_suggestion = round(float(df.loc[df.is_suggestion, "word_count"].mean()), 1)
+avg_words_all = round(float(df.word_count.mean()), 1)
 
 # Bigrams
 print("Calculating bigrams...")
@@ -362,19 +403,38 @@ acc_svm = round(accuracy_score(y_test, y_pred_svm) * 100, 2)
 p_svm, r_svm, f1_svm, _ = precision_recall_fscore_support(y_test, y_pred_svm, average="weighted")
 cm_svm = confusion_matrix(y_test, y_pred_svm, labels=["positif", "negatif", "netral"]).tolist()
 
+# Baseline mayoritas: selalu menebak kelas terbanyak pada data latih (dihitung, bukan konstanta)
+CLS3 = ["positif", "negatif", "netral"]
+majority_class = y_train.value_counts().idxmax()
+y_pred_maj = [majority_class] * len(y_test)
+acc_maj = round(accuracy_score(y_test, y_pred_maj) * 100, 2)
+p_maj, r_maj, f1_maj, _ = precision_recall_fscore_support(y_test, y_pred_maj, average="weighted", zero_division=0)
+cm_maj = confusion_matrix(y_test, y_pred_maj, labels=CLS3).tolist()
+
+def macro_f1(y_pred):
+    return round(f1_score(y_test, y_pred, average="macro", zero_division=0) * 100, 2)
+
+def f1_each(y_pred):
+    vals = f1_score(y_test, y_pred, labels=CLS3, average=None, zero_division=0)
+    return {c: round(float(v) * 100, 2) for c, v in zip(CLS3, vals)}
+
 # Model comparison table
 model_benchmarks = [
     {
-        "model": "InSet Rule-Based Lexicon (Baseline)",
-        "type": "Rule & Lexicon Heuristic",
-        "features": "InSet + Expanded KDMP Dictionary + Emojis",
-        "accuracy": 88.4,
-        "precision": 89.1,
-        "recall": 88.4,
-        "f1_score": 88.7,
-        "speed": "Sangat Cepat (~15k kata/dtk)",
-        "interpretability": "Tinggi (Bukti kata transparan)",
-        "catatan": "Kamus kata bermuatan emosi lokal dan konteks KDMP, dilengkapi penanganan negasi sederhana."
+        "model": f"Baseline Mayoritas (selalu menebak {majority_class})",
+        "type": "Baseline tanpa model",
+        "features": "Tidak ada (kelas terbanyak pada data latih)",
+        "accuracy": acc_maj,
+        "precision": round(p_maj * 100, 2),
+        "recall": round(r_maj * 100, 2),
+        "f1_score": round(f1_maj * 100, 2),
+        "macro_f1": macro_f1(y_pred_maj),
+        "f1_per_class": f1_each(y_pred_maj),
+        "confusion_matrix": cm_maj,
+        "labels": CLS3,
+        "speed": "Instan",
+        "interpretability": "Sangat tinggi",
+        "catatan": "Pembanding wajib: bila model tidak jauh di atas angka ini, skor akurasi tidak menunjukkan kemampuan membedakan sentimen."
     },
     {
         "model": "Multinomial Naive Bayes",
@@ -384,11 +444,13 @@ model_benchmarks = [
         "precision": round(p_nb * 100, 2),
         "recall": round(r_nb * 100, 2),
         "f1_score": round(f1_nb * 100, 2),
+        "macro_f1": macro_f1(y_pred_nb),
+        "f1_per_class": f1_each(y_pred_nb),
         "confusion_matrix": cm_nb,
         "labels": ["positif", "negatif", "netral"],
         "speed": "Cepat (~8k sample/dtk)",
         "interpretability": "Sedang (Log likelihood kata)",
-        "catatan": "Kinerja tinggi pada teks formal, namun sensitif terhadap komentar pendek slang/sarkasme."
+        "catatan": "Skor mengukur kesesuaian dengan label aturan kamus, bukan kebenaran sentimen. Cenderung condong ke kelas mayoritas (netral)."
     },
     {
         "model": "Linear Support Vector Machine (SVM)",
@@ -398,11 +460,13 @@ model_benchmarks = [
         "precision": round(p_svm * 100, 2),
         "recall": round(r_svm * 100, 2),
         "f1_score": round(f1_svm * 100, 2),
+        "macro_f1": macro_f1(y_pred_svm),
+        "f1_per_class": f1_each(y_pred_svm),
         "confusion_matrix": cm_svm,
         "labels": ["positif", "negatif", "netral"],
         "speed": "Sedang (~5k sample/dtk)",
         "interpretability": "Sedang (Bobot koefisien hyper-plane)",
-        "catatan": "F1-score terbaik dalam memisahkan batas kelas polaritas positif dan negatif."
+        "catatan": "Skor mengukur kesesuaian dengan label aturan kamus (model meniru aturan), bukan kebenaran sentimen."
     }
 ]
 
@@ -645,7 +709,7 @@ data_flow_steps = [
         "details": [
             f"Case folding: konversi seluruh karakter ke huruf kecil (lowercase)",
             f"Regex cleaning: pembersihan tanda baca & karakter asing",
-            f"Stopwords removal: 32 stopword bahasa Indonesia kontekstual",
+            f"Stopwords removal: {len(STOP)} stopword bahasa Indonesia kontekstual",
             f"Pemisahan ekstraksi emoji langsung dari teks mentah sebelum regex"
         ]
     },
@@ -781,7 +845,10 @@ dashboard_payload = {
     "suggestions": {
         "total_count": sugg_count,
         "percentage": round(sugg_count / unique_count * 100, 2),
-        "themes": suggestion_themes
+        "themes": suggestion_themes,
+        "cues": suggestion_cues,
+        "avg_words_suggestion": avg_words_suggestion,
+        "avg_words_all": avg_words_all
     },
     "vocabulary": {
         "top_words": top_words,
@@ -802,6 +869,18 @@ dashboard_payload = {
     },
     "evaluation": {
         "benchmarks": model_benchmarks,
+        "setup": {
+            "label_source": "Aturan kamus otomatis (sentiment_primary), bukan anotasi manusia",
+            "sample_size": int(len(labeled_sample)),
+            "n_train": int(len(y_train)),
+            "n_test": int(len(y_test)),
+            "test_size_pct": 25,
+            "tfidf_max_features": 5000,
+            "majority_class": str(majority_class),
+            "majority_share_test_pct": round(float((y_test == majority_class).mean() * 100), 2),
+            "class_distribution_test": {c: int((y_test == c).sum()) for c in CLS3},
+            "perlu_validasi_excluded": True
+        },
         "sentiment_score_stats": {
             "mean": round(float(df.sentiment_score.mean()), 2),
             "median": round(float(df.sentiment_score.median()), 2),
@@ -817,6 +896,12 @@ dashboard_payload = {
 out_path = Path("dashboard_data.json")
 with open(out_path, "w", encoding="utf-8") as f:
     json.dump(dashboard_payload, f, ensure_ascii=False, indent=2)
+
+fe_path = Path("frontend/src/data/dashboard_data.json")
+if fe_path.parent.exists():
+    with open(fe_path, "w", encoding="utf-8") as f:
+        json.dump(dashboard_payload, f, ensure_ascii=False, indent=2)
+    print(f"Copy for frontend saved to {fe_path}")
 
 elapsed = round(time.time() - start_time, 2)
 print(f"SUCCESS! Dashboard data saved to {out_path} ({round(out_path.stat().st_size / 1e6, 2)} MB) in {elapsed}s.")

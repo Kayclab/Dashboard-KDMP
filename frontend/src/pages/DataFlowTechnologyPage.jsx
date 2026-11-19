@@ -140,10 +140,10 @@ export default function DataFlowTechnologyPage({ data }) {
       />
 
       {/* 2. Statistik Alur Data */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Input Data Mentah"
-          value={meta.total_raw || 220051}
+          value={meta.total_raw ?? 0}
           suffix=" Baris"
           subtext="Dataset Excel KDMP.xlsx"
           icon={FileSpreadsheet}
@@ -152,7 +152,7 @@ export default function DataFlowTechnologyPage({ data }) {
         />
         <StatCard
           title="Hasil Deduplikasi"
-          value={meta.total_unique || 127139}
+          value={meta.total_unique ?? 0}
           suffix=" Unik"
           subtext="92.912 salinan dieliminasi"
           icon={Filter}
@@ -178,14 +178,14 @@ export default function DataFlowTechnologyPage({ data }) {
       </div>
 
       {/* BAGIAN 1: ALUR DATA INTERAKTIF & ANIMATIF */}
-      <div className="bg-white p-6 lg:p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
+      <div className="bg-white p-5 lg:p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
           <div>
             <div className="flex items-center gap-2">
               <span className="p-2 rounded-xl gradient-crimson text-white">
                 <Workflow className="w-5 h-5" />
               </span>
-              <h3 className="text-lg font-extrabold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 1. Diagram Alur Data Interaktif (End-to-End Data Flow)
               </h3>
             </div>
@@ -222,12 +222,12 @@ export default function DataFlowTechnologyPage({ data }) {
                       }`}>
                         {idx + 1}
                       </span>
-                      <span className="font-mono text-[9px] text-slate-500 font-bold">
+                      <span className="font-mono text-[10px] text-slate-500 font-bold">
                         {step.output_count > 100 ? `${(step.output_count/1000).toFixed(0)}k` : `${step.output_count} item`}
                       </span>
                     </div>
 
-                    <h4 className="text-xs font-extrabold text-slate-900 line-clamp-2 leading-tight">
+                    <h4 className="text-xs font-semibold text-slate-900 line-clamp-2 leading-tight">
                       {step.name.split(' (')[0]}
                     </h4>
 
@@ -270,12 +270,12 @@ export default function DataFlowTechnologyPage({ data }) {
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-3">
-                <span className="w-9 h-9 rounded-xl gradient-crimson text-white flex items-center justify-center font-black text-sm shadow-2xs">
+                <span className="w-9 h-9 rounded-xl gradient-crimson text-white flex items-center justify-center font-bold text-sm shadow-2xs">
                   {activeStep.step_number}
                 </span>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h4 className="text-base font-extrabold text-slate-900 tracking-tight">
+                    <h4 className="text-sm font-semibold text-slate-900 tracking-tight">
                       {activeStep.name}
                     </h4>
                     <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-crimson-50 text-crimson-700 border border-crimson-200">
@@ -364,14 +364,14 @@ export default function DataFlowTechnologyPage({ data }) {
       </div>
 
       {/* BAGIAN 2: TECHNOLOGY STACK */}
-      <div className="bg-white p-6 lg:p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
+      <div className="bg-white p-5 lg:p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
           <div>
             <div className="flex items-center gap-2">
               <span className="p-2 rounded-xl gradient-forest text-white">
                 <Code2 className="w-5 h-5" />
               </span>
-              <h3 className="text-lg font-extrabold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 2. Technology Stack Proyek
               </h3>
             </div>
@@ -386,13 +386,13 @@ export default function DataFlowTechnologyPage({ data }) {
         </div>
 
         {/* Stack Groups Grid as Clean Bullet Points without Emoji */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {techStackGroups.map((grp, gIdx) => (
             <div 
               key={gIdx}
               className="p-5 rounded-2xl bg-[#fbfaf7] border border-slate-200/80 space-y-3"
             >
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 pb-2 border-b border-slate-200">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-800 pb-2 border-b border-slate-200">
                 {grp.category}
               </h4>
 

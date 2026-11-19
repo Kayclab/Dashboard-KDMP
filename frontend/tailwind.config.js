@@ -37,7 +37,9 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Poppins', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
+        mono: ['Poppins', 'sans-serif'],
+        serif: ['Poppins', 'sans-serif'],
       },
       boxShadow: {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)',

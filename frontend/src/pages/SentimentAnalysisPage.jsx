@@ -88,7 +88,7 @@ export default function SentimentAnalysisPage({ data }) {
   ];
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* 1. Deskripsi */}
       <SectionHeader
         badge="Fokus Utama Analisis"
@@ -98,7 +98,7 @@ export default function SentimentAnalysisPage({ data }) {
       />
 
       {/* 2. Statistik Sentimen Utama */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Sentimen Positif"
           value={sentPrimary.counts.positif || 0}
@@ -138,12 +138,12 @@ export default function SentimentAnalysisPage({ data }) {
       </div>
 
       {/* 3. Visualisasi */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Donut Sentimen Utama */}
-        <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
+        <div className="lg:col-span-5 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h3 className="text-base font-bold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 Proporsi Sentimen Utama
               </h3>
               <p className="text-xs text-slate-500">Persentase polaritas opini publik</p>
@@ -180,7 +180,7 @@ export default function SentimentAnalysisPage({ data }) {
             </ResponsiveContainer>
 
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <span className="text-2xl font-black text-slate-900">
+              <span className="text-2xl font-bold text-slate-900">
                 {sentPrimary.percentages.positif}%
               </span>
               <span className="text-[10px] font-bold text-forest-700">
@@ -205,10 +205,10 @@ export default function SentimentAnalysisPage({ data }) {
         </div>
 
         {/* Bar Chart 8 Label Detail */}
-        <div className="lg:col-span-7 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
+        <div className="lg:col-span-7 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h3 className="text-base font-bold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 Distribusi 8 Sub-Kategori Sentimen Detail
               </h3>
               <p className="text-xs text-slate-500">Transparansi klasifikasi aturan sebelum agregasi utama</p>
@@ -245,10 +245,10 @@ export default function SentimentAnalysisPage({ data }) {
       </div>
 
       {/* Rincian Subkategori Netral */}
-      <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+      <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
+            <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
               Dekomposisi Kategori Netral Indikatif
             </h3>
             <p className="text-xs text-slate-500">Membedakan komentar bertanya, informasi faktual, reaksi singkat, dan belum terdeteksi</p>
@@ -261,10 +261,10 @@ export default function SentimentAnalysisPage({ data }) {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {neutralBreakdown.map((item, idx) => (
             <div key={idx} className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
-              <h4 className="text-xs font-bold text-slate-900 capitalize">
+              <h4 className="text-xs font-semibold text-slate-900 capitalize">
                 {item.alasan}
               </h4>
-              <p className="text-lg font-black text-slate-800 mt-1 font-mono">
+              <p className="text-lg font-bold text-slate-800 mt-1 font-mono">
                 {item.jumlah.toLocaleString('id-ID')}
               </p>
               <span className="text-[11px] text-slate-500 font-medium">
@@ -276,11 +276,11 @@ export default function SentimentAnalysisPage({ data }) {
       </div>
 
       {/* Kamus Bukti Kata: Positif vs Negatif */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Positif Evidence */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-            <h3 className="text-sm font-bold text-emerald-800 flex items-center gap-2">
+            <h3 className="text-sm font-semibold text-emerald-800 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               Bukti Kata Sentimen Positif Terkuat
             </h3>
@@ -305,9 +305,9 @@ export default function SentimentAnalysisPage({ data }) {
         </div>
 
         {/* Negatif Evidence */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-            <h3 className="text-sm font-bold text-rose-800 flex items-center gap-2">
+            <h3 className="text-sm font-semibold text-rose-800 flex items-center gap-2">
               <AlertTriangle className="w-4 h-4 text-rose-600" />
               Bukti Kata Sentimen Negatif Terkuat
             </h3>
@@ -336,9 +336,9 @@ export default function SentimentAnalysisPage({ data }) {
       <InterpretationBox
         title="Interpretasi Hasil Sentimen Publik"
         points={[
-          `Sebagian masyarakat (${sentPrimary.percentages.positif}%) menyambut baik program koperasi ini karena dinilai dapat membantu warga desa memperoleh kebutuhan pokok dan sembako dengan harga yang lebih terjangkau.`,
-          `Sebagian besar kritik dan penolakan (${sentPrimary.percentages.negatif}%) bersumber dari kekhawatiran pedagang kecil bahwa koperasi akan mematikan warung kelontong warga sekitar jika menjual eceran langsung ke pembeli.`,
-          `Sebagian komentar dikelompokkan ke dalam kategori belum terdeteksi karena menggunakan gaya bahasa santai atau sindiran halus yang memerlukan pemeriksaan lebih lanjut.`
+          `Menurut aturan kamus, ${sentPrimary.percentages.positif}% komentar bernada positif dan ${sentPrimary.percentages.negatif}% negatif; sisanya ${sentPrimary.percentages.netral}% netral dan ${sentPrimary.percentages.perlu_validasi}% perlu validasi.`,
+          `Pada komentar yang berhasil dikenali polaritasnya, komentar negatif lebih banyak daripada positif (${sentPrimary.percentages.negatif}% berbanding ${sentPrimary.percentages.positif}%), tetapi angka ini belum divalidasi manual.`,
+          `Kategori netral tidak berarti tanpa opini: ${data?.sentiment_group?.percentages?.belum_terdeteksi ?? 0}% dari seluruh komentar belum terdeteksi polaritasnya karena kamus tidak mengenali slang, sindiran, atau konteks video.`
         ]}
         recommendations={[
           "Sosialisasikan kepada warga bahwa koperasi desa hadir untuk memasok barang dagangan ke warung kelontong warga dengan harga murah, bukan untuk menyaingi usaha warga desa.",

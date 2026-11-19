@@ -4,6 +4,7 @@ import {
   Users, 
   ShieldCheck,
   CheckCircle2,
+  MinusCircle,
   ArrowRight,
   ChevronLeft,
   ChevronRight
@@ -39,45 +40,43 @@ export default function OverviewPage({ data, setActiveMenu }) {
     setActiveAspectIdx((prev) => (prev - 1 + (aspects.length || 1)) % (aspects.length || 1));
   };
 
-  // 9 Metric items for Partisipasi Komunitas (Item 3: tambahkan jadi 6 atau 9)
+  const conv = data?.conversations?.stats || {};
+  const groupPct = data?.sentiment_group?.percentages || {};
+  const fmtK = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1).replace('.', ',')}k` : String(n));
+  const monthsSpan = (() => {
+    if (!meta.date_start || !meta.date_end) return null;
+    const diffDays = (new Date(meta.date_end) - new Date(meta.date_start)) / (1000 * 60 * 60 * 24);
+    return Math.round((diffDays / 30.44) * 10) / 10;
+  })();
+  const pctNeg = sentPrimary.percentages.negatif;
+  const pctPos = sentPrimary.percentages.positif;
+  const cntNeg = sentPrimary.counts.negatif ?? 0;
+  const cntPos = sentPrimary.counts.positif ?? 0;
+  const negShare = cntNeg + cntPos > 0 ? cntNeg / (cntNeg + cntPos) : 0;
+
+  // 9 metrik partisipasi, semuanya dihitung dari data (tidak ada angka manual)
   const communityMetrics = [
-    { label: 'Konten Video', value: meta.total_videos || 38 },
-    { label: 'Akun Warga', value: '98.4k' },
-    { label: 'Rentang Waktu', value: '3 Bulan' },
-    { label: 'Rata-rata/Video', value: '3.345' },
-    { label: 'Total Diskusi', value: '127.1k' },
-    { label: 'Komentar Balasan', value: '31.4k' },
-    { label: 'Rasio Kritik', value: `${sentPrimary.percentages.negatif || 42.4}%` },
-    { label: 'Rasio Apresiasi', value: `${sentPrimary.percentages.positif || 5.2}%` },
-    { label: 'Validitas Data', value: '100%' }
+    { label: 'Konten Video', value: meta.total_videos ?? '-' },
+    { label: 'Akun Warga', value: fmtK(meta.total_accounts || 0) },
+    { label: 'Rentang Waktu', value: monthsSpan ? `${String(monthsSpan).replace('.', ',')} bln` : '-' },
+    { label: 'Rata-rata/Video', value: meta.total_videos ? Math.round(meta.total_unique / meta.total_videos).toLocaleString('id-ID') : '-' },
+    { label: 'Total Diskusi', value: fmtK(meta.total_unique || 0) },
+    { label: 'Komentar Balasan', value: fmtK(conv.reply_comments || 0) },
+    { label: 'Rasio Kritik', value: `${pctNeg ?? '-'}%` },
+    { label: 'Rasio Apresiasi', value: `${pctPos ?? '-'}%` },
+    { label: 'Tanpa Polaritas', value: `${groupPct.belum_terdeteksi ?? '-'}%` }
   ];
 
-  // Top 3 recent comments
+  // Contoh komentar nyata dari data (tanpa nama akun), bukan data rekaan
+  const clip = (t) => { const x = String(t || '').replace(/\s+/g, ' ').trim(); return x.length > 90 ? x.slice(0, 90) + '…' : x; };
+  const pick = (arr) => (arr || []).find((c) => c.comment && c.comment.trim().length > 25);
   const recentActivities = [
-    {
-      user: 'Warga Desa Sukamaju',
-      time: 'Hari ini, 14:34',
-      badge: '+Positif',
-      badgeColor: 'text-[#315343] bg-[#edf3ef]',
-      text: 'Bagus kalau koperasinya benar-benar beli hasil panen petani lokal dengan harga adil.'
-    },
-    {
-      user: 'Pengamat Kebijakan',
-      time: 'Hari ini, 15:20',
-      badge: '-Kritis',
-      badgeColor: 'text-[#aa161a] bg-[#fbebee]',
-      text: 'Jangan sampai mematikan warung kelontong warga sekitar, harus ada regulasi kemitraan.'
-    },
-    {
-      user: 'Pelaku Usaha Mikro',
-      time: 'Hari ini, 17:54',
-      badge: '~Saran',
-      badgeColor: 'text-[#315343] bg-[#edf3ef]',
-      text: 'Mohon mekanisme pendaftaran keanggotaan dan bagi hasil dijelaskan lebih rinci.'
-    }
-  ];
+    { c: pick(data?.samples?.positif), badge: '+Positif', badgeColor: 'text-[#315343] bg-[#edf3ef]' },
+    { c: pick(data?.samples?.negatif), badge: '-Negatif', badgeColor: 'text-[#aa161a] bg-[#fbebee]' },
+    { c: pick(data?.samples?.saran), badge: '~Saran', badgeColor: 'text-[#315343] bg-[#edf3ef]' }
+  ].filter((x) => x.c).map((x) => ({ text: clip(x.c.comment), badge: x.badge, badgeColor: x.badgeColor }));
 
-  const currentAspect = aspects[activeAspectIdx] || { label: 'UMKM & Kelontong', jumlah: 41839, positif: 2190, negatif: 18450 };
+  const currentAspect = aspects[activeAspectIdx] || { label: '-', jumlah: 0, positif: 0, negatif: 0 };
 
   return (
     <div className="space-y-4">
@@ -91,29 +90,29 @@ export default function OverviewPage({ data, setActiveMenu }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Total Komentar"
-          value={meta.total_unique || 127139}
+          value={meta.total_unique ?? 0}
           variant="bars"
-          subtext="100% data unik tervalidasi"
-        />
-        <StatCard
-          title="Akun Pengguna"
-          value={meta.total_accounts || 102899}
-          variant="wave"
-          icon={Users}
-          subtext="Partisipan diskusi masyarakat"
+          subtext={`${(meta.total_raw ?? 0).toLocaleString('id-ID')} baris mentah, ${(meta.duplicates_removed ?? 0).toLocaleString('id-ID')} duplikat dibuang`}
         />
         <StatCard
           title="Sentimen Positif"
-          value={`${(sentPrimary.counts.positif || 6588).toLocaleString('id-ID')}`}
+          value={`${cntPos.toLocaleString('id-ID')}`}
           variant="icon"
           icon={CheckCircle2}
-          subtext={`${sentPrimary.percentages.positif || 5.18}% dari total respon`}
+          subtext={`${pctPos ?? 0}% dari total komentar`}
         />
         <StatCard
           title="Sentimen Negatif"
-          value={`${(sentPrimary.counts.negatif || 53942).toLocaleString('id-ID')}`}
+          value={`${cntNeg.toLocaleString('id-ID')}`}
           variant="dark-green"
-          subtext={`${sentPrimary.percentages.negatif || 42.43}% fokus evaluasi`}
+          subtext={`${pctNeg ?? 0}% dari total komentar`}
+        />
+        <StatCard
+          title="Sentimen Netral"
+          value={`${(sentPrimary.counts.netral ?? 0).toLocaleString('id-ID')}`}
+          variant="icon"
+          icon={MinusCircle}
+          subtext={`${sentPrimary.percentages.netral ?? 0}%, ${groupPct.belum_terdeteksi ?? 0}% di antaranya belum terdeteksi polaritasnya`}
         />
       </div>
 
@@ -122,17 +121,17 @@ export default function OverviewPage({ data, setActiveMenu }) {
         {/* Left Card (6 cols): "Balance" style multi-line area chart */}
         <div className="lg:col-span-6 bg-white rounded-[26px] p-5 shadow-xs border border-transparent flex flex-col justify-between">
           <div className="flex items-center justify-between pb-1">
-            <h3 className="text-base font-bold text-[#1a2e26]">
+            <h3 className="text-sm font-semibold text-[#1a2e26]">
               Dinamika Sentimen
             </h3>
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#315343]" />
-                <span className="text-xs font-semibold text-[#1a2e26]">Positif {sentPrimary.percentages.positif || '5.18'}%</span>
+                <span className="text-xs font-semibold text-[#1a2e26]">Positif {pctPos ?? '-'}%</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#aa161a]" />
-                <span className="text-xs font-semibold text-[#1a2e26]">Negatif {sentPrimary.percentages.negatif || '42.43'}%</span>
+                <span className="text-xs font-semibold text-[#1a2e26]">Negatif {pctNeg ?? '-'}%</span>
               </div>
             </div>
           </div>
@@ -158,8 +157,8 @@ export default function OverviewPage({ data, setActiveMenu }) {
                   formatter={(val, name) => [`${val.toLocaleString('id-ID')} komentar`, name]}
                   contentStyle={{ backgroundColor: '#ffffff', borderRadius: '16px', border: '1px solid #e5e3da', boxShadow: '0 4px 20px rgba(0,0,0,0.04)' }}
                 />
-                <Area type="monotone" dataKey="positif" stroke="#315343" strokeWidth={2.5} fillOpacity={1} fill="url(#sageArea)" name="Positif" />
-                <Area type="monotone" dataKey="negatif" stroke="#aa161a" strokeWidth={2} fillOpacity={1} fill="url(#crimsonArea)" name="Negatif" />
+                <Area isAnimationActive={false} type="monotone" dataKey="positif" stroke="#315343" strokeWidth={2.5} fillOpacity={1} fill="url(#sageArea)" name="Positif" />
+                <Area isAnimationActive={false} type="monotone" dataKey="negatif" stroke="#aa161a" strokeWidth={2} fillOpacity={1} fill="url(#crimsonArea)" name="Negatif" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -168,48 +167,42 @@ export default function OverviewPage({ data, setActiveMenu }) {
         {/* Middle Card (3 cols): "Earnings" style with Half-Donut Gauge matching reference */}
         <div className="lg:col-span-3 bg-white rounded-[26px] p-5 shadow-xs border border-transparent flex flex-col justify-between">
           <div>
-            <h3 className="text-base font-bold text-[#1a2e26]">
+            <h3 className="text-sm font-semibold text-[#1a2e26]">
               Proporsi Opini
             </h3>
-            <p className="text-xs text-[#737c76] mt-0.5">Total Respon Kritis</p>
-            <h4 className="text-2xl font-black text-[#1a2e26] mt-1.5">
-              {(sentPrimary.counts.negatif || 53942).toLocaleString('id-ID')}
+            <p className="text-xs text-[#737c76] mt-0.5">Komentar bernada negatif</p>
+            <h4 className="text-2xl font-semibold text-[#1a2e26] mt-1.5">
+              {cntNeg.toLocaleString('id-ID')}
             </h4>
             <p className="text-[11px] text-[#737c76] mt-0.5 leading-relaxed">
-              42.4% komentar mengutarakan evaluasi & transparansi
+              {pctNeg ?? 0}% dari seluruh komentar menurut aturan kamus
             </p>
           </div>
 
-          {/* Semi-Circle Gauge matching reference image */}
+          {/* Gauge: porsi negatif dari komentar yang punya polaritas (positif + negatif) */}
           <div className="relative flex flex-col items-center justify-center pt-2">
             <svg className="w-32 h-18 overflow-visible" viewBox="0 0 100 55">
+              <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#edf3ef" strokeWidth="11" strokeLinecap="round" />
               <path
-                d="M 10 50 A 40 40 0 0 1 90 50"
+                d={`M 10 50 A 40 40 0 0 1 ${(50 - 40 * Math.cos(negShare * Math.PI)).toFixed(2)} ${(50 - 40 * Math.sin(negShare * Math.PI)).toFixed(2)}`}
                 fill="none"
-                stroke="#edf3ef"
-                strokeWidth="11"
-                strokeLinecap="round"
-              />
-              <path
-                d="M 10 50 A 40 40 0 0 1 76 18"
-                fill="none"
-                stroke="#315343"
+                stroke="#aa161a"
                 strokeWidth="11"
                 strokeLinecap="round"
               />
             </svg>
-            <div className="absolute bottom-1 flex flex-col items-center">
-              <span className="text-lg font-bold text-[#1a2e26]">80%</span>
-              <span className="text-[9px] text-[#737c76]">Dominasi Partisipasi</span>
+            <div className="absolute bottom-2 flex flex-col items-center">
+              <span className="text-lg font-semibold text-[#1a2e26]">{(negShare * 100).toFixed(1).replace('.', ',')}%</span>
             </div>
           </div>
+          <p className="text-[10px] text-[#737c76] text-center mt-1">negatif dari komentar berpolaritas</p>
         </div>
 
         {/* Right Card (3 cols): Community participation stats - 9 Items */}
         <div className="lg:col-span-3 bg-white rounded-[26px] p-5 shadow-xs border border-transparent flex flex-col justify-between">
           <div className="flex items-center justify-between pb-2 border-b border-slate-100">
             <div>
-              <h4 className="text-base font-bold text-[#1a2e26]">
+              <h4 className="text-sm font-semibold text-[#1a2e26]">
                 Partisipasi Komunitas
               </h4>
               <p className="text-[11px] text-[#737c76]">Ringkasan Interaksi Diskusi</p>
@@ -223,7 +216,7 @@ export default function OverviewPage({ data, setActiveMenu }) {
           <div className="grid grid-cols-3 gap-2.5 pt-2">
             {communityMetrics.map((m, idx) => (
               <div key={idx} className="bg-[#f6f5ef] p-2 rounded-xl text-center">
-                <p className="text-[9px] font-medium text-[#737c76] truncate">{m.label}</p>
+                <p className="text-[10px] font-medium text-[#737c76] leading-tight">{m.label}</p>
                 <p className="text-xs font-bold text-[#1a2e26] mt-0.5">{m.value}</p>
               </div>
             ))}
@@ -237,7 +230,7 @@ export default function OverviewPage({ data, setActiveMenu }) {
         <div className="lg:col-span-6 bg-white rounded-[26px] p-5 shadow-xs border border-transparent flex flex-col justify-between">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-[#1a2e26]">
+              <h3 className="text-sm font-semibold text-[#1a2e26]">
                 Dimensi Isu Prioritas
               </h3>
               <p className="text-xs text-[#737c76] mt-0.5">
@@ -254,7 +247,7 @@ export default function OverviewPage({ data, setActiveMenu }) {
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
-              <span className="text-xs font-semibold text-[#1a2e26] px-1">
+              <span className="text-xs font-semibold text-[#1a2e26] px-1 whitespace-nowrap">
                 {activeAspectIdx + 1} / {aspects.length}
               </span>
               <button
@@ -282,7 +275,7 @@ export default function OverviewPage({ data, setActiveMenu }) {
                   <span className="text-[10px] font-bold text-[#315343] block">
                     Dimensi {activeAspectIdx + 1}
                   </span>
-                  <h4 className="text-sm font-bold text-[#1a2e26] mt-0.5">
+                  <h4 className="text-sm font-semibold text-[#1a2e26] mt-0.5">
                     {currentAspect.label}
                   </h4>
                   <p className="text-xs text-[#737c76] mt-1 font-semibold">
@@ -301,10 +294,10 @@ export default function OverviewPage({ data, setActiveMenu }) {
             </AnimatePresence>
           </div>
 
-          <div className="flex items-center justify-between pt-1">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1">
             <button
               onClick={() => setActiveMenu('issue-aspect')}
-              className="px-4 py-2 rounded-xl bg-[#315343] hover:bg-[#1a2e26] text-white text-xs font-semibold transition-colors shadow-xs"
+              className="whitespace-nowrap self-start px-4 py-2 rounded-xl bg-[#315343] hover:bg-[#1a2e26] text-white text-xs font-semibold transition-colors shadow-xs"
             >
               Lihat Detail Isu
             </button>
@@ -317,11 +310,11 @@ export default function OverviewPage({ data, setActiveMenu }) {
         {/* Middle Card (3 cols): Diskusi Terkini */}
         <div className="lg:col-span-3 bg-white rounded-[26px] p-5 shadow-xs border border-transparent flex flex-col justify-between">
           <div className="flex items-center justify-between pb-1">
-            <h3 className="text-base font-bold text-[#1a2e26]">
-              Aspirasi Publik
+            <h3 className="text-sm font-semibold text-[#1a2e26]">
+              Contoh Komentar
             </h3>
             <span className="text-[11px] font-medium text-[#737c76]">
-              Terbaru
+              Dari data
             </span>
           </div>
 
@@ -329,8 +322,7 @@ export default function OverviewPage({ data, setActiveMenu }) {
             {recentActivities.map((act, i) => (
               <div key={i} className="flex items-start justify-between gap-2 text-xs">
                 <div className="min-w-0 flex-1">
-                  <p className="font-semibold text-[#1a2e26] truncate">{act.user}</p>
-                  <p className="text-[10px] text-[#737c76] truncate mt-0.5">{act.text}</p>
+                  <p className="text-[10px] text-[#737c76] mt-0.5 leading-snug">{act.text}</p>
                 </div>
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${act.badgeColor}`}>
                   {act.badge}
@@ -353,11 +345,11 @@ export default function OverviewPage({ data, setActiveMenu }) {
             <div className="w-12 h-12 rounded-full bg-[#f4f3ec] text-[#315343] flex items-center justify-center mb-2">
               <ShieldCheck className="w-7 h-7 text-[#315343]" />
             </div>
-            <h4 className="text-base font-bold text-[#1a2e26]">
-              Data 100% Valid!
+            <h4 className="text-sm font-semibold text-[#1a2e26]">
+              Audit Data
             </h4>
             <p className="text-xs text-[#737c76] mt-1 max-w-[200px]">
-              92.912 data duplikat dibersihkan dengan standar audit NLP.
+              {`${(meta.duplicates_removed ?? 0).toLocaleString('id-ID')} baris salinan dibuang berdasarkan comment_id; ${(meta.total_unique ?? 0).toLocaleString('id-ID')} komentar unik dianalisis.`}
             </p>
           </div>
 
@@ -374,6 +366,7 @@ export default function OverviewPage({ data, setActiveMenu }) {
       <InterpretationBox
         title="Interpretasi & Temuan Kunci"
         points={[
+          `Kategori netral (${sentPrimary.percentages.netral}%) sebagian besar berarti aturan kamus belum menemukan kata bersentimen (${groupPct.belum_terdeteksi}% dari seluruh komentar), bukan komentar yang terbukti netral.`,
           `Komentar TikTok mengenai Koperasi Desa Merah Putih (KDMP) menunjukkan volume sangat tinggi dengan ${meta.total_unique?.toLocaleString('id-ID')} data unik, mencerminkan perhatian masyarakat yang masif terhadap program ekonomi desa ini.`,
           `Sebaran opini terbagi ke dalam polaritas positif (${sentPrimary.percentages.positif}%), negatif (${sentPrimary.percentages.negatif}%), dan netral (${sentPrimary.percentages.netral}%), dengan ${sentPrimary.percentages.perlu_validasi}% komentar ambigu/campuran yang dipisahkan secara transparan sebagai kontrol mutu.`,
           `Isu UMKM & Persaingan serta Keterjangkauan Harga menjadi topik paling sering memicu tanggapan kritis maupun harapan, terutama menyangkut eksistensi warung kelontong tradisional di sekitar koperasi.`
@@ -382,7 +375,7 @@ export default function OverviewPage({ data, setActiveMenu }) {
           "Fokuskan komunikasi publik pada perlindungan warung kecil dan kelontong lokal agar program KDMP dipahami sebagai mitra, bukan pesaing pedagang kecil.",
           "Transparansi harga eceran dan kepengurusan koperasi perlu disampaikan melalui konten video edukasi responsif untuk menjawab keraguan masyarakat."
         ]}
-        notes="Seluruh angka dihitung dari batch komentar unik setelah deduplikasi comment_id. Kategori perlu validasi menyaring teks dengan sinyal sentimen campur aduk atau bernada sarkasme."
+        notes="Seluruh angka dihitung dari batch komentar unik setelah deduplikasi comment_id. Label sentimen berasal dari aturan kamus otomatis dan belum divalidasi manusia, sehingga dibaca sebagai indikasi, bukan kebenaran."
       />
     </div>
   );

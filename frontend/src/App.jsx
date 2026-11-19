@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Raw data
@@ -20,9 +20,15 @@ import TopicTrendPage from './pages/TopicTrendPage';
 import ConversationPage from './pages/ConversationPage';
 import EvaluationInsightsPage from './pages/EvaluationInsightsPage';
 import DataFlowTechnologyPage from './pages/DataFlowTechnologyPage';
+import ReportsExportPage from './pages/ReportsExportPage';
 
 export default function App() {
-  const [activeMenu, setActiveMenu] = useState('overview');
+  // Halaman aktif disimpan di hash URL (mis. #evaluation-insights) agar bisa dibagikan/di-refresh
+  const [activeMenu, setActiveMenu] = useState(() => {
+    const h = typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '';
+    return MENU_ITEMS.some((m) => m.id === h) ? h : 'overview';
+  });
+  useEffect(() => { window.location.hash = activeMenu; }, [activeMenu]);
   const [isCollapsed, setIsCollapsed] = useState(true); // default compact dock like reference
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dateFilter, setDateFilter] = useState('all');
@@ -71,6 +77,8 @@ export default function App() {
         return <ConversationPage data={activeData} />;
       case 'evaluation-insights':
         return <EvaluationInsightsPage data={activeData} />;
+      case 'reports-export':
+        return <ReportsExportPage data={activeData} />;
       case 'data-flow-tech':
         return <DataFlowTechnologyPage data={activeData} />;
       default:
@@ -103,7 +111,7 @@ export default function App() {
         />
 
         {/* Dynamic Page Content */}
-        <main className="flex-1 px-4 sm:px-8 pb-8 max-w-7xl w-full">
+        <main className="flex-1 px-4 lg:pl-5 lg:pr-9 pb-6 w-full min-w-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeMenu}
@@ -118,10 +126,10 @@ export default function App() {
         </main>
 
         {/* Minimal Clean Footer */}
-        <footer className="mt-auto py-5 px-4 sm:px-8 text-center text-xs text-[#8e9791]">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+        <footer className="mt-auto py-4 px-4 lg:pl-5 lg:pr-9 text-center text-xs text-[#8e9791]">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="font-medium text-[#737c76]">
-              KDMP Social Media Analytics Dashboard
+              Analisis KDMP | Komentar TikTok
             </p>
             <p>
               Teknologi Big Data • Semester 5

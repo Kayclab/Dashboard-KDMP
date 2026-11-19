@@ -26,12 +26,20 @@ import StatCard from '../components/StatCard';
 import SectionHeader from '../components/SectionHeader';
 import InterpretationBox from '../components/InterpretationBox';
 import CommentTable from '../components/CommentTable';
+import WrapTick from '../components/WrapTick';
 
 export default function TopicTrendPage({ data }) {
   const topics = data?.topics || [];
   const bigrams = (data?.vocabulary?.bigrams || []).slice(0, 15);
   const videos = (data?.videos || []).slice(0, 10);
   const heatmap = data?.temporal?.heatmap_day_hour || [];
+  const allBigrams = data?.vocabulary?.bigrams || [];
+  const hourly = data?.temporal?.hourly || [];
+  const peak = hourly.reduce((a, b) => (b.total > (a?.total || 0) ? b : a), null);
+  const nextHour = peak ? `${String((parseInt(peak.hour, 10) + 1) % 24).padStart(2, '0')}:00` : '';
+  const topicsBySize = [...topics].sort((a, b) => b.jumlah - a.jumlah);
+  const entityTopics = topics.filter((t) => /indomaret|alfamart|warung/.test(t.kata_kunci || ''));
+  const bigramHeight = Math.max(320, bigrams.length * 30 + 60);
 
   const videoChartData = videos.map(v => ({
     video: `Video ...${v.video_id.slice(-6)}`,
@@ -45,7 +53,7 @@ export default function TopicTrendPage({ data }) {
   }));
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* 1. Deskripsi */}
       <SectionHeader
         badge="Discovery & Temporal Dynamics"
@@ -55,10 +63,10 @@ export default function TopicTrendPage({ data }) {
       />
 
       {/* 2. Statistik */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Cluster Topik Terbentuk"
-          value="8 Cluster"
+          value={`${topics.length} Cluster`}
           subtext="Model K-Means (TF-IDF 10k fitur)"
           icon={Layers}
           colorScheme="forest"
@@ -66,7 +74,7 @@ export default function TopicTrendPage({ data }) {
         />
         <StatCard
           title="Frasa Dua Kata Dominan"
-          value="40+ Bigram"
+          value={`${allBigrams.length} Bigram`}
           subtext="TF-IDF N-Gram (2,2) min_df=5"
           icon={Binary}
           colorScheme="crimson"
@@ -74,17 +82,17 @@ export default function TopicTrendPage({ data }) {
         />
         <StatCard
           title="Video Teratas"
-          value={videos[0]?.total_comments || 38200}
+          value={videos[0]?.total_comments ?? 0}
           suffix=" Komentar"
-          subtext={`ID: ...${videos[0]?.video_id?.slice(-6) || '75264'}`}
+          subtext={`ID: ...${videos[0]?.video_id?.slice(-6) ?? '-'}`}
           icon={Video}
           colorScheme="blue"
           tooltip="Video TikTok dengan volume keterlibatan (engagement) publik terbesar"
         />
         <StatCard
           title="Waktu Aktivitas Puncak"
-          value="19:00 - 21:00"
-          subtext="Prime time komentar malam hari"
+          value={peak ? `${peak.hour} - ${nextHour}` : '-'}
+          subtext={peak ? `${peak.total.toLocaleString('id-ID')} komentar pada jam ini (jam tersibuk)` : ''}
           icon={Clock}
           colorScheme="amber"
           tooltip="Jam dengan frekuensi pengunggahan komentar terpadat"
@@ -92,12 +100,12 @@ export default function TopicTrendPage({ data }) {
       </div>
 
       {/* 3. Visualisasi */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* 8 Cluster Topik K-Means */}
-        <div className="lg:col-span-7 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
+        <div className="lg:col-span-7 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h3 className="text-base font-bold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 Distribusi 8 Cluster Topik (K-Means)
               </h3>
               <p className="text-xs text-slate-500">Jumlah komentar dan kata kunci penentu pada setiap cluster</p>
@@ -130,10 +138,10 @@ export default function TopicTrendPage({ data }) {
         </div>
 
         {/* 15 Bigram Teratas */}
-        <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
+        <div className="lg:col-span-5 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h3 className="text-base font-bold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 15 Frasa Dua Kata (Bigram) Teratas
               </h3>
               <p className="text-xs text-slate-500">Pasangan kata paling konsisten diungkapkan publik</p>
@@ -143,17 +151,17 @@ export default function TopicTrendPage({ data }) {
             </span>
           </div>
 
-          <div className="h-96 w-full">
+          <div className="w-full" style={{ height: bigramHeight }}>
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={bigrams} layout="vertical" margin={{ top: 5, right: 30, left: 80, bottom: 5 }}>
+              <BarChart data={bigrams} layout="vertical" margin={{ top: 5, right: 24, left: 0, bottom: 5 }} barCategoryGap="22%">
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
                 <XAxis type="number" stroke="#94a3b8" fontSize={11} tickFormatter={(v) => `${(v/1000).toFixed(0)}k`} />
-                <YAxis dataKey="frasa" type="category" stroke="#1e293b" fontSize={11} />
+                <YAxis dataKey="frasa" type="category" width={112} interval={0} tickLine={false} axisLine={false} tick={<WrapTick max={16} fontSize={11} />} />
                 <Tooltip 
                   formatter={(val) => [`${val.toLocaleString('id-ID')} kemunculan`, 'Jumlah']}
                   contentStyle={{ backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0' }}
                 />
-                <Bar dataKey="jumlah" fill="#aa161a" radius={[0, 6, 6, 0]} />
+                <Bar isAnimationActive={false} dataKey="jumlah" fill="#aa161a" radius={[0, 6, 6, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -165,9 +173,9 @@ export default function TopicTrendPage({ data }) {
         title="Interpretasi Pola Tematik & Waktu Komentar"
         variant="forest"
         points={[
-          `Kelompok topik terbesar berpusat pada kata kunci 'koperasi desa', 'warung kelontong', dan 'harga sembako', mengindikasikan bahwa perbincangan publik sangat erat dengan dampak terhadap pengeluaran harian dan kelangsungan warung warga.`,
-          `Gabungan kata dominan 'warung kecil', 'mematikan warung', dan 'harga murah' paling sering muncul, menunjukkan masyarakat menginginkan sembako murah namun khawatir pedagang warung kecil gulung tikar.`,
-          `Topik kemitraan dan transparansi menjadi kunci penentu sentimen positif masyarakat terhadap koperasi desa.`
+          `Klaster terbesar (Cluster ${(topicsBySize[0]?.cluster ?? 0) + 1}) memuat ${topicsBySize[0]?.persen ?? 0}% komentar dengan kata kunci: ${(topicsBySize[0]?.kata_kunci || '').split(', ').slice(0, 7).join(', ')}. Kata kunci yang umum seperti ini menandakan klaster berisi percakapan singkat umum, bukan topik yang spesifik.`,
+          `Klaster dengan kata kunci entitas yang jelas lebih kecil: ${entityTopics.map((t) => `Cluster ${t.cluster + 1} (${(t.kata_kunci || '').split(', ').slice(0, 3).join(', ')}) ${t.persen}%`).join('; ') || '-'}.`,
+          `Frasa dua kata paling sering: ${bigrams.slice(0, 3).map((b) => `"${b.frasa}" (${b.jumlah.toLocaleString('id-ID')})`).join(', ')}. Jam tersibuk komentar adalah ${peak ? `${peak.hour} - ${nextHour}` : '-'}.`
         ]}
         recommendations={[
           "Sampaikan penjelasan secara berkala bahwa koperasi desa hadir untuk memasok barang murah bagi warung warga, bukan untuk menyaingi usaha kecil.",

@@ -2,7 +2,7 @@
   "metadata": {
     "title": "KDMP Social Media Analytics Dashboard",
     "subtitle": "Analisis Sentimen Komentar TikTok tentang Koperasi Desa Merah Putih",
-    "generated_at": "2026-11-19 18:09:28",
+    "generated_at": "2026-11-20 00:01:33",
     "total_raw": 220051,
     "total_unique": 127139,
     "duplicates_removed": 92912,
@@ -261,7 +261,7 @@
   "aspects": [
     {
       "aspek": "UMKM_dan_persaingan",
-      "label": "Umkm Dan Persaingan",
+      "label": "UMKM & Persaingan",
       "jumlah": 11589,
       "persen": 9.12,
       "positif": 1035,
@@ -273,7 +273,7 @@
     },
     {
       "aspek": "harga_dan_keterjangkauan",
-      "label": "Harga Dan Keterjangkauan",
+      "label": "Harga & Keterjangkauan",
       "jumlah": 8936,
       "persen": 7.03,
       "positif": 2780,
@@ -297,7 +297,7 @@
     },
     {
       "aspek": "modal_dan_keuntungan",
-      "label": "Modal Dan Keuntungan",
+      "label": "Modal & Keuntungan",
       "jumlah": 6182,
       "persen": 4.86,
       "positif": 398,
@@ -309,7 +309,7 @@
     },
     {
       "aspek": "tata_kelola_dan_transparansi",
-      "label": "Tata Kelola Dan Transparansi",
+      "label": "Tata Kelola & Transparansi",
       "jumlah": 5435,
       "persen": 4.27,
       "positif": 461,
@@ -321,7 +321,7 @@
     },
     {
       "aspek": "implementasi_dan_kesiapan",
-      "label": "Implementasi Dan Kesiapan",
+      "label": "Implementasi & Kesiapan",
       "jumlah": 13403,
       "persen": 10.54,
       "positif": 1025,
@@ -333,7 +333,7 @@
     },
     {
       "aspek": "distribusi_dan_rantai_pasok",
-      "label": "Distribusi Dan Rantai Pasok",
+      "label": "Distribusi & Rantai Pasok",
       "jumlah": 1063,
       "persen": 0.84,
       "positif": 107,
@@ -345,7 +345,7 @@
     },
     {
       "aspek": "manfaat_dan_pemberdayaan",
-      "label": "Manfaat Dan Pemberdayaan",
+      "label": "Manfaat & Pemberdayaan",
       "jumlah": 3203,
       "persen": 2.52,
       "positif": 928,
@@ -357,7 +357,7 @@
     },
     {
       "aspek": "lokasi_dan_infrastruktur",
-      "label": "Lokasi Dan Infrastruktur",
+      "label": "Lokasi & Infrastruktur",
       "jumlah": 6995,
       "persen": 5.5,
       "positif": 663,
@@ -369,7 +369,7 @@
     },
     {
       "aspek": "komunikasi_dan_respons",
-      "label": "Komunikasi Dan Respons",
+      "label": "Komunikasi & Respons",
       "jumlah": 2112,
       "persen": 1.66,
       "positif": 154,
@@ -468,65 +468,367 @@
     "themes": [
       {
         "aspek": "UMKM_dan_persaingan",
-        "label": "Umkm Dan Persaingan",
+        "label": "UMKM & Persaingan",
         "jumlah": 756,
-        "persen": 19.0
+        "persen": 19.0,
+        "examples": [
+          {
+            "comment_id": "7643805583069758228",
+            "comment": "yang belanja seharusnya untuk pedagang aja biar ga mematikan para pedagang yg lain",
+            "username": "nasmah.aulia",
+            "create_time": "2026-05-25 19:29",
+            "sentiment_primary": "negatif"
+          },
+          {
+            "comment_id": "7642698377394848529",
+            "comment": "kasian masyarakat yang ngewarung 🤦🏻‍♀️jualannya harusnya yg gak ada di warung dong. kaya pupuk murah buat petani padi dll",
+            "username": "adaadaajah777",
+            "create_time": "2026-05-22 19:53",
+            "sentiment_primary": "positif"
+          },
+          {
+            "comment_id": "7641102649094112008",
+            "comment": "bukannya kalo kopdes lebih fokus, gencar naikin export produk umkm malah bisa naiki devisa, baru ini bisa bantu menguatkan rupiah. kalo rupiah kuat harga bahan baku turun, harga bahan baku turun otomatis hpp juga ikut turun harga jual harusnya ikut turun",
+            "username": "dewa.memories0",
+            "create_time": "2026-05-18 12:41",
+            "sentiment_primary": "netral"
+          }
+        ]
       },
       {
         "aspek": "harga_dan_keterjangkauan",
-        "label": "Harga Dan Keterjangkauan",
+        "label": "Harga & Keterjangkauan",
         "jumlah": 776,
-        "persen": 19.5
+        "persen": 19.5,
+        "examples": [
+          {
+            "comment_id": "7641442824924562184",
+            "comment": "harusnya belanja disini sale 75 %.....dan yang dapat bansos wajib belanja di kopmer diskon 75%🥰🥰🥰",
+            "username": "yourj3ya",
+            "create_time": "2026-05-19 10:41",
+            "sentiment_primary": "netral"
+          },
+          {
+            "comment_id": "7641041616773333781",
+            "comment": "jd sebagai warga negara yg baik tolong jgn berbelanja di koperasi merah putih ini kalau harga aku yakin sama spt mini market lain tdk mungkin mereka mau rugi tujuan program ini untuk mencari laba bukan kerugian",
+            "username": "midos6042",
+            "create_time": "2026-05-18 08:44",
+            "sentiment_primary": "perlu_validasi"
+          },
+          {
+            "comment_id": "7643618785437876999",
+            "comment": "iya sih.. kali ini aku setuju bgt...\nini diluar ekspetasi ku... harusnya sbg wadah penyedia pupuk murah pakan ternak murah.. sbg tmpat pendistribusian hsil para petani peternak agar perputaran roda ekonomi berjalan",
+            "username": "tri.muryati185",
+            "create_time": "2026-05-25 07:25",
+            "sentiment_primary": "positif"
+          }
+        ]
       },
       {
         "aspek": "model_toko_atau_gudang",
         "label": "Model Toko Atau Gudang",
         "jumlah": 419,
-        "persen": 10.53
+        "persen": 10.53,
+        "examples": [
+          {
+            "comment_id": "7643816911809626896",
+            "comment": "Harusnya ga harus buka koperasi, buang2 duit. Cukup kartu sembako nusantara, subsidi digital....beli nya bisa di toko kelontong, warung2 kecil, UMKM. Jdi ga matiin/mengurangi ekosistem usaha",
+            "username": "radenbentar88_",
+            "create_time": "2026-05-25 20:29",
+            "sentiment_primary": "netral"
+          },
+          {
+            "comment_id": "7636620697750389524",
+            "comment": "Program koperasi merah putih kurang tepat sasaran menurut saya, kalau untuk minjam kan sudah ada bank BRI , kenapa gak dipermudah Saja proses minjam di bank BRI nya,dan toko koperasi bisa menimbulkan persaingan dengan masyarakat yang punya toko",
+            "username": "rusdiantoofficial",
+            "create_time": "2026-05-06 10:48",
+            "sentiment_primary": "perlu_validasi"
+          },
+          {
+            "comment_id": "7641161030555321096",
+            "comment": "iya harusnya begitu, kenapa sekarang malah buka toko sembako saingan sama warung kampung weh 😭",
+            "username": "hanimienie",
+            "create_time": "2026-05-18 16:27",
+            "sentiment_primary": "netral"
+          }
+        ]
       },
       {
         "aspek": "modal_dan_keuntungan",
-        "label": "Modal Dan Keuntungan",
+        "label": "Modal & Keuntungan",
         "jumlah": 413,
-        "persen": 10.38
+        "persen": 10.38,
+        "examples": [
+          {
+            "comment_id": "7629113526812672776",
+            "comment": "klo petani pinjam uang,ya langsung arah kan ke bumdes..gak perlu buat gerai..seharusnya modal buat gerai 1.6 m..bisa untuk modal petani dan diputarkan lewat bumdes untuk mencukupi kebutuhan rakyat",
+            "username": "urt269873",
+            "create_time": "2026-04-16 05:17",
+            "sentiment_primary": "netral"
+          },
+          {
+            "comment_id": "7641357026949481236",
+            "comment": "harganya lebih mirah dr pasaran soale gak pake pajak dan gaji karyawan 1.9 itupun klo koperasinya jalan😂",
+            "username": "kuchinganton",
+            "create_time": "2026-05-19 05:08",
+            "sentiment_primary": "netral"
+          },
+          {
+            "comment_id": "7641781992929510165",
+            "comment": "LEBIH BAIK KE PASAR ATAU KE WARUNG² .KOPDES ITU ANGGARAN KORUPSI",
+            "username": "adammasito79",
+            "create_time": "2026-05-20 08:43",
+            "sentiment_primary": "perlu_validasi"
+          }
+        ]
       },
       {
         "aspek": "tata_kelola_dan_transparansi",
-        "label": "Tata Kelola Dan Transparansi",
+        "label": "Tata Kelola & Transparansi",
         "jumlah": 452,
-        "persen": 11.36
+        "persen": 11.36,
+        "examples": [
+          {
+            "comment_id": "7643828350104470292",
+            "comment": "serupa tapi tak sama.. yang penting rakyat beli dengan harga semestinya.. lagian penciptaan lapangan pekerjaan juga kan dari pemerintah",
+            "username": "yupin.gheghabi",
+            "create_time": "2026-05-25 20:58",
+            "sentiment_primary": "netral"
+          },
+          {
+            "comment_id": "7530050982383616775",
+            "comment": "Mantap pak. Saya rasa perlu di pantau secara berkala pak. Bila mana suatu saat nanti Kurang berjaan programnya. Perlu di audit dan di musyawarahkan bersama , di cari kelemahan dan masalahnya serta Mencarikan solusi yang terbaik. Demi kelangsungan dan kelancaran usaha masyarakat",
+            "username": "khoirunniam454",
+            "create_time": "2025-07-23 06:24",
+            "sentiment_primary": "positif"
+          },
+          {
+            "comment_id": "7644237221721146132",
+            "comment": "pengurus bisa daftar ngga sih? tolong jawab kaa 🥲",
+            "username": "excitedby",
+            "create_time": "2026-05-26 23:27",
+            "sentiment_primary": "netral"
+          }
+        ]
       },
       {
         "aspek": "implementasi_dan_kesiapan",
-        "label": "Implementasi Dan Kesiapan",
+        "label": "Implementasi & Kesiapan",
         "jumlah": 892,
-        "persen": 22.42
+        "persen": 22.42,
+        "examples": [
+          {
+            "comment_id": "7641823635518259975",
+            "comment": "bener ka nangis bgt apaan klo gini mah malah yg warung\"kecil ke geser @gerindra coba jelaskan pak program apakah ini😭",
+            "username": "purnama.irt_produktif",
+            "create_time": "2026-05-20 11:18",
+            "sentiment_primary": "perlu_validasi"
+          },
+          {
+            "comment_id": "7642601724486238994",
+            "comment": "kalian tau ballerina farm kan?, ballerina farm bukan hanya memproduksi produk pertanian dan peternakan dari miliknya\ntapi ballerina farm membuka toko yg isinya produk2 pertanian dan peternakan diwilayah utah yg mana itu bukan miliknya tapi dia memfasilitasi. seharusnya contoh kecil tsb bisa ditiru dikopdes ...",
+            "username": "dandelion_411",
+            "create_time": "2026-05-22 13:38",
+            "sentiment_primary": "netral"
+          },
+          {
+            "comment_id": "7642355435483562773",
+            "comment": "Jangan sampai belanja kesana agar program sampah itu segera dihentikan",
+            "username": "aryanto8834",
+            "create_time": "2026-05-21 21:42",
+            "sentiment_primary": "netral"
+          }
+        ]
       },
       {
         "aspek": "distribusi_dan_rantai_pasok",
-        "label": "Distribusi Dan Rantai Pasok",
+        "label": "Distribusi & Rantai Pasok",
         "jumlah": 84,
-        "persen": 2.11
+        "persen": 2.11,
+        "examples": [
+          {
+            "comment_id": "7641100728781652754",
+            "comment": "Sbnrnya udh bnr bang yg disampaikan abang, kopdes jg kan yg diharapkannya hrga nya bisa murah klw ga ngambil dr distribusinya mana bisa hrga murah ? UMKM yg dimksd itu mang produksi produk mie instant yg sudah ada dipasaran ?",
+            "username": "rini.fatha",
+            "create_time": "2026-05-18 12:33",
+            "sentiment_primary": "positif"
+          },
+          {
+            "comment_id": "7643819391680627476",
+            "comment": "terlalu banyak maklar di jalur distribusi atau ,,, pedagang ngambil untung nya terlalu gede? tolong bantu jawab",
+            "username": "izrukendra",
+            "create_time": "2026-05-25 20:23",
+            "sentiment_primary": "netral"
+          },
+          {
+            "comment_id": "7643827831839916820",
+            "comment": "coba ga usah bawa kamera bang, ada stok nya ga",
+            "username": "jiki_wididi",
+            "create_time": "2026-05-25 20:56",
+            "sentiment_primary": "netral"
+          }
+        ]
       },
       {
         "aspek": "manfaat_dan_pemberdayaan",
-        "label": "Manfaat Dan Pemberdayaan",
+        "label": "Manfaat & Pemberdayaan",
         "jumlah": 360,
-        "persen": 9.05
+        "persen": 9.05,
+        "examples": [
+          {
+            "comment_id": "7627712219133248274",
+            "comment": "Coba Bikin Video Koperasinya, beneran sudah jalan tu koperasi....\ntu klok koperasi yang hadap\" gimana membantunya ya ?",
+            "username": "yudistiragitas",
+            "create_time": "2026-04-12 10:39",
+            "sentiment_primary": "netral"
+          },
+          {
+            "comment_id": "7527511191859659538",
+            "comment": "koperasi tu harusnya lebih murah...\nklau mau membantu masyarakat...",
+            "username": "anasrisunarnining",
+            "create_time": "2025-07-16 10:08",
+            "sentiment_primary": "positif"
+          },
+          {
+            "comment_id": "7643008499886146325",
+            "comment": "astaghfirullah, harusnya negara jd penengah,malah ikutan bisnis, katanya mau naikin taraf hidup masyarakat,tp malah bikin rakyat menderita 🙄🙄🙄,,yg buka usaha itu bnyk drpd yg kerja d koperasi merah putih",
+            "username": "kochengoren3_",
+            "create_time": "2026-05-23 15:56",
+            "sentiment_primary": "netral"
+          }
+        ]
       },
       {
         "aspek": "lokasi_dan_infrastruktur",
-        "label": "Lokasi Dan Infrastruktur",
+        "label": "Lokasi & Infrastruktur",
         "jumlah": 652,
-        "persen": 16.39
+        "persen": 16.39,
+        "examples": [
+          {
+            "comment_id": "7643857707959976711",
+            "comment": "pemerintah seharusnya gak bikin kopdes, gak bisa kah pemerintah bikin harga normal.biar semua ya jalan.kalo ngomongin mafia kenapa gak mafianya yang di Brantas🤔",
+            "username": "beiyg7",
+            "create_time": "2026-05-25 22:52",
+            "sentiment_primary": "netral"
+          },
+          {
+            "comment_id": "7619883487919145748",
+            "comment": "mungkin di desamu, di desa saya alhamdulillah jalan bagus, coba ditanyakan ke kadesmu",
+            "username": "blank88__",
+            "create_time": "2026-03-22 08:19",
+            "sentiment_primary": "positif"
+          },
+          {
+            "comment_id": "7640781757320053524",
+            "comment": "Enggak bakal jalan mending beli di warung tetangga kalau kurang masih bisa juga tetangga sendiri bisa tolong menolong.",
+            "username": "supardi82246",
+            "create_time": "2026-05-17 16:01",
+            "sentiment_primary": "netral"
+          }
+        ]
       },
       {
         "aspek": "komunikasi_dan_respons",
-        "label": "Komunikasi Dan Respons",
+        "label": "Komunikasi & Respons",
         "jumlah": 201,
-        "persen": 5.05
+        "persen": 5.05,
+        "examples": [
+          {
+            "comment_id": "7641020838716441352",
+            "comment": "COBA SAYA TANYA ANDA, TUJUAN DIBUATNYA KOPDES ITU APA?😂😂😂😂😂😂😂😂\nJAWABBB YA, SEARCH DI GOOGLE ATAU CHAT GPT JUGA GPP",
+            "username": "fix.storeid",
+            "create_time": "2026-05-18 07:23",
+            "sentiment_primary": "netral"
+          },
+          {
+            "comment_id": "7642310414793818900",
+            "comment": "Harusnya buat jual hasil bumi rakyat, biar kere g bingung jual kemana, kalo gini bukan cuma alfa Indomaret yg tutup, warung kelontong juga bangkrut semua, lalu ekonomi makin hancur, seorang presiden membuat program tanpa dipikir dampak untuk masyarakat sekitar 😁",
+            "username": "callmealiyah25",
+            "create_time": "2026-05-21 18:47",
+            "sentiment_primary": "negatif"
+          },
+          {
+            "comment_id": "7642222311546176264",
+            "comment": "Coba jelasin gmna cara keterimanya tb tb jd pegawainya aja wkwk😁",
+            "username": "nayaaa_087",
+            "create_time": "2026-05-21 13:05",
+            "sentiment_primary": "netral"
+          }
+        ]
       }
-    ]
+    ],
+    "cues": [
+      {
+        "cue": "harusnya",
+        "jumlah": 1148
+      },
+      {
+        "cue": "coba",
+        "jumlah": 950
+      },
+      {
+        "cue": "saran",
+        "jumlah": 631
+      },
+      {
+        "cue": "perlu",
+        "jumlah": 515
+      },
+      {
+        "cue": "tolong",
+        "jumlah": 408
+      },
+      {
+        "cue": "seharusnya",
+        "jumlah": 281
+      },
+      {
+        "cue": "lebih baik",
+        "jumlah": 276
+      },
+      {
+        "cue": "solusinya",
+        "jumlah": 64
+      },
+      {
+        "cue": "jangan sampai",
+        "jumlah": 53
+      },
+      {
+        "cue": "sebaiknya",
+        "jumlah": 41
+      },
+      {
+        "cue": "mestinya",
+        "jumlah": 39
+      },
+      {
+        "cue": "saran saya",
+        "jumlah": 9
+      },
+      {
+        "cue": "alangkah baiknya",
+        "jumlah": 7
+      },
+      {
+        "cue": "solusi nya",
+        "jumlah": 6
+      },
+      {
+        "cue": "akan lebih baik",
+        "jumlah": 4
+      },
+      {
+        "cue": "bagaimana kalau",
+        "jumlah": 2
+      },
+      {
+        "cue": "lebih bagus jika",
+        "jumlah": 0
+      }
+    ],
+    "avg_words_suggestion": 21.7,
+    "avg_words_all": 8.7
   },
   "vocabulary": {
     "top_words": [
@@ -3337,18 +3639,6 @@
         "date": "2026-05-18 13:43"
       },
       {
-        "comment_id": "7642577339838120725",
-        "video_id": "7641276206687554823",
-        "username": "libra03libra",
-        "nickname": "LIBRA ♎_girl",
-        "comment": "buka usaha tp nutup usaha org😭",
-        "sentiment_primary": "netral",
-        "sentiment_detail": "belum_terdeteksi_opini",
-        "sentiment_score": 0.0,
-        "reply_count": 300,
-        "date": "2026-05-22 12:03"
-      },
-      {
         "comment_id": "7641057493048804117",
         "video_id": "7637357539209841941",
         "username": "shalovesmbun",
@@ -3359,6 +3649,18 @@
         "sentiment_score": 0.0,
         "reply_count": 300,
         "date": "2026-05-18 09:45"
+      },
+      {
+        "comment_id": "7642577339838120725",
+        "video_id": "7641276206687554823",
+        "username": "libra03libra",
+        "nickname": "LIBRA ♎_girl",
+        "comment": "buka usaha tp nutup usaha org😭",
+        "sentiment_primary": "netral",
+        "sentiment_detail": "belum_terdeteksi_opini",
+        "sentiment_score": 0.0,
+        "reply_count": 300,
+        "date": "2026-05-22 12:03"
       },
       {
         "comment_id": "7641474375947338504",
@@ -3485,25 +3787,59 @@
   "evaluation": {
     "benchmarks": [
       {
-        "model": "InSet Rule-Based Lexicon (Baseline)",
-        "type": "Rule & Lexicon Heuristic",
-        "features": "InSet + Expanded KDMP Dictionary + Emojis",
-        "accuracy": 88.4,
-        "precision": 89.1,
-        "recall": 88.4,
-        "f1_score": 88.7,
-        "speed": "Sangat Cepat (~15k kata/dtk)",
-        "interpretability": "Tinggi (Bukti kata transparan)",
-        "catatan": "Kamus kata bermuatan emosi lokal dan konteks KDMP, dilengkapi penanganan negasi sederhana."
+        "model": "Baseline Mayoritas (selalu menebak netral)",
+        "type": "Baseline tanpa model",
+        "features": "Tidak ada (kelas terbanyak pada data latih)",
+        "accuracy": 85.38,
+        "precision": 72.9,
+        "recall": 85.38,
+        "f1_score": 78.65,
+        "macro_f1": 30.7,
+        "f1_per_class": {
+          "positif": 0.0,
+          "negatif": 0.0,
+          "netral": 92.11
+        },
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            294
+          ],
+          [
+            0,
+            0,
+            437
+          ],
+          [
+            0,
+            0,
+            4269
+          ]
+        ],
+        "labels": [
+          "positif",
+          "negatif",
+          "netral"
+        ],
+        "speed": "Instan",
+        "interpretability": "Sangat tinggi",
+        "catatan": "Pembanding wajib: bila model tidak jauh di atas angka ini, skor akurasi tidak menunjukkan kemampuan membedakan sentimen."
       },
       {
         "model": "Multinomial Naive Bayes",
         "type": "Supervised Probabilistic ML",
         "features": "TF-IDF (Unigram & Bigram, max 5,000 feat)",
-        "accuracy": 90.2,
-        "precision": 91.11,
-        "recall": 90.2,
-        "f1_score": 87.95,
+        "accuracy": 90.18,
+        "precision": 91.06,
+        "recall": 90.18,
+        "f1_score": 87.93,
+        "macro_f1": 63.27,
+        "f1_per_class": {
+          "positif": 40.11,
+          "negatif": 55.12,
+          "netral": 94.58
+        },
         "confusion_matrix": [
           [
             74,
@@ -3517,8 +3853,8 @@
           ],
           [
             0,
-            0,
-            4269
+            1,
+            4268
           ]
         ],
         "labels": [
@@ -3528,21 +3864,27 @@
         ],
         "speed": "Cepat (~8k sample/dtk)",
         "interpretability": "Sedang (Log likelihood kata)",
-        "catatan": "Kinerja tinggi pada teks formal, namun sensitif terhadap komentar pendek slang/sarkasme."
+        "catatan": "Skor mengukur kesesuaian dengan label aturan kamus, bukan kebenaran sentimen. Cenderung condong ke kelas mayoritas (netral)."
       },
       {
         "model": "Linear Support Vector Machine (SVM)",
         "type": "Supervised Linear Classifier",
         "features": "TF-IDF (Unigram & Bigram, max 5,000 feat)",
-        "accuracy": 98.3,
-        "precision": 98.31,
-        "recall": 98.3,
-        "f1_score": 98.24,
+        "accuracy": 98.28,
+        "precision": 98.29,
+        "recall": 98.28,
+        "f1_score": 98.22,
+        "macro_f1": 94.52,
+        "f1_per_class": {
+          "positif": 88.56,
+          "negatif": 95.9,
+          "netral": 99.12
+        },
         "confusion_matrix": [
           [
-            237,
+            236,
             7,
-            50
+            51
           ],
           [
             3,
@@ -3562,9 +3904,25 @@
         ],
         "speed": "Sedang (~5k sample/dtk)",
         "interpretability": "Sedang (Bobot koefisien hyper-plane)",
-        "catatan": "F1-score terbaik dalam memisahkan batas kelas polaritas positif dan negatif."
+        "catatan": "Skor mengukur kesesuaian dengan label aturan kamus (model meniru aturan), bukan kebenaran sentimen."
       }
     ],
+    "setup": {
+      "label_source": "Aturan kamus otomatis (sentiment_primary), bukan anotasi manusia",
+      "sample_size": 20000,
+      "n_train": 15000,
+      "n_test": 5000,
+      "test_size_pct": 25,
+      "tfidf_max_features": 5000,
+      "majority_class": "netral",
+      "majority_share_test_pct": 85.38,
+      "class_distribution_test": {
+        "positif": 294,
+        "negatif": 437,
+        "netral": 4269
+      },
+      "perlu_validasi_excluded": true
+    },
     "sentiment_score_stats": {
       "mean": -0.06,
       "median": 0.0,
@@ -3642,7 +4000,7 @@
       "details": [
         "Case folding: konversi seluruh karakter ke huruf kecil (lowercase)",
         "Regex cleaning: pembersihan tanda baca & karakter asing",
-        "Stopwords removal: 32 stopword bahasa Indonesia kontekstual",
+        "Stopwords removal: 41 stopword bahasa Indonesia kontekstual",
         "Pemisahan ekstraksi emoji langsung dari teks mentah sebelum regex"
       ]
     },
@@ -3806,71 +4164,20 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7642542479841051412",
-        "video_id": "7641276206687554823",
-        "username": "martini.tini.oke",
-        "nickname": "Martini Tini oke",
-        "comment": "namanya koperasi BS apa aj, LBH bagus lengkap aplg BLH utang BS mingguan atau bulanan pasti sangat membantu, Alfamart dan Indomart jg dah ngancurin warung2 lokal masuk kesudut2",
-        "create_time": "2026-05-22 09:48",
+        "comment_id": "7641624636321923848",
+        "video_id": "7641183642437586196",
+        "username": "widyan_official",
+        "nickname": "Widyan | IT Programming Pemula",
+        "comment": "nantinya kopdes ini, bukan jadi saingan UMKM tetapi bisa jadi pemasok ke umkm dengan harga murah & terjangkau. jika benar demikian akan sangat bagus dan menguntungkan umkm. tapi kedepannya bagaimana...????",
+        "create_time": "2026-05-19 22:26",
         "sentiment_primary": "positif",
         "sentiment_detail": "positif_indikatif",
         "sentiment_score": 8.0,
-        "positive_evidence": "bagus; membantu; lengkap; sangat membantu",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 28,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7642107275747017492",
-        "video_id": "7641470196108004626",
-        "username": ".ve__ve",
-        "nickname": "💙VERONICA💙",
-        "comment": "bersaing boleh... tapi tidak mematikan usaha orang lain.\nkonsumen bebas memilih beli dimana.\nmana yg lebih murah kita beli",
-        "create_time": "2026-05-21 05:39",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 8.0,
-        "positive_evidence": "murah",
-        "negative_evidence": "mematikan; mematikan usaha",
+        "positive_evidence": "bagus; murah; terjangkau",
+        "negative_evidence": "jadi saingan",
         "is_reply": false,
-        "word_count": 19,
+        "word_count": 29,
         "emoji_list": []
-      },
-      {
-        "comment_id": "7641745623776297746",
-        "video_id": "7626731518857268498",
-        "username": "iam_invisible8",
-        "nickname": "Nocturnal",
-        "comment": "programnya sih bagus tp tidak dengan pengoperasian/eksekusi + pengawasannya. mau bikin program sebagus apapun kl dr atas A sampai bawah masih jadi Z kgk bakal pernah berhasil dah. contoh MBG program bagus? bagus, tp dilapangannya? visi misi setelah di lapangan pasti berubah, yg awal untuk membantu UMKM, petani, ehhh malah ambil semua dr distributor gimana mau muter ekonomi bawah kl masih kacau balau. sebelum bikin program lebih baik survey kapasitas SDMnya dl deh.",
-        "create_time": "2026-05-20 06:16",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 8.0,
-        "positive_evidence": "bagus; baik; membantu; berhasil; lebih baik",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 73,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7643791884044796680",
-        "video_id": "7642581123515616533",
-        "username": "agung_gumelar.9",
-        "nickname": "Agung Gumelar🥏",
-        "comment": "yang komen aneh harap maklum, yang namanya koperasi masih berkembang, harusnya dukung, ini malah saling menjatuhkan, saya berharap ini koperasi desa merah putih bisa maju dan banyak menolong semuanya, lapangan pekerjaan terbuka, bagus sebenarnya program pak Prabowo ✊️👍",
-        "create_time": "2026-05-25 18:36",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 8.0,
-        "positive_evidence": "dukung; bagus; maju; harap",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 37,
-        "emoji_list": [
-          "✊",
-          "👍"
-        ]
       },
       {
         "comment_id": "7641544213209989896",
@@ -3905,6 +4212,89 @@
         "emoji_list": []
       },
       {
+        "comment_id": "7527328612719854343",
+        "video_id": "7526458489577737488",
+        "username": "arsya1841",
+        "nickname": "farmm",
+        "comment": "sangat setuju banget pak. semoga dengan adanya kopdes masyarakat bisa terbantu seperti beli pupuk\nkarena jarak di desa kami 7 km ke kecamatan untuk",
+        "create_time": "2025-07-15 22:22",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 8.0,
+        "positive_evidence": "setuju; terbantu; semoga; sangat setuju",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 24,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7642542479841051412",
+        "video_id": "7641276206687554823",
+        "username": "martini.tini.oke",
+        "nickname": "Martini Tini oke",
+        "comment": "namanya koperasi BS apa aj, LBH bagus lengkap aplg BLH utang BS mingguan atau bulanan pasti sangat membantu, Alfamart dan Indomart jg dah ngancurin warung2 lokal masuk kesudut2",
+        "create_time": "2026-05-22 09:48",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 8.0,
+        "positive_evidence": "bagus; membantu; lengkap; sangat membantu",
+        "negative_evidence": "",
+        "is_reply": true,
+        "word_count": 28,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7643791884044796680",
+        "video_id": "7642581123515616533",
+        "username": "agung_gumelar.9",
+        "nickname": "Agung Gumelar🥏",
+        "comment": "yang komen aneh harap maklum, yang namanya koperasi masih berkembang, harusnya dukung, ini malah saling menjatuhkan, saya berharap ini koperasi desa merah putih bisa maju dan banyak menolong semuanya, lapangan pekerjaan terbuka, bagus sebenarnya program pak Prabowo ✊️👍",
+        "create_time": "2026-05-25 18:36",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 8.0,
+        "positive_evidence": "dukung; bagus; maju; harap",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 37,
+        "emoji_list": [
+          "✊",
+          "👍"
+        ]
+      },
+      {
+        "comment_id": "7642313799101530901",
+        "video_id": "7641183642437586196",
+        "username": "dgandrung",
+        "nickname": "d'Gandrung",
+        "comment": "LPG 3kg hrg 16 rb, koq lebih murah dari agen...yg benar aja. Jangan bohongi rakyat.",
+        "create_time": "2026-05-21 19:00",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 8.0,
+        "positive_evidence": "murah",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 16,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7641745623776297746",
+        "video_id": "7626731518857268498",
+        "username": "iam_invisible8",
+        "nickname": "Nocturnal",
+        "comment": "programnya sih bagus tp tidak dengan pengoperasian/eksekusi + pengawasannya. mau bikin program sebagus apapun kl dr atas A sampai bawah masih jadi Z kgk bakal pernah berhasil dah. contoh MBG program bagus? bagus, tp dilapangannya? visi misi setelah di lapangan pasti berubah, yg awal untuk membantu UMKM, petani, ehhh malah ambil semua dr distributor gimana mau muter ekonomi bawah kl masih kacau balau. sebelum bikin program lebih baik survey kapasitas SDMnya dl deh.",
+        "create_time": "2026-05-20 06:16",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 8.0,
+        "positive_evidence": "bagus; baik; membantu; berhasil; lebih baik",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 73,
+        "emoji_list": []
+      },
+      {
         "comment_id": "7641583012118938369",
         "video_id": "7641470196108004626",
         "username": "aa_jajang_99",
@@ -3924,6 +4314,22 @@
         ]
       },
       {
+        "comment_id": "7642107275747017492",
+        "video_id": "7641470196108004626",
+        "username": ".ve__ve",
+        "nickname": "💙VERONICA💙",
+        "comment": "bersaing boleh... tapi tidak mematikan usaha orang lain.\nkonsumen bebas memilih beli dimana.\nmana yg lebih murah kita beli",
+        "create_time": "2026-05-21 05:39",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 8.0,
+        "positive_evidence": "murah",
+        "negative_evidence": "mematikan; mematikan usaha",
+        "is_reply": false,
+        "word_count": 19,
+        "emoji_list": []
+      },
+      {
         "comment_id": "7643033340132852500",
         "video_id": "7626731518857268498",
         "username": "meeeart__",
@@ -3937,54 +4343,6 @@
         "negative_evidence": "",
         "is_reply": false,
         "word_count": 29,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7642313799101530901",
-        "video_id": "7641183642437586196",
-        "username": "dgandrung",
-        "nickname": "d'Gandrung",
-        "comment": "LPG 3kg hrg 16 rb, koq lebih murah dari agen...yg benar aja. Jangan bohongi rakyat.",
-        "create_time": "2026-05-21 19:00",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 8.0,
-        "positive_evidence": "murah",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 16,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7641624636321923848",
-        "video_id": "7641183642437586196",
-        "username": "widyan_official",
-        "nickname": "Widyan | IT Programming Pemula",
-        "comment": "nantinya kopdes ini, bukan jadi saingan UMKM tetapi bisa jadi pemasok ke umkm dengan harga murah & terjangkau. jika benar demikian akan sangat bagus dan menguntungkan umkm. tapi kedepannya bagaimana...????",
-        "create_time": "2026-05-19 22:26",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 8.0,
-        "positive_evidence": "bagus; murah; terjangkau",
-        "negative_evidence": "jadi saingan",
-        "is_reply": false,
-        "word_count": 29,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7527328612719854343",
-        "video_id": "7526458489577737488",
-        "username": "arsya1841",
-        "nickname": "farmm",
-        "comment": "sangat setuju banget pak. semoga dengan adanya kopdes masyarakat bisa terbantu seperti beli pupuk\nkarena jarak di desa kami 7 km ke kecamatan untuk",
-        "create_time": "2025-07-15 22:22",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 8.0,
-        "positive_evidence": "setuju; terbantu; semoga; sangat setuju",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 24,
         "emoji_list": []
       },
       {
@@ -4008,22 +4366,6 @@
         ]
       },
       {
-        "comment_id": "7643600462339556112",
-        "video_id": "7643478603576954132",
-        "username": "boyke.yees",
-        "nickname": "PAPITO F 801 KE",
-        "comment": "Majulah dg Kerjasama ... bukan Mematikan usaha yg lain ... Alfamart Indhomaret cukup besar ...apakah pak Menteri memikirkan efek terhadap toko kelontong yg selama ini hidup Sdh ada Alfamart dan Indomaret...dg adanya KDMP resiko toko kelontong makin terjepit... percayalah segala sesuatu yg di kelolah secara proporsional akan tetep bertahan... kita lihat KDMP semoga bisa profesional... kita lihat dan tunggu hasil nya ...",
-        "create_time": "2026-05-25 06:14",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "semoga",
-        "negative_evidence": "mematikan; mematikan usaha",
-        "is_reply": false,
-        "word_count": 60,
-        "emoji_list": []
-      },
-      {
         "comment_id": "7641183736173052690",
         "video_id": "7640891074545749266",
         "username": "icha.ol",
@@ -4040,173 +4382,6 @@
         "emoji_list": [
           "🥰"
         ]
-      },
-      {
-        "comment_id": "7642310484541014792",
-        "video_id": "7642226716156513556",
-        "username": "ff_4260",
-        "nickname": "Asli kah🫪",
-        "comment": "KITA KALAU BELI DI KOPDES ITU LEBIH MURAH DAN SANGAT MEMBANTU NEGARA LO",
-        "create_time": "2026-05-21 18:48",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "membantu; murah; sangat membantu",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 13,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7642329613553206034",
-        "video_id": "7641276206687554823",
-        "username": "sadang.sauntoro",
-        "nickname": "DxShop.One",
-        "comment": "Aku heran sama cara pikir mereka. Apa mereka ndak paham kenapa alfamart sama indomaret bisa berkembang?karena mereka mengandalkan supply chain bagus, sekali jalan logistik ke beberapa gerai sekaligus sehingga ongkir sangat murah, hla ini??mereka sendiri2, mana bisa berkembang dan bersaing harga 🤣🤣",
-        "create_time": "2026-05-21 20:02",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "bagus; murah; bagus sekali",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 43,
-        "emoji_list": [
-          "🤣",
-          "🤣"
-        ]
-      },
-      {
-        "comment_id": "7644012568554685191",
-        "video_id": "7643712308274810133",
-        "username": "ernasari_872601",
-        "nickname": "Erna sari",
-        "comment": "iya... klu mau murahin harga ya tinggal turinin aja, vukan malah belain koprasi merah putih, president memang benar buka lowongan pekerjaan, tapi zolim sama rakyat sepertiku, president tidak mau kalah sama toko sembako sepertiku, semoga pak prabowo sehat selalu, panjang umur, agar bisa memperbaiki kebijakan yang lebih baik lagi, pak.. tolong jgn berat sebelah, saya sebagai pelaku toko sembako, sangat terganggu dgn kebijakan bapak, ma'af pak sebagai rakyat saya terlalu rewel, tapi tolong jgn seperti ini, klu memang mau kasih harga elpiji murah sebako murah, tolong dgn jalan yang adil pak, jgn seperti ini, tolong terapkan sila ke5 pancasila kita pak",
-        "create_time": "2026-05-26 08:53",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "baik; semoga; murah; adil; lebih baik",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 102,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7643789204970832660",
-        "video_id": "7642581123515616533",
-        "username": "yetriyanti5",
-        "nickname": "yetri yanti",
-        "comment": "mantap sekali, sangat membantu masyarakat Indonesia",
-        "create_time": "2026-05-25 18:26",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "membantu; mantap; sangat membantu",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 6,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7644196616107868936",
-        "video_id": "7641183642437586196",
-        "username": "masfahrimasfah498",
-        "nickname": "Nasgor 69 Jawa tengah",
-        "comment": "KLO murah sangat membantu kita para pedagang umkm",
-        "create_time": "2026-05-26 20:47",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "membantu; murah; sangat membantu",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 8,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7641498396024570631",
-        "video_id": "7641470196108004626",
-        "username": "meyani_96",
-        "nickname": "MAY",
-        "comment": "kalau harga nya lebih murah mungkin banyak yang beli dan sangat membantu",
-        "create_time": "2026-05-19 14:16",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "membantu; murah; sangat membantu",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 12,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7644041209429984008",
-        "video_id": "7637357539209841941",
-        "username": "rist4_13",
-        "nickname": "Alma02",
-        "comment": "Iya kak,terima kasih byk ya buat penjelasannya..Salut jg kalo dari pihak kasir smpai rela nombok kasih koin 500 demi kembalian konsumen..\nTp jujur dari sisi konsumen,kita kalau masuk toko ya fokusnya langsung belanja ke rak..gk bakal kepikiran buat nyari/baca leaflet yg ditempel di pintu…Makanya byk pembeli yg gk tahu sistem itu…Ditambah lg,pas di kasir langsung ditanya soal donasi,jujur konsumen sering merasa sungkan/ gak enak buat nolak krna posisinya mendadak...\nAlangkah lebih baik kalau ke depannya uang kembalian tetap diberikan sesuai jumlahnya dulu tanpa bikin kasir harus nombok/pembeli merasa canggung…Kalau ada program donasi,mgkin lebih bagus pakai kotak donasi mandiri sj jadi sifatnya sukarela…Semoga masukan ini bisa disampaikan ke manajemen atas sbg bhan evsluasi trimakasih🙏",
-        "create_time": "2026-05-26 10:44",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "bagus; baik; semoga; terima kasih; lebih baik",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 126,
-        "emoji_list": [
-          "🙏"
-        ]
-      },
-      {
-        "comment_id": "7643430187453055764",
-        "video_id": "7643081339607993607",
-        "username": "ekojacktaro",
-        "nickname": "Pak Camat",
-        "comment": "Sangat Membantu Masyarakat sekitar..Sdh saatnya kita beralih belanja dikopdes..👍",
-        "create_time": "2026-05-24 19:13",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "membantu; sangat membantu",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 10,
-        "emoji_list": [
-          "👍"
-        ]
-      },
-      {
-        "comment_id": "7619869803772019477",
-        "video_id": "7619816188461370645",
-        "username": "aldi.hasani",
-        "nickname": "aldi.hasani",
-        "comment": "Bagus Pak. Tapi gini Pak, maaf banget ni: Isinya yg kerja jangan ordal semua. Seleksi yang transparan, biar yg belum kerja juga terbantu, mengurangi pengangguran, atau ambil dari guru honorer yg dah sarjana tpi gaji nggk seberapa, pasti lebih manfaat",
-        "create_time": "2026-03-22 07:26",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "bagus; manfaat; terbantu; transparan",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 40,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7642862944178766613",
-        "video_id": "7642581123515616533",
-        "username": "firdhi_5",
-        "nickname": "Firdhi_",
-        "comment": "kl pemerintah yg handle smua, lama2 akan semau pemerintah. mau ga mau harus nurut ga ada saingan. awal2 murah lama2 gatau karna ga ada yg handle seprofessional swasta.\npelayanan ga akan seperti swasta. liat aja pelayanan desa gmn.\nkl swasta mereka memperhatikan kenyaman layanan. merespon keluhan sat set.\ncb kl pemerintah yg monopoli minimarket.\nbelum lagi alfa indo sangat membantu perjalanan dmn2 ada. ga repot cari kopdes",
-        "create_time": "2026-05-23 06:32",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "membantu; murah; sangat membantu",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 67,
-        "emoji_list": []
       },
       {
         "comment_id": "7641805152652313351",
@@ -4229,24 +4404,6 @@
         ]
       },
       {
-        "comment_id": "7642977768553235220",
-        "video_id": "7640152776986660103",
-        "username": "lie.kang3",
-        "nickname": "pp",
-        "comment": "Wi barangnya lengkap.pelayanann baik harga masih murah dan kualitas bagus.Makasih ya indomaret dan alfamart sudah ada🥰",
-        "create_time": "2026-05-23 13:57",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "bagus; baik; murah; makasih; lengkap",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 18,
-        "emoji_list": [
-          "🥰"
-        ]
-      },
-      {
         "comment_id": "7644046684633645844",
         "video_id": "7641276206687554823",
         "username": "and120171ed4",
@@ -4265,89 +4422,277 @@
         ]
       },
       {
-        "comment_id": "7641179842628961032",
-        "video_id": "7640891074545749266",
-        "username": "slametkeriman",
-        "nickname": "keriman",
-        "comment": "setuju,,, tapi diantara 3 pilihan yg anda anggap ga bagus ( artinya jelek ) ,,\nmaka jangan pilih yg terjelek,, dan pilihlah yg paling kurang/tidak jelek...",
-        "create_time": "2026-05-18 17:40",
+        "comment_id": "7642977768553235220",
+        "video_id": "7640152776986660103",
+        "username": "lie.kang3",
+        "nickname": "pp",
+        "comment": "Wi barangnya lengkap.pelayanann baik harga masih murah dan kualitas bagus.Makasih ya indomaret dan alfamart sudah ada🥰",
+        "create_time": "2026-05-23 13:57",
         "sentiment_primary": "positif",
         "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "setuju; bagus",
-        "negative_evidence": "jelek",
-        "is_reply": true,
-        "word_count": 24,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7619836223003493138",
-        "video_id": "7619816188461370645",
-        "username": "jualhp575",
-        "nickname": "HamzahSiip",
-        "comment": "semoga bawahnnya integritas ya ttep terjaga ..dan berjalan sesuai rencana Beliau 🙏🙏🙏 petani sukses rakyat pun bahagia harga beras murah dan dak perlu impor",
-        "create_time": "2026-03-22 05:16",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "sukses; semoga; murah",
+        "sentiment_score": 7.0,
+        "positive_evidence": "bagus; baik; murah; makasih; lengkap",
         "negative_evidence": "",
         "is_reply": false,
-        "word_count": 23,
+        "word_count": 18,
         "emoji_list": [
-          "🙏",
-          "🙏",
+          "🥰"
+        ]
+      },
+      {
+        "comment_id": "7644041209429984008",
+        "video_id": "7637357539209841941",
+        "username": "rist4_13",
+        "nickname": "Alma02",
+        "comment": "Iya kak,terima kasih byk ya buat penjelasannya..Salut jg kalo dari pihak kasir smpai rela nombok kasih koin 500 demi kembalian konsumen..\nTp jujur dari sisi konsumen,kita kalau masuk toko ya fokusnya langsung belanja ke rak..gk bakal kepikiran buat nyari/baca leaflet yg ditempel di pintu…Makanya byk pembeli yg gk tahu sistem itu…Ditambah lg,pas di kasir langsung ditanya soal donasi,jujur konsumen sering merasa sungkan/ gak enak buat nolak krna posisinya mendadak...\nAlangkah lebih baik kalau ke depannya uang kembalian tetap diberikan sesuai jumlahnya dulu tanpa bikin kasir harus nombok/pembeli merasa canggung…Kalau ada program donasi,mgkin lebih bagus pakai kotak donasi mandiri sj jadi sifatnya sukarela…Semoga masukan ini bisa disampaikan ke manajemen atas sbg bhan evsluasi trimakasih🙏",
+        "create_time": "2026-05-26 10:44",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 7.0,
+        "positive_evidence": "bagus; baik; semoga; terima kasih; lebih baik",
+        "negative_evidence": "",
+        "is_reply": true,
+        "word_count": 126,
+        "emoji_list": [
           "🙏"
         ]
       },
       {
-        "comment_id": "7642608712889631495",
-        "video_id": "7641276206687554823",
-        "username": "rezkipilyana",
-        "nickname": "Rezki Pilyana",
-        "comment": "keponakan saya kerja di alfa kasian dia tulang punggung keluarga, ayah nya lumpuh, adiknya masih SMK kls 11,ibu nya kerja serabutan buat bayar kontrakan.. plis jangan mematikan usaha orang lain ya.. alfa n indomaret ngebantu banget",
-        "create_time": "2026-05-22 14:05",
+        "comment_id": "7644012568554685191",
+        "video_id": "7643712308274810133",
+        "username": "ernasari_872601",
+        "nickname": "Erna sari",
+        "comment": "iya... klu mau murahin harga ya tinggal turinin aja, vukan malah belain koprasi merah putih, president memang benar buka lowongan pekerjaan, tapi zolim sama rakyat sepertiku, president tidak mau kalah sama toko sembako sepertiku, semoga pak prabowo sehat selalu, panjang umur, agar bisa memperbaiki kebijakan yang lebih baik lagi, pak.. tolong jgn berat sebelah, saya sebagai pelaku toko sembako, sangat terganggu dgn kebijakan bapak, ma'af pak sebagai rakyat saya terlalu rewel, tapi tolong jgn seperti ini, klu memang mau kasih harga elpiji murah sebako murah, tolong dgn jalan yang adil pak, jgn seperti ini, tolong terapkan sila ke5 pancasila kita pak",
+        "create_time": "2026-05-26 08:53",
         "sentiment_primary": "positif",
         "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "",
-        "negative_evidence": "mematikan; mematikan usaha",
-        "is_reply": false,
-        "word_count": 37,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7642633813960917781",
-        "video_id": "7641276206687554823",
-        "username": "amaliaamalia7649",
-        "nickname": "AmeL Amelia7649",
-        "comment": "Kemaren mintak sembako murah apa2 murah sama pemerintah, lah sekarang kok komplen gak bisa menerima.. bukannya malah lebih baik ada koprasi merah putih banyak warna miskin yg terbantu kebutuhan pokok,.sebenarnay rakyat mu mau apa pk kok serba salah",
-        "create_time": "2026-05-22 15:42",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "baik; terbantu; murah; lebih baik",
+        "sentiment_score": 7.0,
+        "positive_evidence": "baik; semoga; murah; adil; lebih baik",
         "negative_evidence": "",
         "is_reply": true,
-        "word_count": 39,
+        "word_count": 102,
         "emoji_list": []
       },
       {
-        "comment_id": "7641838547171246868",
+        "comment_id": "7643600462339556112",
+        "video_id": "7643478603576954132",
+        "username": "boyke.yees",
+        "nickname": "PAPITO F 801 KE",
+        "comment": "Majulah dg Kerjasama ... bukan Mematikan usaha yg lain ... Alfamart Indhomaret cukup besar ...apakah pak Menteri memikirkan efek terhadap toko kelontong yg selama ini hidup Sdh ada Alfamart dan Indomaret...dg adanya KDMP resiko toko kelontong makin terjepit... percayalah segala sesuatu yg di kelolah secara proporsional akan tetep bertahan... kita lihat KDMP semoga bisa profesional... kita lihat dan tunggu hasil nya ...",
+        "create_time": "2026-05-25 06:14",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 7.0,
+        "positive_evidence": "semoga",
+        "negative_evidence": "mematikan; mematikan usaha",
+        "is_reply": false,
+        "word_count": 60,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7642862944178766613",
+        "video_id": "7642581123515616533",
+        "username": "firdhi_5",
+        "nickname": "Firdhi_",
+        "comment": "kl pemerintah yg handle smua, lama2 akan semau pemerintah. mau ga mau harus nurut ga ada saingan. awal2 murah lama2 gatau karna ga ada yg handle seprofessional swasta.\npelayanan ga akan seperti swasta. liat aja pelayanan desa gmn.\nkl swasta mereka memperhatikan kenyaman layanan. merespon keluhan sat set.\ncb kl pemerintah yg monopoli minimarket.\nbelum lagi alfa indo sangat membantu perjalanan dmn2 ada. ga repot cari kopdes",
+        "create_time": "2026-05-23 06:32",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 7.0,
+        "positive_evidence": "membantu; murah; sangat membantu",
+        "negative_evidence": "",
+        "is_reply": true,
+        "word_count": 67,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7619869803772019477",
+        "video_id": "7619816188461370645",
+        "username": "aldi.hasani",
+        "nickname": "aldi.hasani",
+        "comment": "Bagus Pak. Tapi gini Pak, maaf banget ni: Isinya yg kerja jangan ordal semua. Seleksi yang transparan, biar yg belum kerja juga terbantu, mengurangi pengangguran, atau ambil dari guru honorer yg dah sarjana tpi gaji nggk seberapa, pasti lebih manfaat",
+        "create_time": "2026-03-22 07:26",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 7.0,
+        "positive_evidence": "bagus; manfaat; terbantu; transparan",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 40,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7643430187453055764",
+        "video_id": "7643081339607993607",
+        "username": "ekojacktaro",
+        "nickname": "Pak Camat",
+        "comment": "Sangat Membantu Masyarakat sekitar..Sdh saatnya kita beralih belanja dikopdes..👍",
+        "create_time": "2026-05-24 19:13",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 7.0,
+        "positive_evidence": "membantu; sangat membantu",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 10,
+        "emoji_list": [
+          "👍"
+        ]
+      },
+      {
+        "comment_id": "7644196616107868936",
+        "video_id": "7641183642437586196",
+        "username": "masfahrimasfah498",
+        "nickname": "Nasgor 69 Jawa tengah",
+        "comment": "KLO murah sangat membantu kita para pedagang umkm",
+        "create_time": "2026-05-26 20:47",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 7.0,
+        "positive_evidence": "membantu; murah; sangat membantu",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 8,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7643789204970832660",
+        "video_id": "7642581123515616533",
+        "username": "yetriyanti5",
+        "nickname": "yetri yanti",
+        "comment": "mantap sekali, sangat membantu masyarakat Indonesia",
+        "create_time": "2026-05-25 18:26",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 7.0,
+        "positive_evidence": "membantu; mantap; sangat membantu",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 6,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7642310484541014792",
+        "video_id": "7642226716156513556",
+        "username": "ff_4260",
+        "nickname": "Asli kah🫪",
+        "comment": "KITA KALAU BELI DI KOPDES ITU LEBIH MURAH DAN SANGAT MEMBANTU NEGARA LO",
+        "create_time": "2026-05-21 18:48",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 7.0,
+        "positive_evidence": "membantu; murah; sangat membantu",
+        "negative_evidence": "",
+        "is_reply": true,
+        "word_count": 13,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7641498396024570631",
         "video_id": "7641470196108004626",
-        "username": "andi.afandi46",
-        "nickname": "ANDI>>ALBI FARM INDONESIA",
-        "comment": "KALAU SEMBAKO DLL DI SANA MURAH NANTI RAKYAT JUGA AKAN MENDUKUNG KOK,, SMOGA INDONESIA SMAKIN MAJU 🙏",
-        "create_time": "2026-05-20 12:21",
+        "username": "meyani_96",
+        "nickname": "MAY",
+        "comment": "kalau harga nya lebih murah mungkin banyak yang beli dan sangat membantu",
+        "create_time": "2026-05-19 14:16",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 7.0,
+        "positive_evidence": "membantu; murah; sangat membantu",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 12,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7642329613553206034",
+        "video_id": "7641276206687554823",
+        "username": "sadang.sauntoro",
+        "nickname": "DxShop.One",
+        "comment": "Aku heran sama cara pikir mereka. Apa mereka ndak paham kenapa alfamart sama indomaret bisa berkembang?karena mereka mengandalkan supply chain bagus, sekali jalan logistik ke beberapa gerai sekaligus sehingga ongkir sangat murah, hla ini??mereka sendiri2, mana bisa berkembang dan bersaing harga 🤣🤣",
+        "create_time": "2026-05-21 20:02",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 7.0,
+        "positive_evidence": "bagus; murah; bagus sekali",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 43,
+        "emoji_list": [
+          "🤣",
+          "🤣"
+        ]
+      },
+      {
+        "comment_id": "7641433746293670674",
+        "video_id": "7640478764060675348",
+        "username": "andri_arya",
+        "nickname": "andri_arya",
+        "comment": "mantap 👍👍👍 lanjutkan.",
+        "create_time": "2026-05-19 10:05",
         "sentiment_primary": "positif",
         "sentiment_detail": "positif_indikatif",
         "sentiment_score": 6.0,
-        "positive_evidence": "mendukung; maju; murah",
+        "positive_evidence": "mantap; lanjutkan",
         "negative_evidence": "",
         "is_reply": false,
-        "word_count": 16,
+        "word_count": 2,
         "emoji_list": [
-          "🙏"
+          "👍",
+          "👍",
+          "👍"
+        ]
+      },
+      {
+        "comment_id": "7641099475575194388",
+        "video_id": "7640891074545749266",
+        "username": "midos6042",
+        "nickname": "midos",
+        "comment": "bagus itu baru benar... 👍👍lanjutkan kesetiaan nya",
+        "create_time": "2026-05-18 12:28",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "bagus; lanjutkan",
+        "negative_evidence": "",
+        "is_reply": true,
+        "word_count": 7,
+        "emoji_list": [
+          "👍",
+          "👍"
+        ]
+      },
+      {
+        "comment_id": "7641059761215062804",
+        "video_id": "7640891074545749266",
+        "username": "mahbubbob1",
+        "nickname": "Mahbubbob_Mb",
+        "comment": "Tujuan utama dibentuknya Kopdes Merah Putih meliputi:\nMenggerakkan Ekonomi Lokal: Menjadikan masyarakat sebagai pelaku usaha aktif dan menyerap produk hasil pertanian, peternakan, serta perikanan.\nMenstabilkan Harga dan Distribusi: Memangkas rantai distribusi agar masyarakat lebih mudah mendapatkan barang kebutuhan pokok, pupuk bersubsidi, dan gas LPG 3 kg dengan harga terjangkau.\nMembasmi Praktik Rentenir: Menjadi pembeli hasil panen (offtaker) dan menyediakan layanan simpan pinjam alternatif yang lebih adil.\nMeningkatkan Fasilitas Desa: Menyediakan layanan terpadu seperti klinik desa, cold storage, dan penyediaan sembako murah.\nKIRA2 SEJALAN GAK SAMA TUJUANNYA?",
+        "create_time": "2026-05-18 09:54",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "murah; adil; terjangkau",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 86,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7641334855380501268",
+        "video_id": "7640891074545749266",
+        "username": "antonsaputra551",
+        "nickname": "antonsaputra🥰🤫💚🌈",
+        "comment": "yg penting murah mantap👍",
+        "create_time": "2026-05-19 03:42",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "murah; mantap",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 4,
+        "emoji_list": [
+          "👍"
         ]
       },
       {
@@ -4371,6 +4716,143 @@
         ]
       },
       {
+        "comment_id": "7641060091290829588",
+        "video_id": "7640891074545749266",
+        "username": "mahbubbob1",
+        "nickname": "Mahbubbob_Mb",
+        "comment": "Tujuan utama dibentuknya Kopdes Merah Putih meliputi:\nMenggerakkan Ekonomi Lokal: Menjadikan masyarakat sebagai pelaku usaha aktif dan menyerap produk hasil pertanian, peternakan, serta perikanan.\nMenstabilkan Harga dan Distribusi: Memangkas rantai distribusi agar masyarakat lebih mudah mendapatkan barang kebutuhan pokok, pupuk bersubsidi, dan gas LPG 3 kg dengan harga terjangkau.\nMembasmi Praktik Rentenir: Menjadi pembeli hasil panen (offtaker) dan menyediakan layanan simpan pinjam alternatif yang lebih adil.\nMeningkatkan Fasilitas Desa: Menyediakan layanan terpadu seperti klinik desa, cold storage, dan penyediaan sembako murah.",
+        "create_time": "2026-05-18 09:56",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "murah; adil; terjangkau",
+        "negative_evidence": "",
+        "is_reply": true,
+        "word_count": 81,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7643660401267507976",
+        "video_id": "7643478603576954132",
+        "username": "rayyanrtg_",
+        "nickname": "mommyputri_",
+        "comment": "sangat setuju. nggak ada manfaat nya",
+        "create_time": "2026-05-25 10:06",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "setuju; manfaat; sangat setuju",
+        "negative_evidence": "",
+        "is_reply": true,
+        "word_count": 6,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7641610745428771592",
+        "video_id": "7641041003423501576",
+        "username": "user512938953",
+        "nickname": "Joe Zan",
+        "comment": "nah ini komen bener bener bermanfaat keren setuju pupuk gas beras subsidi dll",
+        "create_time": "2026-05-19 21:32",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "setuju; bermanfaat; keren",
+        "negative_evidence": "",
+        "is_reply": true,
+        "word_count": 13,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7643882055274119956",
+        "video_id": "7643478603576954132",
+        "username": "p.n2505",
+        "nickname": "Inisial (PNS)",
+        "comment": "bersikap lah sportif, ber usaha lah tetapi jangan mematikan usaha orang lain, kalau tidak siap untuk bersaing ya udah tidak usah ber usaha..\nkarna sejatinya Alfa dan Indomaret sudah jauh lama berdiri ketimbang Kopdes.\ndan di Alfa dan Indomaret jauh lebih besar menyerap tenaga kerja ketimbang di Kopdes...",
+        "create_time": "2026-05-26 00:26",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "",
+        "negative_evidence": "mematikan; mematikan usaha",
+        "is_reply": false,
+        "word_count": 48,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7641838547171246868",
+        "video_id": "7641470196108004626",
+        "username": "andi.afandi46",
+        "nickname": "ANDI>>ALBI FARM INDONESIA",
+        "comment": "KALAU SEMBAKO DLL DI SANA MURAH NANTI RAKYAT JUGA AKAN MENDUKUNG KOK,, SMOGA INDONESIA SMAKIN MAJU 🙏",
+        "create_time": "2026-05-20 12:21",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "mendukung; maju; murah",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 16,
+        "emoji_list": [
+          "🙏"
+        ]
+      },
+      {
+        "comment_id": "7619836223003493138",
+        "video_id": "7619816188461370645",
+        "username": "jualhp575",
+        "nickname": "HamzahSiip",
+        "comment": "semoga bawahnnya integritas ya ttep terjaga ..dan berjalan sesuai rencana Beliau 🙏🙏🙏 petani sukses rakyat pun bahagia harga beras murah dan dak perlu impor",
+        "create_time": "2026-03-22 05:16",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "sukses; semoga; murah",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 23,
+        "emoji_list": [
+          "🙏",
+          "🙏",
+          "🙏"
+        ]
+      },
+      {
+        "comment_id": "7643834924852871944",
+        "video_id": "7643712308274810133",
+        "username": "snt_vixi",
+        "nickname": "SNTVIXI",
+        "comment": "Makasih ya pk semoga koperasi di desa saya nanti juga harganya sesuai komando dr bpk prbw. dan semoga bermanfaat u rakyat kecil. sehat selalu pk mugi2 jdi pemimpin yg amanah jujur dan adil aamiin",
+        "create_time": "2026-05-25 21:23",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "bermanfaat; semoga; adil; makasih",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 34,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7643825431624090388",
+        "video_id": "7643712308274810133",
+        "username": "kaezyaputri8",
+        "nickname": "Bu yomi🌹",
+        "comment": "sudah di seluruh Indonesia kah ini .. wah keren mantap BPK presiden Prabowo 🥰👍",
+        "create_time": "2026-05-25 20:46",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "mantap; keren",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 12,
+        "emoji_list": [
+          "🥰",
+          "👍"
+        ]
+      },
+      {
         "comment_id": "7627045296313008903",
         "video_id": "7626731518857268498",
         "username": "gombeh_",
@@ -4387,23 +4869,146 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7641433746293670674",
-        "video_id": "7640478764060675348",
-        "username": "andri_arya",
-        "nickname": "andri_arya",
-        "comment": "mantap 👍👍👍 lanjutkan.",
-        "create_time": "2026-05-19 10:05",
+        "comment_id": "7643818397008462610",
+        "video_id": "7643478603576954132",
+        "username": "davalekpoortega22",
+        "nickname": "davalekpoortega22",
+        "comment": "bersaing jangan mematikan usaha orang lain..",
+        "create_time": "2026-05-25 20:19",
         "sentiment_primary": "positif",
         "sentiment_detail": "positif_indikatif",
         "sentiment_score": 6.0,
-        "positive_evidence": "mantap; lanjutkan",
+        "positive_evidence": "",
+        "negative_evidence": "mematikan; mematikan usaha",
+        "is_reply": false,
+        "word_count": 6,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7641769458750833429",
+        "video_id": "7641276206687554823",
+        "username": "ninik.hayati",
+        "nickname": "cerah",
+        "comment": "sukses membantu masyarakat.harga lebih murah",
+        "create_time": "2026-05-20 07:48",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "membantu; sukses; murah",
         "negative_evidence": "",
         "is_reply": false,
-        "word_count": 2,
+        "word_count": 6,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7621960980913931016",
+        "video_id": "7619816188461370645",
+        "username": "rio.junior81",
+        "nickname": "Rio Junior",
+        "comment": "setuju 👍👍❤️",
+        "create_time": "2026-03-27 22:41",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "setuju",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 1,
         "emoji_list": [
           "👍",
           "👍",
-          "👍"
+          "❤"
+        ]
+      },
+      {
+        "comment_id": "7643967080338146068",
+        "video_id": "7642226716156513556",
+        "username": "astotoedysalem",
+        "nickname": "AstotoedySalem",
+        "comment": "Mantap...semoga tidak mematikan warung tetangga...dan menurut saya tidak mungkin.",
+        "create_time": "2026-05-26 06:05",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "semoga; mantap",
+        "negative_evidence": "mematikan",
+        "is_reply": true,
+        "word_count": 11,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7641564955388855048",
+        "video_id": "7641276206687554823",
+        "username": "pak.umroh",
+        "nickname": "Pak Umroh Jogja",
+        "comment": "\" pager piring lebih baik dari pada pager besi \" hidupkan UMKM dgn membeli produk ttga mu guys, dadi nek enek hajad tanggane pasti ada empati membantu ❤️❤️❤️",
+        "create_time": "2026-05-19 18:34",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "baik; membantu; lebih baik",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 25,
+        "emoji_list": [
+          "❤",
+          "❤",
+          "❤"
+        ]
+      },
+      {
+        "comment_id": "7641956956454880008",
+        "video_id": "7641276206687554823",
+        "username": "mutiarasamudra11",
+        "nickname": "Bang Sam",
+        "comment": "Semangat dan sukses, KDMP bukan hanya mempermudah mendapatkan sembako murah dan pupuk murah tapi juga nantinya bisa dipakai untuk jenis usaha lain seperti jual beli hasil bumi, buka bisnis lain yg bagus didesa tersebut dan bahkan bisa untuk awal mendirikan perusahaan yg level nya lebih besar nantinya",
+        "create_time": "2026-05-20 19:56",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "bagus; sukses; murah",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 47,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7642344712514962183",
+        "video_id": "7641276206687554823",
+        "username": "user26880018229355",
+        "nickname": "user26880018229355",
+        "comment": "kalian bangga y. udah menghancurkan sebagian rakyatnya yg kehilangan pekerjaan. ini usulan siapa sich... harusnya yg udah ada di kembangkan dan di dukung bukan malah di singkirkan,. lucu sich pemerintah ini kayanya lebih senang ngambur2in duit buat yg g berbobot. bagus anggaran yg buat market merah putih itu buat sekolah2 gratis, rumah sakit gratis, dan bagikan buat bantuan dana bagi janda dan parkir miskin juga yatim piatu sedih ngelihatnya, aduh semoga saja Tuhan kelak persiapkan pemimpin yg sabar, sederhana, merakyat dan betul2 amanah. Amin🙏🙏",
+        "create_time": "2026-05-21 21:00",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "dukung; bagus; semoga",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 84,
+        "emoji_list": [
+          "🙏",
+          "🙏"
+        ]
+      },
+      {
+        "comment_id": "7642125391163441940",
+        "video_id": "7641276206687554823",
+        "username": "mbahsurojurukunci",
+        "nickname": "🇲 🇧 🇦 🇭  🇸 🇺 🇷 🇴 🇮🇩",
+        "comment": "Paranggupito hadir masalah harga gimanaya semoga lebih murah👍🙏🙏",
+        "create_time": "2026-05-21 06:50",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 6.0,
+        "positive_evidence": "semoga; murah",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 8,
+        "emoji_list": [
+          "👍",
+          "🙏",
+          "🙏"
         ]
       },
       {
@@ -4429,182 +5034,35 @@
         ]
       },
       {
-        "comment_id": "7643818397008462610",
-        "video_id": "7643478603576954132",
-        "username": "davalekpoortega22",
-        "nickname": "davalekpoortega22",
-        "comment": "bersaing jangan mematikan usaha orang lain..",
-        "create_time": "2026-05-25 20:19",
+        "comment_id": "7642608712889631495",
+        "video_id": "7641276206687554823",
+        "username": "rezkipilyana",
+        "nickname": "Rezki Pilyana",
+        "comment": "keponakan saya kerja di alfa kasian dia tulang punggung keluarga, ayah nya lumpuh, adiknya masih SMK kls 11,ibu nya kerja serabutan buat bayar kontrakan.. plis jangan mematikan usaha orang lain ya.. alfa n indomaret ngebantu banget",
+        "create_time": "2026-05-22 14:05",
         "sentiment_primary": "positif",
         "sentiment_detail": "positif_indikatif",
         "sentiment_score": 6.0,
         "positive_evidence": "",
         "negative_evidence": "mematikan; mematikan usaha",
         "is_reply": false,
-        "word_count": 6,
+        "word_count": 37,
         "emoji_list": []
       },
       {
-        "comment_id": "7643834924852871944",
-        "video_id": "7643712308274810133",
-        "username": "snt_vixi",
-        "nickname": "SNTVIXI",
-        "comment": "Makasih ya pk semoga koperasi di desa saya nanti juga harganya sesuai komando dr bpk prbw. dan semoga bermanfaat u rakyat kecil. sehat selalu pk mugi2 jdi pemimpin yg amanah jujur dan adil aamiin",
-        "create_time": "2026-05-25 21:23",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "bermanfaat; semoga; adil; makasih",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 34,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7641956956454880008",
-        "video_id": "7641276206687554823",
-        "username": "mutiarasamudra11",
-        "nickname": "Bang Sam",
-        "comment": "Semangat dan sukses, KDMP bukan hanya mempermudah mendapatkan sembako murah dan pupuk murah tapi juga nantinya bisa dipakai untuk jenis usaha lain seperti jual beli hasil bumi, buka bisnis lain yg bagus didesa tersebut dan bahkan bisa untuk awal mendirikan perusahaan yg level nya lebih besar nantinya",
-        "create_time": "2026-05-20 19:56",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "bagus; sukses; murah",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 47,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7619887839014404884",
-        "video_id": "7619816188461370645",
-        "username": "putusugiarta887",
-        "nickname": "putusugiarta887",
-        "comment": "tapi satu setiap pegawai koperasi merah putih bagus ..intrigiras dan jiwa mencintai rakyat(tidak korupsi)🙏🔱🌹👌",
-        "create_time": "2026-03-22 08:39",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "bagus",
-        "negative_evidence": "korupsi",
-        "is_reply": false,
-        "word_count": 15,
-        "emoji_list": [
-          "🙏",
-          "🔱",
-          "🌹",
-          "👌"
-        ]
-      },
-      {
-        "comment_id": "7621960980913931016",
-        "video_id": "7619816188461370645",
-        "username": "rio.junior81",
-        "nickname": "Rio Junior",
-        "comment": "setuju 👍👍❤️",
-        "create_time": "2026-03-27 22:41",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "setuju",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 1,
-        "emoji_list": [
-          "👍",
-          "👍",
-          "❤"
-        ]
-      },
-      {
-        "comment_id": "7641610745428771592",
-        "video_id": "7641041003423501576",
-        "username": "user512938953",
-        "nickname": "Joe Zan",
-        "comment": "nah ini komen bener bener bermanfaat keren setuju pupuk gas beras subsidi dll",
-        "create_time": "2026-05-19 21:32",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "setuju; bermanfaat; keren",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 13,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7643842342399623953",
-        "video_id": "7643712308274810133",
-        "username": "lilyzsyyy",
-        "nickname": "lilyyy",
-        "comment": "setuju kak, kalau mau lebih memudahkan rakyat dgn cara menurunkan harga bahan pokok ya harusnya yg diturunkan semuanya mulai dari tangan pertama, kalo yg dibikin murah cuma barang\" di kopdes ya kasian rakyat yg ngandelin pendapatan cuma dari toko sembako nya",
-        "create_time": "2026-05-25 21:52",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "setuju; murah; memudahkan",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 41,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7641060426788799252",
-        "video_id": "7640891074545749266",
-        "username": "mahbubbob1",
-        "nickname": "Mahbubbob_Mb",
-        "comment": "Tujuan utama dibentuknya Kopdes Merah Putih meliputi:\nMenggerakkan Ekonomi Lokal: Menjadikan masyarakat sebagai pelaku usaha aktif dan menyerap produk hasil pertanian, peternakan, serta perikanan.\nMenstabilkan Harga dan Distribusi: Memangkas rantai distribusi agar masyarakat lebih mudah mendapatkan barang kebutuhan pokok, pupuk bersubsidi, dan gas LPG 3 kg dengan harga terjangkau.\nMembasmi Praktik Rentenir: Menjadi pembeli hasil panen (offtaker) dan menyediakan layanan simpan pinjam alternatif yang lebih adil.\nMeningkatkan Fasilitas Desa: Menyediakan layanan terpadu seperti klinik desa, cold storage, dan penyediaan sembako murah.",
-        "create_time": "2026-05-18 09:57",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "murah; adil; terjangkau",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 81,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7641403458889368328",
+        "comment_id": "7642765183093703431",
         "video_id": "7641183642437586196",
-        "username": "ammarmahesa",
-        "nickname": "AMMAR MAHESA",
-        "comment": "KEREN MURAH MURAH HARGANYA 👍🏻👍🏻👍🏻😂😂😂",
-        "create_time": "2026-05-19 08:08",
+        "username": "dikadikok08",
+        "nickname": "dikadikok08",
+        "comment": "mau buat kopdes silahkan, tapi jangan mematikan usaha orang lain",
+        "create_time": "2026-05-23 00:12",
         "sentiment_primary": "positif",
         "sentiment_detail": "positif_indikatif",
         "sentiment_score": 6.0,
-        "positive_evidence": "murah; keren",
-        "negative_evidence": "",
+        "positive_evidence": "",
+        "negative_evidence": "mematikan; mematikan usaha",
         "is_reply": false,
-        "word_count": 4,
-        "emoji_list": [
-          "👍",
-          "🏻",
-          "👍",
-          "🏻",
-          "👍",
-          "🏻",
-          "😂",
-          "😂",
-          "😂"
-        ]
-      },
-      {
-        "comment_id": "7641060091290829588",
-        "video_id": "7640891074545749266",
-        "username": "mahbubbob1",
-        "nickname": "Mahbubbob_Mb",
-        "comment": "Tujuan utama dibentuknya Kopdes Merah Putih meliputi:\nMenggerakkan Ekonomi Lokal: Menjadikan masyarakat sebagai pelaku usaha aktif dan menyerap produk hasil pertanian, peternakan, serta perikanan.\nMenstabilkan Harga dan Distribusi: Memangkas rantai distribusi agar masyarakat lebih mudah mendapatkan barang kebutuhan pokok, pupuk bersubsidi, dan gas LPG 3 kg dengan harga terjangkau.\nMembasmi Praktik Rentenir: Menjadi pembeli hasil panen (offtaker) dan menyediakan layanan simpan pinjam alternatif yang lebih adil.\nMeningkatkan Fasilitas Desa: Menyediakan layanan terpadu seperti klinik desa, cold storage, dan penyediaan sembako murah.",
-        "create_time": "2026-05-18 09:56",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "murah; adil; terjangkau",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 81,
+        "word_count": 10,
         "emoji_list": []
       },
       {
@@ -4624,111 +5082,36 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7641184677552276231",
-        "video_id": "7640891074545749266",
-        "username": "icha.ol",
-        "nickname": "putrikudus",
-        "comment": "Koperasi Desa (Kopdes) yang ikut berjualan berpotensi memicu kekhawatiran persaingan bagi penjual kecil. Namun, dalam praktiknya, Kopdes idealnya tidak mematikan usaha kecil melainkan berperan sebagai agregator dan pusat grosir yang memberikan harga kulakan lebih murah agar warung kecil dapat bersaing...\ndemi apa coba .demi rakyat 😁",
-        "create_time": "2026-05-18 17:59",
+        "comment_id": "7643370355711378197",
+        "video_id": "7641276206687554823",
+        "username": "imnotokay84",
+        "nickname": "GEMINI 23#",
+        "comment": "alfa aja.. bersaing ngk apa apaan jgn ditutup usaha yg sdh berjalan dgn baik.. dan sangat membantu masyarakagwaqcp",
+        "create_time": "2026-05-24 15:21",
         "sentiment_primary": "positif",
         "sentiment_detail": "positif_indikatif",
         "sentiment_score": 6.0,
-        "positive_evidence": "murah",
-        "negative_evidence": "persaingan; mematikan; mematikan usaha; warung kecil",
-        "is_reply": true,
-        "word_count": 45,
-        "emoji_list": [
-          "😁"
-        ]
+        "positive_evidence": "baik; membantu; sangat membantu",
+        "negative_evidence": "",
+        "is_reply": false,
+        "word_count": 18,
+        "emoji_list": []
       },
       {
-        "comment_id": "7643823189834859285",
+        "comment_id": "7643779073425408775",
         "video_id": "7643478603576954132",
-        "username": "dj85s",
-        "nickname": "Dj85",
-        "comment": "Ini contoh tidak memilik etika bisnis, bicara monopoli tapi Anda sendiri mau memonopoli. Biarkan warga bebas untuk memilih belanja dimanapun tapi jangan mematikan usaha org lain dgn cara yb tidak etis. Bersainglah secara sehat 🔥",
-        "create_time": "2026-05-25 20:38",
+        "username": "wazir.wazir23",
+        "nickname": "Abang Ocol",
+        "comment": "ciptakan lapangan kerja baru untuk mengurangi pengangguran bukan mematikan usaha lama yg sudah berjalan dan membuat pengangguran makin banyak, orang pintar ciptakan lapangan kerja baru tanpa menutup lapangan kerja yg sudah berjalan dan bersainglah dengan sehat",
+        "create_time": "2026-05-25 17:46",
         "sentiment_primary": "positif",
         "sentiment_detail": "positif_indikatif",
         "sentiment_score": 6.0,
         "positive_evidence": "",
         "negative_evidence": "mematikan; mematikan usaha",
         "is_reply": false,
-        "word_count": 34,
-        "emoji_list": [
-          "🔥"
-        ]
-      },
-      {
-        "comment_id": "7642344712514962183",
-        "video_id": "7641276206687554823",
-        "username": "user26880018229355",
-        "nickname": "user26880018229355",
-        "comment": "kalian bangga y. udah menghancurkan sebagian rakyatnya yg kehilangan pekerjaan. ini usulan siapa sich... harusnya yg udah ada di kembangkan dan di dukung bukan malah di singkirkan,. lucu sich pemerintah ini kayanya lebih senang ngambur2in duit buat yg g berbobot. bagus anggaran yg buat market merah putih itu buat sekolah2 gratis, rumah sakit gratis, dan bagikan buat bantuan dana bagi janda dan parkir miskin juga yatim piatu sedih ngelihatnya, aduh semoga saja Tuhan kelak persiapkan pemimpin yg sabar, sederhana, merakyat dan betul2 amanah. Amin🙏🙏",
-        "create_time": "2026-05-21 21:00",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "dukung; bagus; semoga",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 84,
-        "emoji_list": [
-          "🙏",
-          "🙏"
-        ]
-      },
-      {
-        "comment_id": "7619951763484361480",
-        "video_id": "7619816188461370645",
-        "username": "jhon35616",
-        "nickname": "Mas Bass",
-        "comment": "cari pupuk mudah ...itu sudah sangat membantu petani ...terima kasih",
-        "create_time": "2026-03-22 12:44",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "membantu; terima kasih; sangat membantu",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 10,
+        "word_count": 36,
         "emoji_list": []
-      },
-      {
-        "comment_id": "7643660401267507976",
-        "video_id": "7643478603576954132",
-        "username": "rayyanrtg_",
-        "nickname": "mommyputri_",
-        "comment": "sangat setuju. nggak ada manfaat nya",
-        "create_time": "2026-05-25 10:06",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "setuju; manfaat; sangat setuju",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 6,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7642125391163441940",
-        "video_id": "7641276206687554823",
-        "username": "mbahsurojurukunci",
-        "nickname": "🇲 🇧 🇦 🇭  🇸 🇺 🇷 🇴 🇮🇩",
-        "comment": "Paranggupito hadir masalah harga gimanaya semoga lebih murah👍🙏🙏",
-        "create_time": "2026-05-21 06:50",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "semoga; murah",
-        "negative_evidence": "",
-        "is_reply": false,
-        "word_count": 8,
-        "emoji_list": [
-          "👍",
-          "🙏",
-          "🙏"
-        ]
       },
       {
         "comment_id": "7641371061871084295",
@@ -4749,38 +5132,6 @@
           "🤣",
           "🤣"
         ]
-      },
-      {
-        "comment_id": "7641184282162086663",
-        "video_id": "7640891074545749266",
-        "username": "icha.ol",
-        "nickname": "putrikudus",
-        "comment": "Koperasi Desa (Kopdes) yang ikut berjualan berpotensi memicu kekhawatiran persaingan bagi penjual kecil. Namun, dalam praktiknya, Kopdes idealnya tidak mematikan usaha kecil melainkan berperan sebagai agregator dan pusat grosir yang memberikan harga kulakan lebih murah agar warung kecil dapat bersaing",
-        "create_time": "2026-05-18 17:57",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "murah",
-        "negative_evidence": "persaingan; mematikan; mematikan usaha; warung kecil",
-        "is_reply": true,
-        "word_count": 40,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7641060408522425089",
-        "video_id": "7640891074545749266",
-        "username": "bundaonline04",
-        "nickname": "Bundaonline",
-        "comment": "jangan di bully kalau koperasi aku setuju, di negara maju kaya singapore ritel dikelolah pemerintah harganya murah kaya ntuc, mungkin ini langkah baik karna harganyaa lebih murahh",
-        "create_time": "2026-05-18 09:57",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 6.0,
-        "positive_evidence": "setuju; baik; maju; murah",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 27,
-        "emoji_list": []
       }
     ],
     "negatif": [
@@ -4840,22 +5191,6 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7619864025602638608",
-        "video_id": "7619816188461370645",
-        "username": "effendieffendi97",
-        "nickname": "effendi",
-        "comment": "buka usaha jgn mematikan usaha yg lain pak.. jika program bapak paksakan semakin banyak korupsi terorganisir di pemerintahan bapak.. kasihan bapak",
-        "create_time": "2026-03-22 07:04",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -9.0,
-        "positive_evidence": "",
-        "negative_evidence": "korupsi; mematikan; mematikan usaha",
-        "is_reply": false,
-        "word_count": 21,
-        "emoji_list": []
-      },
-      {
         "comment_id": "7643825825674986247",
         "video_id": "7641276206687554823",
         "username": "user969899024",
@@ -4876,6 +5211,22 @@
         ]
       },
       {
+        "comment_id": "7619864025602638608",
+        "video_id": "7619816188461370645",
+        "username": "effendieffendi97",
+        "nickname": "effendi",
+        "comment": "buka usaha jgn mematikan usaha yg lain pak.. jika program bapak paksakan semakin banyak korupsi terorganisir di pemerintahan bapak.. kasihan bapak",
+        "create_time": "2026-03-22 07:04",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -9.0,
+        "positive_evidence": "",
+        "negative_evidence": "korupsi; mematikan; mematikan usaha",
+        "is_reply": false,
+        "word_count": 21,
+        "emoji_list": []
+      },
+      {
         "comment_id": "7643638549807956737",
         "video_id": "7643478603576954132",
         "username": "kt.immk_kembaran",
@@ -4888,6 +5239,22 @@
         "positive_evidence": "",
         "negative_evidence": "mematikan; mematikan usaha; mangkrak",
         "is_reply": false,
+        "word_count": 14,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7628949965029589777",
+        "video_id": "7628525224593493264",
+        "username": "andre.com215",
+        "nickname": "stivi",
+        "comment": "emang program jelek,mematikan usaha kecil di desa.dan juga ini proyek bukan program",
+        "create_time": "2026-04-15 18:42",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -8.0,
+        "positive_evidence": "",
+        "negative_evidence": "jelek; mematikan; mematikan usaha",
+        "is_reply": true,
         "word_count": 14,
         "emoji_list": []
       },
@@ -4908,28 +5275,44 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7641790539722277653",
-        "video_id": "7641276206687554823",
-        "username": "nindysg2",
-        "nickname": "NindyDhie",
-        "comment": "sama aja bantu negara bang kan itu programnya presiden pie toh.adiku yg krj kontruksi bikin koprasi ini aja blg ini mah plg 2th mangkrak tutup dan adiku ada krj 10jr krj ga di byr ktnya dr pusat udh di ksh duit di mkn pengelola.rombongan adiku stop ga mau lg.menurutku program ini itu bibit” korupsi di seluruh indonesia.",
-        "create_time": "2026-05-20 09:10",
+        "comment_id": "7643699271842071304",
+        "video_id": "7643478603576954132",
+        "username": "cakrabuana.131",
+        "nickname": "Cakrabuana 131",
+        "comment": "rezeki itu udah ada porsinya masing2 jangan merasa kalo usaha orang lain menghambat usaha kita\ntuhan aja adil masa sesama makhluk ciptaan Tuhan yang maha adil malah berbuat tidak adil .\nharus nya bikin strategi branding dan tata kelola yang baik agar berjalan dengan baik, persaingan dalam usaha itu pasti tapi ada tapi yang bersih jangan malah merugikan pihak lain .",
+        "create_time": "2026-05-25 12:37",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -8.0,
-        "positive_evidence": "",
-        "negative_evidence": "tutup; korupsi; mangkrak",
-        "is_reply": true,
-        "word_count": 60,
+        "positive_evidence": "baik; adil",
+        "negative_evidence": "merugikan; tidak adil; persaingan",
+        "is_reply": false,
+        "word_count": 59,
         "emoji_list": []
       },
       {
-        "comment_id": "7643488046168736519",
-        "video_id": "7643478603576954132",
-        "username": "baroga.2038",
-        "nickname": "BAROGA",
-        "comment": "Kopdes umurnya gak lama,kalau caranya seperti itu mematikan usaha yang lain,nanti ada himbauan lagi untuk warung warung Masyarakat harus di tutup karena mengganggu bisnis Kopdes 😏",
-        "create_time": "2026-05-24 22:57",
+        "comment_id": "7642496172112593671",
+        "video_id": "7642226716156513556",
+        "username": "user60180524270158",
+        "nickname": "yanti77",
+        "comment": "bagus lah tutup semua,gumana sih pemerintah nih,malah mematikan usaha rakyat,udah mah gara² mbg sembako jadi pada mahal sekarang bikin lagi koprasi merah putih",
+        "create_time": "2026-05-22 06:48",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -8.0,
+        "positive_evidence": "bagus",
+        "negative_evidence": "tutup; mahal; mematikan; mematikan usaha",
+        "is_reply": false,
+        "word_count": 26,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7642228490498589447",
+        "video_id": "7641276206687554823",
+        "username": "ibu.negara778",
+        "nickname": "Youlie",
+        "comment": "bersaing sehat...jangan dengan adanya kopdes mematikan usaha orang dan Alfa ,indo suru tutup...gimana dengan karyawan Alfa,indo,mereka juga pejuang rupiah,tulang punggung keluarga nya...🤔",
+        "create_time": "2026-05-21 13:29",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -8.0,
@@ -4938,8 +5321,56 @@
         "is_reply": false,
         "word_count": 27,
         "emoji_list": [
-          "😏"
+          "🤔"
         ]
+      },
+      {
+        "comment_id": "7641084381351723797",
+        "video_id": "7640891074545749266",
+        "username": "aba.kadafi5",
+        "nickname": "Aba Kadafi 🦉🦉",
+        "comment": "pantas kita mau belanja perdus Ndak boleh djiancok mau monopoli pasar anjir biar pedagang kecil jualx mahal ini sama halx mematikan pedagang kecil dan menengah rakyat yg kena imbas beli barang mahal",
+        "create_time": "2026-05-18 11:30",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -8.0,
+        "positive_evidence": "",
+        "negative_evidence": "mahal; mematikan; pedagang kecil; kena imbas",
+        "is_reply": false,
+        "word_count": 32,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7638613989228577554",
+        "video_id": "7619816188461370645",
+        "username": "ftmazzahrara",
+        "nickname": "Novia Az Zahra 2",
+        "comment": "Tujuan kopdes itu menyaingi sekelas alfa indomart . Kalau kopdes berputar kenegara kalau alfa indo itu menjamur dan keuntungannya hanya perorangan mengalir ke 1 orang saja . Kalau kopdes ini untuk rakyat keuntungannya . Menurut saya sangat salah jika beranggapan program ini mematikan warung/toko. Ketika alfa indo didirikan kenapa tidak dikomplain pdahal sifatnya lebih merugikan dan harganya pun lebih mahal",
+        "create_time": "2026-05-11 19:43",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -8.0,
+        "positive_evidence": "",
+        "negative_evidence": "merugikan; mahal; mematikan",
+        "is_reply": true,
+        "word_count": 58,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7641117923071214354",
+        "video_id": "7640891074545749266",
+        "username": "warung_atien",
+        "nickname": "Duta warung",
+        "comment": "betul mba ,ngga ngerti lagi sama pemerintah mau nya tuh gimana ....ini mah bukan membantu rakyat mematikan usaha rakyat namanya",
+        "create_time": "2026-05-18 13:40",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -8.0,
+        "positive_evidence": "membantu",
+        "negative_evidence": "mematikan; mematikan usaha",
+        "is_reply": true,
+        "word_count": 20,
+        "emoji_list": []
       },
       {
         "comment_id": "7642598791962854165",
@@ -4958,6 +5389,38 @@
         "emoji_list": [
           "😩"
         ]
+      },
+      {
+        "comment_id": "7642664928268731156",
+        "video_id": "7641276206687554823",
+        "username": "sukronrijal03",
+        "nickname": "Rizal8380",
+        "comment": "Ga akan belanja Di Koprasi gw., Kecewa peraturan prabowo mematikan rezeki anak alfamart dan Indomaret..tidak ada jaminan Membuka usaha Koprasi merah putih yg pengangguran bekerja dan berjalan lama., udh jelas ini merugikan anak\" alfamart dan Indomaret yg hidupnya bergantung pada kerjaan nnya",
+        "create_time": "2026-05-22 17:43",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -8.0,
+        "positive_evidence": "",
+        "negative_evidence": "merugikan; mematikan; kecewa",
+        "is_reply": false,
+        "word_count": 43,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7643238329937429268",
+        "video_id": "7641276206687554823",
+        "username": "anton.fauzi74",
+        "nickname": "Anton Fauzi",
+        "comment": "tuuuul betul skli gak akan lama pling kuat 1/ 2 tahun jga bangkrut sipat berusaha menolak orang lain berusaha yg namanya jualan itu persaingan gak perlu di tutup yg sdah ada.. sy walapun hidup di kmpung lbih memilih di alfamart dan indomaret atau di JOGJA lbih bnyak pilhan nya..",
+        "create_time": "2026-05-24 06:48",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -8.0,
+        "positive_evidence": "",
+        "negative_evidence": "tutup; bangkrut; persaingan; menolak",
+        "is_reply": true,
+        "word_count": 49,
+        "emoji_list": []
       },
       {
         "comment_id": "7644193056120128276",
@@ -4996,65 +5459,65 @@
         ]
       },
       {
-        "comment_id": "7641117923071214354",
+        "comment_id": "7641790539722277653",
+        "video_id": "7641276206687554823",
+        "username": "nindysg2",
+        "nickname": "NindyDhie",
+        "comment": "sama aja bantu negara bang kan itu programnya presiden pie toh.adiku yg krj kontruksi bikin koprasi ini aja blg ini mah plg 2th mangkrak tutup dan adiku ada krj 10jr krj ga di byr ktnya dr pusat udh di ksh duit di mkn pengelola.rombongan adiku stop ga mau lg.menurutku program ini itu bibit” korupsi di seluruh indonesia.",
+        "create_time": "2026-05-20 09:10",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -8.0,
+        "positive_evidence": "",
+        "negative_evidence": "tutup; korupsi; mangkrak",
+        "is_reply": true,
+        "word_count": 60,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7641124213251982081",
         "video_id": "7640891074545749266",
-        "username": "warung_atien",
-        "nickname": "Duta warung",
-        "comment": "betul mba ,ngga ngerti lagi sama pemerintah mau nya tuh gimana ....ini mah bukan membantu rakyat mematikan usaha rakyat namanya",
-        "create_time": "2026-05-18 13:40",
+        "username": "heyoo__22",
+        "nickname": "info suka-suka",
+        "comment": "mana ada pembelaan UMKM justru pelan pelan mematikan usaha kcl,kurang setuju program ini",
+        "create_time": "2026-05-18 14:04",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -8.0,
-        "positive_evidence": "membantu",
+        "positive_evidence": "setuju",
         "negative_evidence": "mematikan; mematikan usaha",
-        "is_reply": true,
-        "word_count": 20,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7643238329937429268",
-        "video_id": "7641276206687554823",
-        "username": "anton.fauzi74",
-        "nickname": "Anton Fauzi",
-        "comment": "tuuuul betul skli gak akan lama pling kuat 1/ 2 tahun jga bangkrut sipat berusaha menolak orang lain berusaha yg namanya jualan itu persaingan gak perlu di tutup yg sdah ada.. sy walapun hidup di kmpung lbih memilih di alfamart dan indomaret atau di JOGJA lbih bnyak pilhan nya..",
-        "create_time": "2026-05-24 06:48",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -8.0,
-        "positive_evidence": "",
-        "negative_evidence": "tutup; bangkrut; persaingan; menolak",
-        "is_reply": true,
-        "word_count": 49,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7642664928268731156",
-        "video_id": "7641276206687554823",
-        "username": "sukronrijal03",
-        "nickname": "Rizal8380",
-        "comment": "Ga akan belanja Di Koprasi gw., Kecewa peraturan prabowo mematikan rezeki anak alfamart dan Indomaret..tidak ada jaminan Membuka usaha Koprasi merah putih yg pengangguran bekerja dan berjalan lama., udh jelas ini merugikan anak\" alfamart dan Indomaret yg hidupnya bergantung pada kerjaan nnya",
-        "create_time": "2026-05-22 17:43",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -8.0,
-        "positive_evidence": "",
-        "negative_evidence": "merugikan; mematikan; kecewa",
         "is_reply": false,
-        "word_count": 43,
+        "word_count": 14,
         "emoji_list": []
       },
       {
-        "comment_id": "7643566768396894997",
-        "video_id": "7643478603576954132",
-        "username": "user5155711423055",
-        "nickname": "user5155711423055",
-        "comment": "kalo tujuannya gak baik mematikan usaha yg lain biasanya malah gak jalan justru sebaliknya bangkrut sendiri ............",
-        "create_time": "2026-05-25 04:03",
+        "comment_id": "7627353798525272840",
+        "video_id": "7626731518857268498",
+        "username": "jasminefortuna11",
+        "nickname": "Jasmine Fortuna",
+        "comment": "Pinjaman awal memang wajib pakai himbara, kemarin kan purbaya awal menjabat mengucurkan dana ratusan triliun untuk bank2 himbara, tapi ternyata bank himbaranya tak bisa nyeram semua dananya, akhirnya purbaya putar otak agar dana kucuran ke bank himbara ini bisa terserap semua ya akhirnya untuk pinjaman kopdes ini lah dengan jaminan anggaran dana desa, daripada awal modal kopdes dari dana hibah pemerintah malah lebih bahaya kalau gagal. Toh keuntungan, anggota dan pengurusnya juga warga desa tersebut jadi kalau bangkrut yang rugi juga mereka, kagak usah di pikirin program ini memang memaksa agar desa/kelurahan itu bisa mandiri tanpa ketergantungan dana dari pusat, anggotanya juga di beri pelatihan dan pendampingan untuk berternak ayam dan ayam petelur hasilnya nanti di tampung di kopdes dan akan di salurkan ke dapur2 MBG.",
+        "create_time": "2026-04-11 11:28",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -8.0,
-        "positive_evidence": "baik",
-        "negative_evidence": "bangkrut; mematikan; mematikan usaha",
+        "positive_evidence": "",
+        "negative_evidence": "gagal; bangkrut; rugi",
+        "is_reply": true,
+        "word_count": 127,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7642886845701571349",
+        "video_id": "7642226716156513556",
+        "username": "yudistiratour",
+        "nickname": "Aryan Yudhistira",
+        "comment": "Biarkan tutup selamanya.. koperasi merah putih hanya mematikan mata pencaharian orang lain.\nbiarkan mangkrak tanpa guna.",
+        "create_time": "2026-05-23 08:04",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -8.0,
+        "positive_evidence": "",
+        "negative_evidence": "tutup; mematikan; mangkrak",
         "is_reply": false,
         "word_count": 16,
         "emoji_list": []
@@ -5076,99 +5539,19 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7643699271842071304",
+        "comment_id": "7643566768396894997",
         "video_id": "7643478603576954132",
-        "username": "cakrabuana.131",
-        "nickname": "Cakrabuana 131",
-        "comment": "rezeki itu udah ada porsinya masing2 jangan merasa kalo usaha orang lain menghambat usaha kita\ntuhan aja adil masa sesama makhluk ciptaan Tuhan yang maha adil malah berbuat tidak adil .\nharus nya bikin strategi branding dan tata kelola yang baik agar berjalan dengan baik, persaingan dalam usaha itu pasti tapi ada tapi yang bersih jangan malah merugikan pihak lain .",
-        "create_time": "2026-05-25 12:37",
+        "username": "user5155711423055",
+        "nickname": "user5155711423055",
+        "comment": "kalo tujuannya gak baik mematikan usaha yg lain biasanya malah gak jalan justru sebaliknya bangkrut sendiri ............",
+        "create_time": "2026-05-25 04:03",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -8.0,
-        "positive_evidence": "baik; adil",
-        "negative_evidence": "merugikan; tidak adil; persaingan",
+        "positive_evidence": "baik",
+        "negative_evidence": "bangkrut; mematikan; mematikan usaha",
         "is_reply": false,
-        "word_count": 59,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7638613989228577554",
-        "video_id": "7619816188461370645",
-        "username": "ftmazzahrara",
-        "nickname": "Novia Az Zahra 2",
-        "comment": "Tujuan kopdes itu menyaingi sekelas alfa indomart . Kalau kopdes berputar kenegara kalau alfa indo itu menjamur dan keuntungannya hanya perorangan mengalir ke 1 orang saja . Kalau kopdes ini untuk rakyat keuntungannya . Menurut saya sangat salah jika beranggapan program ini mematikan warung/toko. Ketika alfa indo didirikan kenapa tidak dikomplain pdahal sifatnya lebih merugikan dan harganya pun lebih mahal",
-        "create_time": "2026-05-11 19:43",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -8.0,
-        "positive_evidence": "",
-        "negative_evidence": "merugikan; mahal; mematikan",
-        "is_reply": true,
-        "word_count": 58,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7627353798525272840",
-        "video_id": "7626731518857268498",
-        "username": "jasminefortuna11",
-        "nickname": "Jasmine Fortuna",
-        "comment": "Pinjaman awal memang wajib pakai himbara, kemarin kan purbaya awal menjabat mengucurkan dana ratusan triliun untuk bank2 himbara, tapi ternyata bank himbaranya tak bisa nyeram semua dananya, akhirnya purbaya putar otak agar dana kucuran ke bank himbara ini bisa terserap semua ya akhirnya untuk pinjaman kopdes ini lah dengan jaminan anggaran dana desa, daripada awal modal kopdes dari dana hibah pemerintah malah lebih bahaya kalau gagal. Toh keuntungan, anggota dan pengurusnya juga warga desa tersebut jadi kalau bangkrut yang rugi juga mereka, kagak usah di pikirin program ini memang memaksa agar desa/kelurahan itu bisa mandiri tanpa ketergantungan dana dari pusat, anggotanya juga di beri pelatihan dan pendampingan untuk berternak ayam dan ayam petelur hasilnya nanti di tampung di kopdes dan akan di salurkan ke dapur2 MBG.",
-        "create_time": "2026-04-11 11:28",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -8.0,
-        "positive_evidence": "",
-        "negative_evidence": "gagal; bangkrut; rugi",
-        "is_reply": true,
-        "word_count": 127,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7641124213251982081",
-        "video_id": "7640891074545749266",
-        "username": "heyoo__22",
-        "nickname": "info suka-suka",
-        "comment": "mana ada pembelaan UMKM justru pelan pelan mematikan usaha kcl,kurang setuju program ini",
-        "create_time": "2026-05-18 14:04",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -8.0,
-        "positive_evidence": "setuju",
-        "negative_evidence": "mematikan; mematikan usaha",
-        "is_reply": false,
-        "word_count": 14,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7628949965029589777",
-        "video_id": "7628525224593493264",
-        "username": "andre.com215",
-        "nickname": "stivi",
-        "comment": "emang program jelek,mematikan usaha kecil di desa.dan juga ini proyek bukan program",
-        "create_time": "2026-04-15 18:42",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -8.0,
-        "positive_evidence": "",
-        "negative_evidence": "jelek; mematikan; mematikan usaha",
-        "is_reply": true,
-        "word_count": 14,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7642496172112593671",
-        "video_id": "7642226716156513556",
-        "username": "user60180524270158",
-        "nickname": "yanti77",
-        "comment": "bagus lah tutup semua,gumana sih pemerintah nih,malah mematikan usaha rakyat,udah mah gara² mbg sembako jadi pada mahal sekarang bikin lagi koprasi merah putih",
-        "create_time": "2026-05-22 06:48",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -8.0,
-        "positive_evidence": "bagus",
-        "negative_evidence": "tutup; mahal; mematikan; mematikan usaha",
-        "is_reply": false,
-        "word_count": 26,
+        "word_count": 16,
         "emoji_list": []
       },
       {
@@ -5204,28 +5587,12 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7641084381351723797",
-        "video_id": "7640891074545749266",
-        "username": "aba.kadafi5",
-        "nickname": "Aba Kadafi 🦉🦉",
-        "comment": "pantas kita mau belanja perdus Ndak boleh djiancok mau monopoli pasar anjir biar pedagang kecil jualx mahal ini sama halx mematikan pedagang kecil dan menengah rakyat yg kena imbas beli barang mahal",
-        "create_time": "2026-05-18 11:30",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -8.0,
-        "positive_evidence": "",
-        "negative_evidence": "mahal; mematikan; pedagang kecil; kena imbas",
-        "is_reply": false,
-        "word_count": 32,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7642228490498589447",
-        "video_id": "7641276206687554823",
-        "username": "ibu.negara778",
-        "nickname": "Youlie",
-        "comment": "bersaing sehat...jangan dengan adanya kopdes mematikan usaha orang dan Alfa ,indo suru tutup...gimana dengan karyawan Alfa,indo,mereka juga pejuang rupiah,tulang punggung keluarga nya...🤔",
-        "create_time": "2026-05-21 13:29",
+        "comment_id": "7643488046168736519",
+        "video_id": "7643478603576954132",
+        "username": "baroga.2038",
+        "nickname": "BAROGA",
+        "comment": "Kopdes umurnya gak lama,kalau caranya seperti itu mematikan usaha yang lain,nanti ada himbauan lagi untuk warung warung Masyarakat harus di tutup karena mengganggu bisnis Kopdes 😏",
+        "create_time": "2026-05-24 22:57",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -8.0,
@@ -5234,23 +5601,55 @@
         "is_reply": false,
         "word_count": 27,
         "emoji_list": [
-          "🤔"
+          "😏"
         ]
       },
       {
-        "comment_id": "7642886845701571349",
+        "comment_id": "7643051849649636104",
         "video_id": "7642226716156513556",
-        "username": "yudistiratour",
-        "nickname": "Aryan Yudhistira",
-        "comment": "Biarkan tutup selamanya.. koperasi merah putih hanya mematikan mata pencaharian orang lain.\nbiarkan mangkrak tanpa guna.",
-        "create_time": "2026-05-23 08:04",
+        "username": "nguraharya48",
+        "nickname": "Ngurah Arya 88",
+        "comment": "Semoga KMP segera bangkrut tutup selamanya karena berpotensi mematikan warung warung milik rakyat kecil",
+        "create_time": "2026-05-23 18:44",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -8.0,
+        "sentiment_score": -7.0,
+        "positive_evidence": "semoga",
+        "negative_evidence": "tutup; bangkrut; mematikan",
+        "is_reply": true,
+        "word_count": 14,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7641074792066401025",
+        "video_id": "7640478764060675348",
+        "username": "mind_hanna",
+        "nickname": "hnn.chr",
+        "comment": "BUMDes yang gagal ada, tapi yang jalan juga banyak. Gagalnya biasanya karena pengelolaan, bukan karena konsep usaha desa pasti salah. Soal harga grosir juga bukan berarti mematikan toko warga, justru bisa jadi pemasok buat warung-warung kecil biar mereka nggak perlu kulakan jauh dan modal transport lebih hemat.",
+        "create_time": "2026-05-18 10:53",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -7.0,
         "positive_evidence": "",
-        "negative_evidence": "tutup; mematikan; mangkrak",
+        "negative_evidence": "gagal; mematikan; warung kecil",
+        "is_reply": true,
+        "word_count": 48,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7644088763723498260",
+        "video_id": "7643712308274810133",
+        "username": "toko_tegarberkah",
+        "nickname": "Emielya_Tegar",
+        "comment": "terus yg usaha warung kecil gimana ini pak prabowo, ini mematikan usaha rakyat, tinggal tunggu waktu aja uda ga ada lg yg buka warung kecil dan warga juga yg akan kerepotan klo jauh dari lokasi kmp",
+        "create_time": "2026-05-26 13:49",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -7.0,
+        "positive_evidence": "",
+        "negative_evidence": "mematikan; mematikan usaha; warung kecil",
         "is_reply": false,
-        "word_count": 16,
+        "word_count": 36,
         "emoji_list": []
       },
       {
@@ -5267,54 +5666,6 @@
         "negative_evidence": "tutup; bangkrut; warung kecil; mangkrak",
         "is_reply": false,
         "word_count": 82,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7631190171427128082",
-        "video_id": "7628525224593493264",
-        "username": "edisusanto9055",
-        "nickname": "es",
-        "comment": "ini mematikan usaha warung kecil",
-        "create_time": "2026-04-21 19:35",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -7.0,
-        "positive_evidence": "",
-        "negative_evidence": "mematikan; mematikan usaha; warung kecil",
-        "is_reply": false,
-        "word_count": 5,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7529953691484832529",
-        "video_id": "7526458489577737488",
-        "username": "naon24th",
-        "nickname": "Ku Maha",
-        "comment": "KDMP apa tujuannya mematikan usaha rakyat yg dibangun dgn susah payah.....",
-        "create_time": "2025-07-23 00:06",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -7.0,
-        "positive_evidence": "",
-        "negative_evidence": "mematikan; susah; mematikan usaha",
-        "is_reply": false,
-        "word_count": 11,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7643051849649636104",
-        "video_id": "7642226716156513556",
-        "username": "nguraharya48",
-        "nickname": "Ngurah Arya 88",
-        "comment": "Semoga KMP segera bangkrut tutup selamanya karena berpotensi mematikan warung warung milik rakyat kecil",
-        "create_time": "2026-05-23 18:44",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -7.0,
-        "positive_evidence": "semoga",
-        "negative_evidence": "tutup; bangkrut; mematikan",
-        "is_reply": true,
-        "word_count": 14,
         "emoji_list": []
       },
       {
@@ -5336,39 +5687,19 @@
         ]
       },
       {
-        "comment_id": "7643757636769399572",
-        "video_id": "7643478603576954132",
-        "username": "giggs861",
-        "nickname": "Giggs",
-        "comment": "Kopdes itu jargonnya “ rugi itu pilihan “ 😂😂😂gak mungkin pejabat bisa kaya karena sabun yang di korupsi modalnya ujungnya tutup",
-        "create_time": "2026-05-25 16:23",
+        "comment_id": "7641567943908639508",
+        "video_id": "7641470196108004626",
+        "username": "qiara.bastiyan.pu",
+        "nickname": "QBP",
+        "comment": "ini yg teriak rata2 warung kecil yg di desa...\notomatis mematikan usaha mereka.\nbayangkan tiap desa ada loh...\nkalau alfa dan Indomaret kan hanya di kota jalan besar.",
+        "create_time": "2026-05-19 18:46",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -7.0,
         "positive_evidence": "",
-        "negative_evidence": "tutup; rugi; korupsi",
+        "negative_evidence": "mematikan; mematikan usaha; warung kecil",
         "is_reply": false,
-        "word_count": 19,
-        "emoji_list": [
-          "😂",
-          "😂",
-          "😂"
-        ]
-      },
-      {
-        "comment_id": "7640786875854635797",
-        "video_id": "7526458489577737488",
-        "username": "vynexlabs.id",
-        "nickname": "Vynexlabs.id",
-        "comment": "PAK SAYA KECEWA BERAT DENGAN PROGRAM INI KARENA APA? INI MONOPOLI OLEH PEMERINTAH DENGAN MEMBUKA MINIMARKET DAN BERSAING DENGAN RAKYAT, SAYA KIRA INI DAYA RUSAK YANG DI BUAT CUKUP PARAH, KAMI KECEWA SEKALI DENGAN PROGRAM YANG KURANG OKE DI MANA IKN MANGKRAK, DEFISIT BESAR, BARANG SEMUA MAHAL!! KAMI KECEWA",
-        "create_time": "2026-05-17 16:15",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -7.0,
-        "positive_evidence": "",
-        "negative_evidence": "mahal; kecewa; mangkrak",
-        "is_reply": false,
-        "word_count": 49,
+        "word_count": 28,
         "emoji_list": []
       },
       {
@@ -5390,102 +5721,20 @@
         ]
       },
       {
-        "comment_id": "7644101621349925652",
-        "video_id": "7641276206687554823",
-        "username": "sekatainspirasi",
-        "nickname": "Aquaman",
-        "comment": "semua ada rejeki nya masing2. ga perlu takut kesaingin apalagi mematikan usaha orang.",
-        "create_time": "2026-05-26 14:38",
+        "comment_id": "7640786875854635797",
+        "video_id": "7526458489577737488",
+        "username": "vynexlabs.id",
+        "nickname": "Vynexlabs.id",
+        "comment": "PAK SAYA KECEWA BERAT DENGAN PROGRAM INI KARENA APA? INI MONOPOLI OLEH PEMERINTAH DENGAN MEMBUKA MINIMARKET DAN BERSAING DENGAN RAKYAT, SAYA KIRA INI DAYA RUSAK YANG DI BUAT CUKUP PARAH, KAMI KECEWA SEKALI DENGAN PROGRAM YANG KURANG OKE DI MANA IKN MANGKRAK, DEFISIT BESAR, BARANG SEMUA MAHAL!! KAMI KECEWA",
+        "create_time": "2026-05-17 16:15",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -7.0,
         "positive_evidence": "",
-        "negative_evidence": "mematikan; takut; mematikan usaha",
-        "is_reply": true,
-        "word_count": 13,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7641518094762820372",
-        "video_id": "7641183642437586196",
-        "username": "sriwaluyo7713",
-        "nickname": "srii",
-        "comment": "BPK sadar GK kalau BPK mematikan usaha kecil pak ,hanya sebagian aja yg diuntungkan coba lihat warung warung kecil pak kalau semua dikelola pemerintah",
-        "create_time": "2026-05-19 15:33",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -7.0,
-        "positive_evidence": "",
-        "negative_evidence": "mematikan; mematikan usaha; warung kecil",
+        "negative_evidence": "mahal; kecewa; mangkrak",
         "is_reply": false,
-        "word_count": 24,
+        "word_count": 49,
         "emoji_list": []
-      },
-      {
-        "comment_id": "7641074792066401025",
-        "video_id": "7640478764060675348",
-        "username": "mind_hanna",
-        "nickname": "hnn.chr",
-        "comment": "BUMDes yang gagal ada, tapi yang jalan juga banyak. Gagalnya biasanya karena pengelolaan, bukan karena konsep usaha desa pasti salah. Soal harga grosir juga bukan berarti mematikan toko warga, justru bisa jadi pemasok buat warung-warung kecil biar mereka nggak perlu kulakan jauh dan modal transport lebih hemat.",
-        "create_time": "2026-05-18 10:53",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -7.0,
-        "positive_evidence": "",
-        "negative_evidence": "gagal; mematikan; warung kecil",
-        "is_reply": true,
-        "word_count": 48,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7643491860035535637",
-        "video_id": "7641276206687554823",
-        "username": "haryhari8",
-        "nickname": "haryhari8",
-        "comment": "persaingan tidak sehat dengan mematikan usaha orang lain.",
-        "create_time": "2026-05-24 23:12",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -7.0,
-        "positive_evidence": "",
-        "negative_evidence": "persaingan; mematikan; mematikan usaha",
-        "is_reply": false,
-        "word_count": 8,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7643831411065635604",
-        "video_id": "7643478603576954132",
-        "username": "anitaall20",
-        "nickname": "Anitalarasati",
-        "comment": "tidak setuju kalau Alfa/indo tutup",
-        "create_time": "2026-05-25 21:10",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -7.0,
-        "positive_evidence": "setuju",
-        "negative_evidence": "tutup; tidak setuju",
-        "is_reply": false,
-        "word_count": 6,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7643339932388508424",
-        "video_id": "7641276206687554823",
-        "username": "eghygau",
-        "nickname": "Egi",
-        "comment": "semua program pemerintah, percaya kata gw, 5 tahun kedepan lu bakalan dengar bahwa program ini Merugikan negara, lah bayangin pertamina aja, yg semua kita pengguna, tetap aj mereka rugi, jd mau berharap ap pada program berkedok lahan korupsi baru 🙏",
-        "create_time": "2026-05-24 13:22",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -7.0,
-        "positive_evidence": "",
-        "negative_evidence": "rugi; merugikan; korupsi",
-        "is_reply": false,
-        "word_count": 39,
-        "emoji_list": [
-          "🙏"
-        ]
       },
       {
         "comment_id": "7641913616946873106",
@@ -5524,35 +5773,69 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7641567943908639508",
-        "video_id": "7641470196108004626",
-        "username": "qiara.bastiyan.pu",
-        "nickname": "QBP",
-        "comment": "ini yg teriak rata2 warung kecil yg di desa...\notomatis mematikan usaha mereka.\nbayangkan tiap desa ada loh...\nkalau alfa dan Indomaret kan hanya di kota jalan besar.",
-        "create_time": "2026-05-19 18:46",
+        "comment_id": "7644101621349925652",
+        "video_id": "7641276206687554823",
+        "username": "sekatainspirasi",
+        "nickname": "Aquaman",
+        "comment": "semua ada rejeki nya masing2. ga perlu takut kesaingin apalagi mematikan usaha orang.",
+        "create_time": "2026-05-26 14:38",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -7.0,
         "positive_evidence": "",
-        "negative_evidence": "mematikan; mematikan usaha; warung kecil",
-        "is_reply": false,
-        "word_count": 28,
+        "negative_evidence": "mematikan; takut; mematikan usaha",
+        "is_reply": true,
+        "word_count": 13,
         "emoji_list": []
       },
       {
-        "comment_id": "7644088763723498260",
-        "video_id": "7643712308274810133",
-        "username": "toko_tegarberkah",
-        "nickname": "Emielya_Tegar",
-        "comment": "terus yg usaha warung kecil gimana ini pak prabowo, ini mematikan usaha rakyat, tinggal tunggu waktu aja uda ga ada lg yg buka warung kecil dan warga juga yg akan kerepotan klo jauh dari lokasi kmp",
-        "create_time": "2026-05-26 13:49",
+        "comment_id": "7641518094762820372",
+        "video_id": "7641183642437586196",
+        "username": "sriwaluyo7713",
+        "nickname": "srii",
+        "comment": "BPK sadar GK kalau BPK mematikan usaha kecil pak ,hanya sebagian aja yg diuntungkan coba lihat warung warung kecil pak kalau semua dikelola pemerintah",
+        "create_time": "2026-05-19 15:33",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -7.0,
         "positive_evidence": "",
         "negative_evidence": "mematikan; mematikan usaha; warung kecil",
         "is_reply": false,
-        "word_count": 36,
+        "word_count": 24,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7643339932388508424",
+        "video_id": "7641276206687554823",
+        "username": "eghygau",
+        "nickname": "Egi",
+        "comment": "semua program pemerintah, percaya kata gw, 5 tahun kedepan lu bakalan dengar bahwa program ini Merugikan negara, lah bayangin pertamina aja, yg semua kita pengguna, tetap aj mereka rugi, jd mau berharap ap pada program berkedok lahan korupsi baru 🙏",
+        "create_time": "2026-05-24 13:22",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -7.0,
+        "positive_evidence": "",
+        "negative_evidence": "rugi; merugikan; korupsi",
+        "is_reply": false,
+        "word_count": 39,
+        "emoji_list": [
+          "🙏"
+        ]
+      },
+      {
+        "comment_id": "7529953691484832529",
+        "video_id": "7526458489577737488",
+        "username": "naon24th",
+        "nickname": "Ku Maha",
+        "comment": "KDMP apa tujuannya mematikan usaha rakyat yg dibangun dgn susah payah.....",
+        "create_time": "2025-07-23 00:06",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -7.0,
+        "positive_evidence": "",
+        "negative_evidence": "mematikan; susah; mematikan usaha",
+        "is_reply": false,
+        "word_count": 11,
         "emoji_list": []
       },
       {
@@ -5572,126 +5855,240 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7641123348617610002",
-        "video_id": "7640891074545749266",
-        "username": "vicky_rf29",
-        "nickname": "Vicky_RF",
-        "comment": "Dulu KUD perkecamatan 1 aja bangkrut apalagi ini KDMP perdesa 1. Berani taruhan 2th jalan bakal bangkrut dan mangkrak. Ini kan proyek bagi bagi",
-        "create_time": "2026-05-18 14:01",
+        "comment_id": "7643491860035535637",
+        "video_id": "7641276206687554823",
+        "username": "haryhari8",
+        "nickname": "haryhari8",
+        "comment": "persaingan tidak sehat dengan mematikan usaha orang lain.",
+        "create_time": "2026-05-24 23:12",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -6.0,
+        "sentiment_score": -7.0,
         "positive_evidence": "",
-        "negative_evidence": "bangkrut; mangkrak",
+        "negative_evidence": "persaingan; mematikan; mematikan usaha",
         "is_reply": false,
-        "word_count": 24,
+        "word_count": 8,
         "emoji_list": []
       },
       {
-        "comment_id": "7644160856884970258",
-        "video_id": "7641276206687554823",
-        "username": "logandu1990",
-        "nickname": "Logandu",
-        "comment": "kita doakan secepatnya bangkrut bangunan mangkrak",
-        "create_time": "2026-05-26 18:28",
+        "comment_id": "7643757636769399572",
+        "video_id": "7643478603576954132",
+        "username": "giggs861",
+        "nickname": "Giggs",
+        "comment": "Kopdes itu jargonnya “ rugi itu pilihan “ 😂😂😂gak mungkin pejabat bisa kaya karena sabun yang di korupsi modalnya ujungnya tutup",
+        "create_time": "2026-05-25 16:23",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -6.0,
+        "sentiment_score": -7.0,
         "positive_evidence": "",
-        "negative_evidence": "bangkrut; mangkrak",
+        "negative_evidence": "tutup; rugi; korupsi",
+        "is_reply": false,
+        "word_count": 19,
+        "emoji_list": [
+          "😂",
+          "😂",
+          "😂"
+        ]
+      },
+      {
+        "comment_id": "7643831411065635604",
+        "video_id": "7643478603576954132",
+        "username": "anitaall20",
+        "nickname": "Anitalarasati",
+        "comment": "tidak setuju kalau Alfa/indo tutup",
+        "create_time": "2026-05-25 21:10",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -7.0,
+        "positive_evidence": "setuju",
+        "negative_evidence": "tutup; tidak setuju",
         "is_reply": false,
         "word_count": 6,
         "emoji_list": []
       },
       {
-        "comment_id": "7643322003524584200",
-        "video_id": "7641781303423061255",
-        "username": "aisyahaisy19",
-        "nickname": "Aisy’s",
-        "comment": "Memang sengaja di batasi barangnya supaya tdk mematikan usaha kelontong paham ga ente?",
-        "create_time": "2026-05-24 12:13",
+        "comment_id": "7631190171427128082",
+        "video_id": "7628525224593493264",
+        "username": "edisusanto9055",
+        "nickname": "es",
+        "comment": "ini mematikan usaha warung kecil",
+        "create_time": "2026-04-21 19:35",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -6.0,
+        "sentiment_score": -7.0,
         "positive_evidence": "",
-        "negative_evidence": "mematikan; mematikan usaha",
+        "negative_evidence": "mematikan; mematikan usaha; warung kecil",
         "is_reply": false,
-        "word_count": 13,
+        "word_count": 5,
         "emoji_list": []
       },
       {
-        "comment_id": "7643515457865892615",
+        "comment_id": "7644014782773494549",
         "video_id": "7643478603576954132",
-        "username": "juff_wo",
-        "nickname": "Djoufri MW",
-        "comment": "pada intinya setiap usaha yg di buat pemerintah hanya untuk kepentingan dan kemajuan programnya tanpa memikirkan usaha UMKM yg berpihak ke rakyat kecil dan secara tidak langsung mematikan usaha pedagang milik pribadi sekian dari saya 😁",
-        "create_time": "2026-05-25 00:43",
+        "username": "ssdang.mengetik",
+        "nickname": "Ssdang Mengetik",
+        "comment": "karyawan Alfamart dan Indomaret trs krja di mana, sekarang cari kerja susah, klau sudah dpt krja, gaji kita di potong pajak ini tidak adil selalu rakyat kecil yg selalu di buat susah",
+        "create_time": "2026-05-26 09:01",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -6.0,
+        "positive_evidence": "adil",
+        "negative_evidence": "tidak adil; susah",
+        "is_reply": false,
+        "word_count": 32,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7642914365230334728",
+        "video_id": "7642581123515616533",
+        "username": "asihkurniasih97",
+        "nickname": "asih",
+        "comment": "berarto koperasi merah putih mematikan usaha rakyat menengah k bawah",
+        "create_time": "2026-05-23 09:51",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -6.0,
         "positive_evidence": "",
         "negative_evidence": "mematikan; mematikan usaha",
         "is_reply": false,
-        "word_count": 35,
-        "emoji_list": [
-          "😁"
-        ]
+        "word_count": 10,
+        "emoji_list": []
       },
       {
-        "comment_id": "7641918240805815060",
+        "comment_id": "7643640513576960775",
+        "video_id": "7643478603576954132",
+        "username": "la.thure",
+        "nickname": "La thure",
+        "comment": "membuka usaha dgn cara mematikan usaha orang lain",
+        "create_time": "2026-05-25 08:49",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -6.0,
+        "positive_evidence": "",
+        "negative_evidence": "mematikan; mematikan usaha",
+        "is_reply": true,
+        "word_count": 8,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7642551250530648852",
         "video_id": "7641276206687554823",
-        "username": "lukman.jaya655",
-        "nickname": "Lukman Jaya",
-        "comment": "itumah bisnis lama2 juga bangkrut di korupsi...",
-        "create_time": "2026-05-20 17:25",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -6.0,
-        "positive_evidence": "",
-        "negative_evidence": "bangkrut; korupsi",
-        "is_reply": false,
-        "word_count": 7,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7643629122691220244",
-        "video_id": "7643478603576954132",
-        "username": "masjuuuuu",
-        "nickname": "byjuharap",
-        "comment": "membangun program dengan mematikan usaha orang lain",
-        "create_time": "2026-05-25 08:05",
+        "username": "tau_ogi_",
+        "nickname": "suri@dy[mila]",
+        "comment": "mematikan usaha kecil rakyat..",
+        "create_time": "2026-05-22 10:22",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -6.0,
         "positive_evidence": "",
         "negative_evidence": "mematikan; mematikan usaha",
         "is_reply": false,
-        "word_count": 7,
+        "word_count": 4,
         "emoji_list": []
       },
       {
-        "comment_id": "7642489540532290305",
+        "comment_id": "7642527515495760660",
         "video_id": "7641276206687554823",
-        "username": "ardibms",
-        "nickname": "Bms Ardi",
-        "comment": "mematikan usaha UMKM yg berusaha membesarkan toko kelontong danl tiba tiba di patahkan pemerintah suruh bersaing.",
-        "create_time": "2026-05-22 06:23",
+        "username": "daffaibnu098",
+        "nickname": "daffa123",
+        "comment": "klo harga msh mrh dr Alfa mart dan Indomart GK mslh Alfa mart dan Indomart di tutup ,,klo hrga nya LBH mahal jelas ini bukan membantu masyarakat",
+        "create_time": "2026-05-22 08:50",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -6.0,
+        "positive_evidence": "membantu",
+        "negative_evidence": "tutup; mahal",
+        "is_reply": false,
+        "word_count": 27,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7642551278150140692",
+        "video_id": "7641276206687554823",
+        "username": "user9650616575719",
+        "nickname": "ina",
+        "comment": "ini yg berdiri dengan mematikan usaha lain itu kah",
+        "create_time": "2026-05-22 10:22",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -6.0,
         "positive_evidence": "",
         "negative_evidence": "mematikan; mematikan usaha",
         "is_reply": false,
-        "word_count": 16,
+        "word_count": 9,
         "emoji_list": []
       },
       {
-        "comment_id": "7643505058034205458",
+        "comment_id": "7642552607096996629",
+        "video_id": "7641276206687554823",
+        "username": "n_eva15",
+        "nickname": "aeni",
+        "comment": "sebagai pedagang sembako d kampung , dan sebagai pekerja Retail ssmoga mereka Yg bekerja faham FIFO/LIFO ,huhu duhhh mematikan Usaha rakyat kecil",
+        "create_time": "2026-05-22 10:27",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -6.0,
+        "positive_evidence": "",
+        "negative_evidence": "mematikan; mematikan usaha",
+        "is_reply": false,
+        "word_count": 22,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7643785889402995464",
         "video_id": "7643478603576954132",
-        "username": "alexfirman_51",
-        "nickname": "alexfirman51",
-        "comment": "anda mau buka usaha, tapi mematikan usaha lain. itu artinya apa",
-        "create_time": "2026-05-25 00:07",
+        "username": "dewisekarkinanti67",
+        "nickname": "sridewi67",
+        "comment": "bersaing donk jgn mematikan usaha. lain",
+        "create_time": "2026-05-25 18:13",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -6.0,
+        "positive_evidence": "",
+        "negative_evidence": "mematikan; mematikan usaha",
+        "is_reply": false,
+        "word_count": 6,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7642564373484438289",
+        "video_id": "7641276206687554823",
+        "username": "user590167367",
+        "nickname": "Yanras Motovlog",
+        "comment": "ladang nya korupsi berkedok k0pd3s takut kesaing alfa sama indo makanya alfa indo di suruh tutup kuat banget korupsi nya",
+        "create_time": "2026-05-22 11:13",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -6.0,
+        "positive_evidence": "",
+        "negative_evidence": "tutup; korupsi; takut",
+        "is_reply": false,
+        "word_count": 20,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7644158357352268564",
+        "video_id": "7643478603576954132",
+        "username": "mustclean.malang",
+        "nickname": "mustclean.malang",
+        "comment": "kualitas menteri pola pikirnya MONOPOLI usaha spt progran berjalan dengan MEMATIKAN USAHA yang sudah berjalan puluhan tahun dimana dia belum jd menteri",
+        "create_time": "2026-05-26 18:18",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -6.0,
+        "positive_evidence": "",
+        "negative_evidence": "mematikan; mematikan usaha",
+        "is_reply": false,
+        "word_count": 22,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7631042588251112212",
+        "video_id": "7628525224593493264",
+        "username": "user3900470459190",
+        "nickname": "Linda",
+        "comment": "ini akan mematikan usaha kecil dan warung2 kecil di desa setempat",
+        "create_time": "2026-04-21 10:03",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -6.0,
@@ -5700,58 +6097,6 @@
         "is_reply": false,
         "word_count": 11,
         "emoji_list": []
-      },
-      {
-        "comment_id": "7644105198101562128",
-        "video_id": "7641276206687554823",
-        "username": "siti.khumaeroh38",
-        "nickname": "Siti Khumaeroh",
-        "comment": "beberapa bulan kedepan juga bangkrut uangnya akan hilang PD di korupsi itu udah pasti yakin 😁",
-        "create_time": "2026-05-26 14:52",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -6.0,
-        "positive_evidence": "",
-        "negative_evidence": "bangkrut; korupsi",
-        "is_reply": false,
-        "word_count": 15,
-        "emoji_list": [
-          "😁"
-        ]
-      },
-      {
-        "comment_id": "7628872677264605960",
-        "video_id": "7628525224593493264",
-        "username": "devi.lusiana90",
-        "nickname": "🦢",
-        "comment": "saben deso digae koperasi nginiki secara tidak langsung mematikan usaha/penghasilan masyarakat kecil",
-        "create_time": "2026-04-15 13:42",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -6.0,
-        "positive_evidence": "",
-        "negative_evidence": "mematikan; mematikan usaha",
-        "is_reply": false,
-        "word_count": 13,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7641266462111712018",
-        "video_id": "7640478764060675348",
-        "username": "nmbr253",
-        "nickname": "￴ ￴ ￴ ￴ ￴",
-        "comment": "program mangkrak selanjutnya, ladang korupsi pemerintah kata gw udah cukup korupsi di mbg malah di bikin ladang lagi gimana ga pada pengin nyalon jadi pemerintah klo disodorin ladang korupsi terus🤣",
-        "create_time": "2026-05-18 23:16",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -6.0,
-        "positive_evidence": "",
-        "negative_evidence": "korupsi; mangkrak",
-        "is_reply": false,
-        "word_count": 30,
-        "emoji_list": [
-          "🤣"
-        ]
       },
       {
         "comment_id": "7642863847808615175",
@@ -5770,19 +6115,19 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7630207420501787412",
-        "video_id": "7628525224593493264",
-        "username": "sony_panjalu",
-        "nickname": "sonypanjalu",
-        "comment": "semuanya di modalin & terima beres, yakinlah pasti mangkrak proyek gagal.",
-        "create_time": "2026-04-19 04:05",
+        "comment_id": "7643819328786203393",
+        "video_id": "7643478603576954132",
+        "username": "kurnia_one88",
+        "nickname": "kurnia_one",
+        "comment": "hai pak menteri, itu berapa juta orang akan mengganggur?mending bpk aka yg di STOP.\nmenurutmu negara ini byk lapangan kerja?\nharusnya pemerintah lebih fair dan tdk mematikan usaha orang, kalau pemerintah bijak harusnya berani bersaing dengan sehat.. bukan menutup dan stop alfamart dan indomaret, itu bukan solusi dan menimbulkan masalah baru",
+        "create_time": "2026-05-25 20:23",
         "sentiment_primary": "negatif",
         "sentiment_detail": "negatif_indikatif",
         "sentiment_score": -6.0,
         "positive_evidence": "",
-        "negative_evidence": "gagal; mangkrak",
+        "negative_evidence": "mematikan; mematikan usaha",
         "is_reply": false,
-        "word_count": 10,
+        "word_count": 52,
         "emoji_list": []
       }
     ],
@@ -6885,22 +7230,6 @@
         ]
       },
       {
-        "comment_id": "7644113110056010497",
-        "video_id": "7641525575823133973",
-        "username": "mazsoedibyo75",
-        "nickname": "Maz Soedibyo",
-        "comment": "Tau nggk Dana Koperasi ini modal nya dari mana??.\nPembiayaan Awal: Pembangunan fisik awal didanai melalui skema pinjaman dari bank Himbara (BRI, BNI, Mandiri, BTN, dan BSI).\nPembayaran Cicilan/Utang: Pemerintah Pusat dan Daerah melunasi pinjaman tersebut kepada bank melalui pemotongan/pengalihan Dana Desa untuk KDMP, serta Dana Alokasi Umum (DAU) dan Dana Bagi Hasil (DBH) untuk Koperasi Kelurahan Merah Putih (KKMP) selama periode tertentu\nbagaimana jika KDMP atau KKMP ini tidak bisa kembalikan Pinjaman??. maka dana desa digunakan buat bayar pinjaman. artinya apa?. desa sudah kekurangan dana buat bangun sarana umum. masih harus bayar cicilan Koperasi. dan dana nya dari dana PEMKAB atau pemerintah Daerah. yg disebut DAU DAN DANA BAGI HASIL. pemerintah daerah yg sudah susah dengan anggaran kecil. masih harus menanggung pembayaran cicilan Koperasi merah putih. iya kalo Koperasi sanggup membayar cicilan tersebut. kalo tidak. dan potensi nya tidak bisa membayar cicilan saya rasa besar. sebab apa. tinggal di hitung saja, omset penjualan mereka per hari berapa. mungkin jika tidak ada toko lain di desa atau kelurahan tersebut, bisa saja dapat omset besar. tapi mereka harus bersaing dengan toko kelontong , toko Madura, Alfa dan Indomart, apalagi di kota kelurahan ada swalayan yg lain. yg secara manajemen sudah pengalaman mengelola modal dan aset",
-        "create_time": "2026-05-26 15:23",
-        "sentiment_primary": "perlu_validasi",
-        "sentiment_detail": "ambigu_perlu_tinjau",
-        "sentiment_score": -1.0,
-        "positive_evidence": "",
-        "negative_evidence": "susah",
-        "is_reply": true,
-        "word_count": 205,
-        "emoji_list": []
-      },
-      {
         "comment_id": "7643342039995745044",
         "video_id": "7641525575823133973",
         "username": "blossy.98",
@@ -6913,6 +7242,22 @@
         "positive_evidence": "baik; murah; lengkap; lebih baik",
         "negative_evidence": "bangkrut; bingung",
         "is_reply": false,
+        "word_count": 205,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7644113110056010497",
+        "video_id": "7641525575823133973",
+        "username": "mazsoedibyo75",
+        "nickname": "Maz Soedibyo",
+        "comment": "Tau nggk Dana Koperasi ini modal nya dari mana??.\nPembiayaan Awal: Pembangunan fisik awal didanai melalui skema pinjaman dari bank Himbara (BRI, BNI, Mandiri, BTN, dan BSI).\nPembayaran Cicilan/Utang: Pemerintah Pusat dan Daerah melunasi pinjaman tersebut kepada bank melalui pemotongan/pengalihan Dana Desa untuk KDMP, serta Dana Alokasi Umum (DAU) dan Dana Bagi Hasil (DBH) untuk Koperasi Kelurahan Merah Putih (KKMP) selama periode tertentu\nbagaimana jika KDMP atau KKMP ini tidak bisa kembalikan Pinjaman??. maka dana desa digunakan buat bayar pinjaman. artinya apa?. desa sudah kekurangan dana buat bangun sarana umum. masih harus bayar cicilan Koperasi. dan dana nya dari dana PEMKAB atau pemerintah Daerah. yg disebut DAU DAN DANA BAGI HASIL. pemerintah daerah yg sudah susah dengan anggaran kecil. masih harus menanggung pembayaran cicilan Koperasi merah putih. iya kalo Koperasi sanggup membayar cicilan tersebut. kalo tidak. dan potensi nya tidak bisa membayar cicilan saya rasa besar. sebab apa. tinggal di hitung saja, omset penjualan mereka per hari berapa. mungkin jika tidak ada toko lain di desa atau kelurahan tersebut, bisa saja dapat omset besar. tapi mereka harus bersaing dengan toko kelontong , toko Madura, Alfa dan Indomart, apalagi di kota kelurahan ada swalayan yg lain. yg secara manajemen sudah pengalaman mengelola modal dan aset",
+        "create_time": "2026-05-26 15:23",
+        "sentiment_primary": "perlu_validasi",
+        "sentiment_detail": "ambigu_perlu_tinjau",
+        "sentiment_score": -1.0,
+        "positive_evidence": "",
+        "negative_evidence": "susah",
+        "is_reply": true,
         "word_count": 205,
         "emoji_list": []
       },
@@ -7087,6 +7432,22 @@
         "emoji_list": []
       },
       {
+        "comment_id": "7643642755265544978",
+        "video_id": "7643478603576954132",
+        "username": "jejakjelajah",
+        "nickname": "ANTO JALAN JALAN",
+        "comment": "pertanyaan nya gini\n- riibuan karyawan retail mau di kemanakan?\n- apa saja yang akan di berikan kopdes kepada karyawan kopdes? gaji tunjangan, BPJS dll\n- yang di jual kopdes juga yang ada di toko retail, nah yang mau di tutup lapangan pekerjaannya apa penjualan produk barangnya ?!\n- se yakin apa bahwa kopdes akan lebih memudahkan dan memberikan pelayanan lebih baik dari pada toko retail yang sudah ada\n- apakah kopdes bisa membuka tokonya di tempat yang strategis, soalnya yang berjalan untuk saat ini 90 % bukan berada di titik yang strategis.\n- tujuan kopdes apa???? mbg masih ada tujuan yaitu memperbaiki gizi untuk bangsa, nah kalau kopdes apa?\n- dari soal perekrutan saja sudah jelas ada KKn,\n- yang paling utama, kalau ada kerugian baik dari barang hilang maupun tidak mencapai target, siapa yang bertanggung jawab, apakah manajemen nya sudah ter susun dengan rapi",
+        "create_time": "2026-05-25 08:58",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 2.0,
+        "positive_evidence": "baik; memudahkan; lebih baik",
+        "negative_evidence": "tutup",
+        "is_reply": false,
+        "word_count": 136,
+        "emoji_list": []
+      },
+      {
         "comment_id": "7641234501489967892",
         "video_id": "7641183642437586196",
         "username": "abdul.maret",
@@ -7103,22 +7464,6 @@
         "emoji_list": [
           "😳"
         ]
-      },
-      {
-        "comment_id": "7643642755265544978",
-        "video_id": "7643478603576954132",
-        "username": "jejakjelajah",
-        "nickname": "ANTO JALAN JALAN",
-        "comment": "pertanyaan nya gini\n- riibuan karyawan retail mau di kemanakan?\n- apa saja yang akan di berikan kopdes kepada karyawan kopdes? gaji tunjangan, BPJS dll\n- yang di jual kopdes juga yang ada di toko retail, nah yang mau di tutup lapangan pekerjaannya apa penjualan produk barangnya ?!\n- se yakin apa bahwa kopdes akan lebih memudahkan dan memberikan pelayanan lebih baik dari pada toko retail yang sudah ada\n- apakah kopdes bisa membuka tokonya di tempat yang strategis, soalnya yang berjalan untuk saat ini 90 % bukan berada di titik yang strategis.\n- tujuan kopdes apa???? mbg masih ada tujuan yaitu memperbaiki gizi untuk bangsa, nah kalau kopdes apa?\n- dari soal perekrutan saja sudah jelas ada KKn,\n- yang paling utama, kalau ada kerugian baik dari barang hilang maupun tidak mencapai target, siapa yang bertanggung jawab, apakah manajemen nya sudah ter susun dengan rapi",
-        "create_time": "2026-05-25 08:58",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 2.0,
-        "positive_evidence": "baik; memudahkan; lebih baik",
-        "negative_evidence": "tutup",
-        "is_reply": false,
-        "word_count": 136,
-        "emoji_list": []
       },
       {
         "comment_id": "7529768640959726344",
@@ -7176,24 +7521,6 @@
         ]
       },
       {
-        "comment_id": "7644041209429984008",
-        "video_id": "7637357539209841941",
-        "username": "rist4_13",
-        "nickname": "Alma02",
-        "comment": "Iya kak,terima kasih byk ya buat penjelasannya..Salut jg kalo dari pihak kasir smpai rela nombok kasih koin 500 demi kembalian konsumen..\nTp jujur dari sisi konsumen,kita kalau masuk toko ya fokusnya langsung belanja ke rak..gk bakal kepikiran buat nyari/baca leaflet yg ditempel di pintu…Makanya byk pembeli yg gk tahu sistem itu…Ditambah lg,pas di kasir langsung ditanya soal donasi,jujur konsumen sering merasa sungkan/ gak enak buat nolak krna posisinya mendadak...\nAlangkah lebih baik kalau ke depannya uang kembalian tetap diberikan sesuai jumlahnya dulu tanpa bikin kasir harus nombok/pembeli merasa canggung…Kalau ada program donasi,mgkin lebih bagus pakai kotak donasi mandiri sj jadi sifatnya sukarela…Semoga masukan ini bisa disampaikan ke manajemen atas sbg bhan evsluasi trimakasih🙏",
-        "create_time": "2026-05-26 10:44",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 7.0,
-        "positive_evidence": "bagus; baik; semoga; terima kasih; lebih baik",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 126,
-        "emoji_list": [
-          "🙏"
-        ]
-      },
-      {
         "comment_id": "7641972968448590600",
         "video_id": "7640478764060675348",
         "username": "bodoamat696969",
@@ -7234,20 +7561,22 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7641512099060187920",
-        "video_id": "7641470196108004626",
-        "username": "hadelina.hafni",
-        "nickname": "adel 45",
-        "comment": "kenapa sihhh pak malah jdi seperti ini. anda tidak memikirkan UMKM yg jualan sembako juga. efek dari indomaret saja sudah beradampak pada pedagang UMKM sembako. setelah menyesuaikan lama dengan adanya indomaret dan alfamart.\nini malah pemerintah sendiri yg buat kopdes merah putih.\nseakan pemerintah ingin memiskinkan rakyat sampai semua rakyat ga ada yg punya usaha kecut dan menjadikan kami ini pekerja karyawan atau buruh semua.\nkirain kopdes ini membantu masyarakat gak tau nya buat usaha mandiri. hadeuhhhhhhh... cukup pemerintah ikut campur lebih. anda hanya perlu mengendalikan harga pasar.\nharga beras skrg juga mahal. apa nyaa sih yg mensejahterakan bagi masyarakat.\nlebih baik anda ngasih BLT sperti waktu SBY spya ekonomi muter sektor riil. uang itu di belanjakan.\nmasih banyakk bangett pengen komen ya Allah.",
-        "create_time": "2026-05-19 15:10",
+        "comment_id": "7644041209429984008",
+        "video_id": "7637357539209841941",
+        "username": "rist4_13",
+        "nickname": "Alma02",
+        "comment": "Iya kak,terima kasih byk ya buat penjelasannya..Salut jg kalo dari pihak kasir smpai rela nombok kasih koin 500 demi kembalian konsumen..\nTp jujur dari sisi konsumen,kita kalau masuk toko ya fokusnya langsung belanja ke rak..gk bakal kepikiran buat nyari/baca leaflet yg ditempel di pintu…Makanya byk pembeli yg gk tahu sistem itu…Ditambah lg,pas di kasir langsung ditanya soal donasi,jujur konsumen sering merasa sungkan/ gak enak buat nolak krna posisinya mendadak...\nAlangkah lebih baik kalau ke depannya uang kembalian tetap diberikan sesuai jumlahnya dulu tanpa bikin kasir harus nombok/pembeli merasa canggung…Kalau ada program donasi,mgkin lebih bagus pakai kotak donasi mandiri sj jadi sifatnya sukarela…Semoga masukan ini bisa disampaikan ke manajemen atas sbg bhan evsluasi trimakasih🙏",
+        "create_time": "2026-05-26 10:44",
         "sentiment_primary": "positif",
         "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 2.0,
-        "positive_evidence": "baik; membantu; lebih baik",
-        "negative_evidence": "mahal",
-        "is_reply": false,
-        "word_count": 124,
-        "emoji_list": []
+        "sentiment_score": 7.0,
+        "positive_evidence": "bagus; baik; semoga; terima kasih; lebih baik",
+        "negative_evidence": "",
+        "is_reply": true,
+        "word_count": 126,
+        "emoji_list": [
+          "🙏"
+        ]
       },
       {
         "comment_id": "7641087532290409223",
@@ -7262,6 +7591,22 @@
         "positive_evidence": "",
         "negative_evidence": "",
         "is_reply": true,
+        "word_count": 124,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7641512099060187920",
+        "video_id": "7641470196108004626",
+        "username": "hadelina.hafni",
+        "nickname": "adel 45",
+        "comment": "kenapa sihhh pak malah jdi seperti ini. anda tidak memikirkan UMKM yg jualan sembako juga. efek dari indomaret saja sudah beradampak pada pedagang UMKM sembako. setelah menyesuaikan lama dengan adanya indomaret dan alfamart.\nini malah pemerintah sendiri yg buat kopdes merah putih.\nseakan pemerintah ingin memiskinkan rakyat sampai semua rakyat ga ada yg punya usaha kecut dan menjadikan kami ini pekerja karyawan atau buruh semua.\nkirain kopdes ini membantu masyarakat gak tau nya buat usaha mandiri. hadeuhhhhhhh... cukup pemerintah ikut campur lebih. anda hanya perlu mengendalikan harga pasar.\nharga beras skrg juga mahal. apa nyaa sih yg mensejahterakan bagi masyarakat.\nlebih baik anda ngasih BLT sperti waktu SBY spya ekonomi muter sektor riil. uang itu di belanjakan.\nmasih banyakk bangett pengen komen ya Allah.",
+        "create_time": "2026-05-19 15:10",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 2.0,
+        "positive_evidence": "baik; membantu; lebih baik",
+        "negative_evidence": "mahal",
+        "is_reply": false,
         "word_count": 124,
         "emoji_list": []
       },
@@ -7330,22 +7675,6 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7643520181876261652",
-        "video_id": "7643478603576954132",
-        "username": "sandytamareal",
-        "nickname": "S A N D Y T A M A",
-        "comment": "Izin kasih pandangan logika saya. Retail Alfa dan Indo tidak perlu di tutup dengan beberapa kondisi :\n1. Harga KopDes itu lebih murah, biarkan Alfa dan Indo tetap berjalan, otomatis mereka akan punya strategi terkait dengan harga yang harus bersaing dengan KopDes.\n2. Dengan dibangunnya persaingan sehat maka harga mungkin yang selama ini tinggi di retail Alfa dan Indo akan menurun dan menyerap daya beli masyarakat lebih banyak.\n3. Untuk warung UMKM mungkin bisa di inisiasi dengan sistem pembagian margin dengan pengambilan barang dan supply dari KopDes. Jadi barang yang dijual Kopdes di Gerai sama nantinya dengan yang dijual Warung/Gerai UMKM lain.\nJadi karyawan Alfa dan Indo aman, justru KopDes membuka banyak lapangan pekerjaan juga.",
-        "create_time": "2026-05-25 01:02",
-        "sentiment_primary": "perlu_validasi",
-        "sentiment_detail": "campuran",
-        "sentiment_score": -1.0,
-        "positive_evidence": "murah",
-        "negative_evidence": "tutup; persaingan",
-        "is_reply": false,
-        "word_count": 115,
-        "emoji_list": []
-      },
-      {
         "comment_id": "7633647003523793672",
         "video_id": "7526458489577737488",
         "username": "bintang.dirgantar735",
@@ -7357,6 +7686,22 @@
         "sentiment_score": 4.0,
         "positive_evidence": "membantu; murah; stabil",
         "negative_evidence": "persaingan",
+        "is_reply": false,
+        "word_count": 115,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7643520181876261652",
+        "video_id": "7643478603576954132",
+        "username": "sandytamareal",
+        "nickname": "S A N D Y T A M A",
+        "comment": "Izin kasih pandangan logika saya. Retail Alfa dan Indo tidak perlu di tutup dengan beberapa kondisi :\n1. Harga KopDes itu lebih murah, biarkan Alfa dan Indo tetap berjalan, otomatis mereka akan punya strategi terkait dengan harga yang harus bersaing dengan KopDes.\n2. Dengan dibangunnya persaingan sehat maka harga mungkin yang selama ini tinggi di retail Alfa dan Indo akan menurun dan menyerap daya beli masyarakat lebih banyak.\n3. Untuk warung UMKM mungkin bisa di inisiasi dengan sistem pembagian margin dengan pengambilan barang dan supply dari KopDes. Jadi barang yang dijual Kopdes di Gerai sama nantinya dengan yang dijual Warung/Gerai UMKM lain.\nJadi karyawan Alfa dan Indo aman, justru KopDes membuka banyak lapangan pekerjaan juga.",
+        "create_time": "2026-05-25 01:02",
+        "sentiment_primary": "perlu_validasi",
+        "sentiment_detail": "campuran",
+        "sentiment_score": -1.0,
+        "positive_evidence": "murah",
+        "negative_evidence": "tutup; persaingan",
         "is_reply": false,
         "word_count": 115,
         "emoji_list": []
@@ -7442,22 +7787,6 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7644033801584362258",
-        "video_id": "7643712308274810133",
-        "username": "nandadaihatsu02",
-        "nickname": "Pipufamily23",
-        "comment": "Anda aja yang ngga pernah beli di bawah 20rb, aku 27th hidup belum pernah beli gas melon di atas 25rb sekalipun pada saat gas langkah, apalagi harga 45rb. Kalo beli gas di pangkalan gas langsung atau ke pertamina langsung mah harga nya kisaran 20rb ke bawah kok, itu yang jual 45rb patut di laporkan tau, karena gas melon itu termasuk gas subsidi apa ngga liat di bawah nya ada tulisan untuk masyarakat miskin, masa di jual semahal itu, kalo dari pangkal jual kisaran 20rb ke bawah masih masuk akal kalo sampi di warung itu jualnya sekitar 23rb-25rb, tapi klo udah di atas 30rb udah ngga ngotak sih itu",
-        "create_time": "2026-05-26 10:15",
-        "sentiment_primary": "netral",
-        "sentiment_detail": "netral_pertanyaan",
-        "sentiment_score": 0.0,
-        "positive_evidence": "",
-        "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 109,
-        "emoji_list": []
-      },
-      {
         "comment_id": "7617648863264129813",
         "video_id": "7526458489577737488",
         "username": "kinnnnnnn14",
@@ -7470,6 +7799,22 @@
         "positive_evidence": "membantu; murah; stabil",
         "negative_evidence": "persaingan",
         "is_reply": false,
+        "word_count": 109,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7644033801584362258",
+        "video_id": "7643712308274810133",
+        "username": "nandadaihatsu02",
+        "nickname": "Pipufamily23",
+        "comment": "Anda aja yang ngga pernah beli di bawah 20rb, aku 27th hidup belum pernah beli gas melon di atas 25rb sekalipun pada saat gas langkah, apalagi harga 45rb. Kalo beli gas di pangkalan gas langsung atau ke pertamina langsung mah harga nya kisaran 20rb ke bawah kok, itu yang jual 45rb patut di laporkan tau, karena gas melon itu termasuk gas subsidi apa ngga liat di bawah nya ada tulisan untuk masyarakat miskin, masa di jual semahal itu, kalo dari pangkal jual kisaran 20rb ke bawah masih masuk akal kalo sampi di warung itu jualnya sekitar 23rb-25rb, tapi klo udah di atas 30rb udah ngga ngotak sih itu",
+        "create_time": "2026-05-26 10:15",
+        "sentiment_primary": "netral",
+        "sentiment_detail": "netral_pertanyaan",
+        "sentiment_score": 0.0,
+        "positive_evidence": "",
+        "negative_evidence": "",
+        "is_reply": true,
         "word_count": 109,
         "emoji_list": []
       },
@@ -7527,44 +7872,6 @@
         ]
       },
       {
-        "comment_id": "7642928717891863303",
-        "video_id": "7640478764060675348",
-        "username": "nahdaalfath",
-        "nickname": "nahdaalfath",
-        "comment": "Kopdes merah putih harusnya menyediakan pupuk murah, benih murah, menampung hasil panen masyarakat desa agar terbebas dari tengkulak, memasarkannya, menyediakan modal bagi pelaku UMKM, jangan jadi agen dengan jual eceran, kalau mau jadi agen jual dus²an aja dengan harga grosir, jadi pedagang kecil atau pelaku usaha seperti indomart dan alfamart tidak dirugikan.\nAlfamart adalah kompetitor Indomaret, begitupun sebaliknya, barang yg dijualpun sama, tapi mereka bisa berdampingan bersaing secara sehat, tidak mematikan satu sama lain.\nSilahkan dirikan kopdes,tapi jangan matikan usaha orang lain, apalagi usaha tersebut menampung banyak karyawan yang berteduh mencari nafkah disitu😭\nYaa Allah pak, gak pernah se nyesel ini milih presiden😭",
-        "create_time": "2026-05-23 10:47",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 4.0,
-        "positive_evidence": "murah",
-        "negative_evidence": "mematikan; pedagang kecil",
-        "is_reply": false,
-        "word_count": 105,
-        "emoji_list": [
-          "😭",
-          "😭"
-        ]
-      },
-      {
-        "comment_id": "7643487345966564114",
-        "video_id": "7643478603576954132",
-        "username": "nahdaalfath",
-        "nickname": "nahdaalfath",
-        "comment": "Kopdes merah putih harusnya menyediakan pupuk murah, benih murah, menampung hasil panen masyarakat desa agar terbebas dari tengkulak, memasarkannya, menyediakan modal bagi pelaku UMKM, jangan jadi agen dengan jual eceran, kalau mau jadi agen jual dus²an aja dengan harga grosir, jadi pedagang kecil atau pelaku usaha seperti indomart dan alfamart tidak dirugikan.\nAlfamart adalah kompetitor Indomaret, begitupun sebaliknya, barang yg dijualpun sama, tapi mereka bisa berdampingan bersaing secara sehat, tidak mematikan satu sama lain.\nSilahkan dirikan kopdes,tapi jangan matikan usaha orang lain, apalagi usaha tersebut menampung banyak karyawan yang berteduh mencari nafkah disitu😭\nYaa Allah pak, gak pernah se nyesel ini milih presiden😭",
-        "create_time": "2026-05-24 22:54",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 4.0,
-        "positive_evidence": "murah",
-        "negative_evidence": "mematikan; pedagang kecil",
-        "is_reply": false,
-        "word_count": 105,
-        "emoji_list": [
-          "😭",
-          "😭"
-        ]
-      },
-      {
         "comment_id": "7642892201013740306",
         "video_id": "7641781303423061255",
         "username": "nahdaalfath",
@@ -7603,22 +7910,41 @@
         ]
       },
       {
-        "comment_id": "7642842132441465608",
-        "video_id": "7642581123515616533",
-        "username": "kejernihan.hati5",
-        "nickname": "Kejernihan Hati",
-        "comment": "gini ya kalo emang gas habis malam malam emang kita beli ke koperasi ? semua ada rezekinya masing2, dan untuk warung kecil bisa belanja di koperasi nanti bisa di jual lagi dengan harga lebih murah, contoh ya bapak beli gas di agen 20rb dijual lagi 22rb dong, nah coba bapak beli gas di koperasi 18rb bisa dijual lagi jadi 20rb , bapak untung konsumen rakyat untung, FUNGSI KOPERASI ADALAH UNTUK KONTROL HARGA BARANG BARANG POKOK SUPAYA TIDAK ADA PERMAIANAN HARGA OLEH PEMAIN PEMAIN NAKAL, CONTOH PAS WAKTU MINYAK GORENG LANGKA GAS ELPIJI LANGKA, ITU SEMUA ULAH PEMAIN NAKAL, JADI FUNGSINYA UNTUK MENJAGA INI ,gitu ya paham semua??😂😂",
-        "create_time": "2026-05-23 05:11",
-        "sentiment_primary": "perlu_validasi",
-        "sentiment_detail": "campuran",
-        "sentiment_score": 1.0,
+        "comment_id": "7642928717891863303",
+        "video_id": "7640478764060675348",
+        "username": "nahdaalfath",
+        "nickname": "nahdaalfath",
+        "comment": "Kopdes merah putih harusnya menyediakan pupuk murah, benih murah, menampung hasil panen masyarakat desa agar terbebas dari tengkulak, memasarkannya, menyediakan modal bagi pelaku UMKM, jangan jadi agen dengan jual eceran, kalau mau jadi agen jual dus²an aja dengan harga grosir, jadi pedagang kecil atau pelaku usaha seperti indomart dan alfamart tidak dirugikan.\nAlfamart adalah kompetitor Indomaret, begitupun sebaliknya, barang yg dijualpun sama, tapi mereka bisa berdampingan bersaing secara sehat, tidak mematikan satu sama lain.\nSilahkan dirikan kopdes,tapi jangan matikan usaha orang lain, apalagi usaha tersebut menampung banyak karyawan yang berteduh mencari nafkah disitu😭\nYaa Allah pak, gak pernah se nyesel ini milih presiden😭",
+        "create_time": "2026-05-23 10:47",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 4.0,
         "positive_evidence": "murah",
-        "negative_evidence": "warung kecil",
-        "is_reply": true,
+        "negative_evidence": "mematikan; pedagang kecil",
+        "is_reply": false,
         "word_count": 105,
         "emoji_list": [
-          "😂",
-          "😂"
+          "😭",
+          "😭"
+        ]
+      },
+      {
+        "comment_id": "7643487345966564114",
+        "video_id": "7643478603576954132",
+        "username": "nahdaalfath",
+        "nickname": "nahdaalfath",
+        "comment": "Kopdes merah putih harusnya menyediakan pupuk murah, benih murah, menampung hasil panen masyarakat desa agar terbebas dari tengkulak, memasarkannya, menyediakan modal bagi pelaku UMKM, jangan jadi agen dengan jual eceran, kalau mau jadi agen jual dus²an aja dengan harga grosir, jadi pedagang kecil atau pelaku usaha seperti indomart dan alfamart tidak dirugikan.\nAlfamart adalah kompetitor Indomaret, begitupun sebaliknya, barang yg dijualpun sama, tapi mereka bisa berdampingan bersaing secara sehat, tidak mematikan satu sama lain.\nSilahkan dirikan kopdes,tapi jangan matikan usaha orang lain, apalagi usaha tersebut menampung banyak karyawan yang berteduh mencari nafkah disitu😭\nYaa Allah pak, gak pernah se nyesel ini milih presiden😭",
+        "create_time": "2026-05-24 22:54",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 4.0,
+        "positive_evidence": "murah",
+        "negative_evidence": "mematikan; pedagang kecil",
+        "is_reply": false,
+        "word_count": 105,
+        "emoji_list": [
+          "😭",
+          "😭"
         ]
       },
       {
@@ -7638,6 +7964,25 @@
         "emoji_list": [
           "😭",
           "😭"
+        ]
+      },
+      {
+        "comment_id": "7642842132441465608",
+        "video_id": "7642581123515616533",
+        "username": "kejernihan.hati5",
+        "nickname": "Kejernihan Hati",
+        "comment": "gini ya kalo emang gas habis malam malam emang kita beli ke koperasi ? semua ada rezekinya masing2, dan untuk warung kecil bisa belanja di koperasi nanti bisa di jual lagi dengan harga lebih murah, contoh ya bapak beli gas di agen 20rb dijual lagi 22rb dong, nah coba bapak beli gas di koperasi 18rb bisa dijual lagi jadi 20rb , bapak untung konsumen rakyat untung, FUNGSI KOPERASI ADALAH UNTUK KONTROL HARGA BARANG BARANG POKOK SUPAYA TIDAK ADA PERMAIANAN HARGA OLEH PEMAIN PEMAIN NAKAL, CONTOH PAS WAKTU MINYAK GORENG LANGKA GAS ELPIJI LANGKA, ITU SEMUA ULAH PEMAIN NAKAL, JADI FUNGSINYA UNTUK MENJAGA INI ,gitu ya paham semua??😂😂",
+        "create_time": "2026-05-23 05:11",
+        "sentiment_primary": "perlu_validasi",
+        "sentiment_detail": "campuran",
+        "sentiment_score": 1.0,
+        "positive_evidence": "murah",
+        "negative_evidence": "warung kecil",
+        "is_reply": true,
+        "word_count": 105,
+        "emoji_list": [
+          "😂",
+          "😂"
         ]
       },
       {
@@ -7696,22 +8041,6 @@
         ]
       },
       {
-        "comment_id": "7643903698033427218",
-        "video_id": "7643712308274810133",
-        "username": "rhaku.co",
-        "nickname": "RHAKU. CO",
-        "comment": "Konsepnya “dri rakyat utk rakyat” jadi semua masyarakat kelurahan setempat itu bisa jadi anggota KOPDES trus nanti pd setiap akhir taun nanti ad anggaran brp persen yg akan di bagikan kembali ke seluruh anggota kopdes ingat SELURUH ANGGOTA bukan cuma PENGURUS nah semakin banyak kita bertransaksi di kopdes semakin banyk juga omset yg kita dapatkan diakhir taun ya pd intinya lu cari lah info di situs resmi kemenkop ada ko disana materi yg di pelajari. Jd buat yg bilang KDMP mematikan UMKM ya kagak lah krna konsepnya dri Rakyat utk Rakyat harusnya yg bisa dibilang mematikan umkm itu adalah pokoknya",
-        "create_time": "2026-05-26 01:50",
-        "sentiment_primary": "negatif",
-        "sentiment_detail": "negatif_indikatif",
-        "sentiment_score": -3.0,
-        "positive_evidence": "",
-        "negative_evidence": "mematikan",
-        "is_reply": true,
-        "word_count": 100,
-        "emoji_list": []
-      },
-      {
         "comment_id": "7619887560521548564",
         "video_id": "7619816188461370645",
         "username": "wiraubah0",
@@ -7723,22 +8052,6 @@
         "sentiment_score": -3.0,
         "positive_evidence": "baik",
         "negative_evidence": "buruk; rugi",
-        "is_reply": false,
-        "word_count": 100,
-        "emoji_list": []
-      },
-      {
-        "comment_id": "7527896890453656337",
-        "video_id": "7526458489577737488",
-        "username": "riki.fachdiar",
-        "nickname": "Riki Fachdiar",
-        "comment": "Asswrwb..nampaknya ini kan Kopdes, KDMP atau KMP yg sudah berdiri lama, sdh memiliki anggota dan modal awal sebelumya, berkolaborasi dg nama Kopdes saat ini ..jadi layak sdh serba lengkap, mohon maaf bukan sbg pembanding bila dijadikan rujukan thd KDMP yg pure baru proses pendiriannya, administrasinyapun baru terbit. Perlu waktu berjuang utk beberapa hal spt modal, sarpras, lahan usaha dan SDM nya. Adakah KDMP yg murni betul2 baru berdiri segalanya baru administrasi, dsb bisa seperti itu, dengan jangka waktu singkat telah memiliki semua lahan usaha dan bidang usaha. Namun demikian terimakasih setidaknya untuk contoh dan penyemangat KDMP lainnya. Terimakasih pak",
-        "create_time": "2025-07-17 11:04",
-        "sentiment_primary": "perlu_validasi",
-        "sentiment_detail": "ambigu_perlu_tinjau",
-        "sentiment_score": 1.0,
-        "positive_evidence": "lengkap",
-        "negative_evidence": "",
         "is_reply": false,
         "word_count": 100,
         "emoji_list": []
@@ -7760,19 +8073,35 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7641058584196907794",
-        "video_id": "7640891074545749266",
-        "username": "okidwihartoko",
-        "nickname": "Oki Dwi Hartoko",
-        "comment": "KopDes Merah Putih tetap perlu mengambil pasokan dari Indomarco sebagai strategi hibrida untuk menjaga kelangsungan operasional toko melalui penyediaan barang kebutuhan harian (traffic builder) yang dicari warga setiap hari, seperti sabun, susu, dan detergen pabrikan. Jaminan kepastian stok, harga grosir yang murah, dan perputaran arus kas yang cepat dari produk reguler Indomarco ini sangat penting untuk menutup biaya operasional koperasi, sekaligus menjadi penarik kunjungan warga ke gerai. Dengan ramainya warga yang datang berbelanja kebutuhan pokok tersebut, KopDes justru berhasil menciptakan peluang pasar yang berkelanjutan agar produk-produk UMKM lokal yang dipajang di etalase sebelah ikut terjual dan naik kelas.",
-        "create_time": "2026-05-18 09:50",
-        "sentiment_primary": "positif",
-        "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 4.0,
-        "positive_evidence": "berhasil; murah",
+        "comment_id": "7527896890453656337",
+        "video_id": "7526458489577737488",
+        "username": "riki.fachdiar",
+        "nickname": "Riki Fachdiar",
+        "comment": "Asswrwb..nampaknya ini kan Kopdes, KDMP atau KMP yg sudah berdiri lama, sdh memiliki anggota dan modal awal sebelumya, berkolaborasi dg nama Kopdes saat ini ..jadi layak sdh serba lengkap, mohon maaf bukan sbg pembanding bila dijadikan rujukan thd KDMP yg pure baru proses pendiriannya, administrasinyapun baru terbit. Perlu waktu berjuang utk beberapa hal spt modal, sarpras, lahan usaha dan SDM nya. Adakah KDMP yg murni betul2 baru berdiri segalanya baru administrasi, dsb bisa seperti itu, dengan jangka waktu singkat telah memiliki semua lahan usaha dan bidang usaha. Namun demikian terimakasih setidaknya untuk contoh dan penyemangat KDMP lainnya. Terimakasih pak",
+        "create_time": "2025-07-17 11:04",
+        "sentiment_primary": "perlu_validasi",
+        "sentiment_detail": "ambigu_perlu_tinjau",
+        "sentiment_score": 1.0,
+        "positive_evidence": "lengkap",
         "negative_evidence": "",
         "is_reply": false,
-        "word_count": 99,
+        "word_count": 100,
+        "emoji_list": []
+      },
+      {
+        "comment_id": "7643903698033427218",
+        "video_id": "7643712308274810133",
+        "username": "rhaku.co",
+        "nickname": "RHAKU. CO",
+        "comment": "Konsepnya “dri rakyat utk rakyat” jadi semua masyarakat kelurahan setempat itu bisa jadi anggota KOPDES trus nanti pd setiap akhir taun nanti ad anggaran brp persen yg akan di bagikan kembali ke seluruh anggota kopdes ingat SELURUH ANGGOTA bukan cuma PENGURUS nah semakin banyak kita bertransaksi di kopdes semakin banyk juga omset yg kita dapatkan diakhir taun ya pd intinya lu cari lah info di situs resmi kemenkop ada ko disana materi yg di pelajari. Jd buat yg bilang KDMP mematikan UMKM ya kagak lah krna konsepnya dri Rakyat utk Rakyat harusnya yg bisa dibilang mematikan umkm itu adalah pokoknya",
+        "create_time": "2026-05-26 01:50",
+        "sentiment_primary": "negatif",
+        "sentiment_detail": "negatif_indikatif",
+        "sentiment_score": -3.0,
+        "positive_evidence": "",
+        "negative_evidence": "mematikan",
+        "is_reply": true,
+        "word_count": 100,
         "emoji_list": []
       },
       {
@@ -7792,19 +8121,19 @@
         "emoji_list": []
       },
       {
-        "comment_id": "7619916880539796232",
-        "video_id": "7619816188461370645",
-        "username": "brookgameo",
-        "nickname": "Brook",
-        "comment": "gak bang. aku di Kalimantan. koperasi merah putih itu \"bagi yang jujur\"\nsangat sangat membantu.\naku pedagang pupuk non subsidi.\ntaruhlah harga di toko 350. nego nego ambil banyak buat stok KMP jadi harga 330. mereka jual lagi ke petani 350 cash. 370 kredit. petani gak perlu lagi belanja pupuk yang berat 50kg itu ke toko saya. cukup ambil di KPM dapat harga 370(anggaplah bagi mereka 20k itu ongkir sampe rumah) . dan itu Kredit di bayar setiap panen. BTW petani sawit panen 21 hari sekali. GACOR SEKARANG BANG. MANA HARGA SAWIT LAGI NAIK SAMPE 3500/KG",
-        "create_time": "2026-03-22 10:29",
+        "comment_id": "7641058584196907794",
+        "video_id": "7640891074545749266",
+        "username": "okidwihartoko",
+        "nickname": "Oki Dwi Hartoko",
+        "comment": "KopDes Merah Putih tetap perlu mengambil pasokan dari Indomarco sebagai strategi hibrida untuk menjaga kelangsungan operasional toko melalui penyediaan barang kebutuhan harian (traffic builder) yang dicari warga setiap hari, seperti sabun, susu, dan detergen pabrikan. Jaminan kepastian stok, harga grosir yang murah, dan perputaran arus kas yang cepat dari produk reguler Indomarco ini sangat penting untuk menutup biaya operasional koperasi, sekaligus menjadi penarik kunjungan warga ke gerai. Dengan ramainya warga yang datang berbelanja kebutuhan pokok tersebut, KopDes justru berhasil menciptakan peluang pasar yang berkelanjutan agar produk-produk UMKM lokal yang dipajang di etalase sebelah ikut terjual dan naik kelas.",
+        "create_time": "2026-05-18 09:50",
         "sentiment_primary": "positif",
         "sentiment_detail": "positif_indikatif",
-        "sentiment_score": 5.0,
-        "positive_evidence": "membantu; sangat membantu",
+        "sentiment_score": 4.0,
+        "positive_evidence": "berhasil; murah",
         "negative_evidence": "",
-        "is_reply": true,
-        "word_count": 97,
+        "is_reply": false,
+        "word_count": 99,
         "emoji_list": []
       },
       {
@@ -7826,6 +8155,22 @@
           "🏻",
           "♀"
         ]
+      },
+      {
+        "comment_id": "7619916880539796232",
+        "video_id": "7619816188461370645",
+        "username": "brookgameo",
+        "nickname": "Brook",
+        "comment": "gak bang. aku di Kalimantan. koperasi merah putih itu \"bagi yang jujur\"\nsangat sangat membantu.\naku pedagang pupuk non subsidi.\ntaruhlah harga di toko 350. nego nego ambil banyak buat stok KMP jadi harga 330. mereka jual lagi ke petani 350 cash. 370 kredit. petani gak perlu lagi belanja pupuk yang berat 50kg itu ke toko saya. cukup ambil di KPM dapat harga 370(anggaplah bagi mereka 20k itu ongkir sampe rumah) . dan itu Kredit di bayar setiap panen. BTW petani sawit panen 21 hari sekali. GACOR SEKARANG BANG. MANA HARGA SAWIT LAGI NAIK SAMPE 3500/KG",
+        "create_time": "2026-03-22 10:29",
+        "sentiment_primary": "positif",
+        "sentiment_detail": "positif_indikatif",
+        "sentiment_score": 5.0,
+        "positive_evidence": "membantu; sangat membantu",
+        "negative_evidence": "",
+        "is_reply": true,
+        "word_count": 97,
+        "emoji_list": []
       },
       {
         "comment_id": "7641530647979541269",

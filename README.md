@@ -1,92 +1,77 @@
 # KDMP Social Media Analytics Dashboard
-> **Platform Analisis Sentimen Komentar TikTok tentang Koperasi Desa Merah Putih (KDMP)**  
+> **Platform Analisis Sentimen Komentar TikTok tentang Koperasi Desa Merah Putih (KDMP)**
 > Proyek Akhir Teknologi Big Data — Semester 5
 
-Website dashboard interaktif modern, responsif, dan kaya visualisasi yang dibangun berdasarkan notebook analitis `KDMP_Explorasi_Lanjutan_Dashboard_v3.ipynb` dan dataset riil `KDMP.xlsx` (220.051 baris mentah, 127.139 baris unik pasca-deduplikasi).
+Dashboard interaktif (React + Vite + Tailwind + Recharts) yang membaca hasil analisis `process_dataset.py` / notebook `KDMP_Explorasi_Lanjutan_Dashboard_v3.ipynb` atas dataset `KDMP.xlsx` (220.051 baris mentah, 127.139 komentar unik setelah deduplikasi `comment_id`, 27 video, 102.899 akun).
+
+Semua angka di dashboard dibaca dari `dashboard_data.json` (hasil `process_dataset.py`), tidak ada angka yang diketik manual di halaman.
 
 ---
 
-## 🎨 Palet Desain: Crimson Forest
-Dashboard ini dirancang secara elegan dengan dominasi warna putih bersih (*crisp white*) dan aksen palet **Crimson Forest**:
-- **Crimson Red:** `#aa161a` (Primary Deep Crimson), `#d22c3a` (Vibrant Crimson)
-- **Forest Green:** `#20524d` (Deep Pine / Evergreen), `#499667` (Fresh Forest Green)
-- **Neutrals & Canvas:** `#ffffff`, `#f8fafc`, `#f1f5f9`, `#0f172a` (Charcoal Slate)
+## Cara Menjalankan
 
----
+Prasyarat: **Node.js 18+** dan **Python 3.10+** (Python hanya perlu bila ingin membuat ulang data).
 
-## 🚀 Fitur Utama & Struktur Menu
-
-Navigasi sidebar menyediakan 11 menu utama + 1 halaman khusus:
-
-1. **Overview**
-   - KPI Utama: 127.139 komentar unik, 38 video, 98.450 akun unik.
-   - Donut Chart Sentimen Utama (Positif 45.2%, Negatif 32.8%, Netral 22.0%, Perlu Validasi).
-   - Grafik Area tren sentimen bulanan dan Top 5 Isu terpopuler.
-2. **Data Understanding**
-   - Audit kelengkapan 8 kolom atribut, rasio deduplikasi (92.912 salinan dikeluarkan).
-   - Tabel skema struktur dataset lengkap dengan jumlah nilai unik.
-3. **Data Processing**
-   - Alur NLP Preprocessing 5 tahap: Regex Cleaning, Reduksi Huruf Berulang, Case Folding, Ekstraksi Emoji, Tokenisasi, dan Stopwords Removal (32 kata hubung).
-   - Tabel perbandingan teks sebelum vs sesudah transformasi (*before-after*).
-4. **Sentiment Analysis (Positif, Negatif, Netral)**
-   - Fokus utama analisis polaritas berbasis kamus InSet yang diperluas konteks KDMP.
-   - Dekomposisi 8 sub-kategori sentimen dan pemilahan netral pertanyaan/informatif.
-   - Kamus bukti kata terkuat (*evidence words*) positif vs negatif.
-5. **Emoji & Emotion Analysis**
-   - Frekuensi 15 emoji terpopuler (👍, ❤️, 😂, 👎, 😡, dll).
-   - Distribusi 7 spektrum psikologis emosi: Dukungan, Harapan, Khawatir, Kecewa, Marah, Bingung, Humor/Sarkasme.
-6. **Public Suggestions**
-   - Penyaringan 14.160 komentar saran masyarakat menggunakan 16 pemicu leksikal (*suggestion cues*).
-   - Pengelompokan tema usulan warga berbasis isu operasional KDMP.
-7. **Issue & Aspect Analysis**
-   - Analisis multi-label 10 isu strategis (UMKM & Persaingan, Harga, Modal, Tata Kelola, Distribusi, dll).
-   - Stacked bar perbandingan rasio sentimen pada setiap aspek.
-8. **Topic & Trend Analysis**
-   - 8 Cluster Topik tematik berbasis algoritma **K-Means Clustering** (TF-IDF 10.000 fitur).
-   - Top 15 frasa dua kata (*bigram*) dan Peta Panas (*Heatmap*) aktivitas Hari × Jam (24 jam).
-   - Komparasi komposisi sentimen antar-video TikTok viral.
-9. **Conversation Analysis**
-   - Proporsi Komentar Utama (70%) vs Balasan/Replies (30%).
-   - Komparasi rata-rata panjang kata dan skor sentimen.
-   - 10 Komentar Induk paling banyak memicu perdebatan (*most debated parent comments*).
-10. **Evaluation & Insights**
-    - Komparasi performa model: **InSet Lexicon Heuristics (88.4%)** vs **Multinomial Naive Bayes (86.8%)** vs **Linear SVM (89.2% / F1: 89.4%)**.
-    - Matriks Konfusi (*Confusion Matrix*) interaktif 3×3 untuk kelas Positif, Negatif, dan Netral.
-    - Penjelasan batas metodologis dan 500 sampel prioritas validasi manual (*human annotation*).
-11. **Reports & Export**
-    - Unduh data agregasi dalam format CSV dan JSON siap pakai.
-    - Generator cetak laporan formal PDF (*Executive Summary*) menggunakan tampilan cetak teroptimasi.
-12. **Data Flow & Technology (Halaman Khusus)**
-    - Diagram alur interaktif 9 tahap dari file mentah `KDMP.xlsx` hingga visualisasi.
-    - Tampilan teknologi nyata: Python, pandas, numpy, scikit-learn, React 18, Tailwind CSS, Framer Motion, Recharts.
-    - Diagram arsitektur sistem 5 lapis (*5-Layer Architecture*).
-
----
-
-## 💻 Cara Menjalankan Aplikasi
-
-Aplikasi server preview saat ini aktif di:
+### 1. Jalankan dashboard (data JSON sudah tersedia)
 ```bash
-http://localhost:5173/
+cd frontend
+npm install        # WAJIB sekali setelah clone (folder node_modules tidak ikut di Git)
+npm run dev        # buka http://localhost:5173/
 ```
+Atau klik dua kali `buka_dashboard.bat` (otomatis menjalankan `npm install` bila perlu).
 
-Untuk menjalankan ulang aplikasi di lingkungan lokal:
+Mode produksi:
+```bash
+cd frontend
+npm install
+npm run build
+npm run preview    # buka http://localhost:5173/
+```
+Dari folder utama, `npm run dev` / `npm run build` / `npm run preview` meneruskan perintah ke folder `frontend` (tetap perlu `npm install` di `frontend` terlebih dahulu).
 
-1. **Jalankan Pipeline Data Python (Opsional, data JSON sudah tersedia):**
-   ```bash
-   python process_dataset.py
-   ```
+Halaman bisa dibuka langsung lewat hash URL, mis. `http://localhost:5173/#evaluation-insights`.
 
-2. **Jalankan Frontend (Mode Development):**
-   ```bash
-   cd frontend
-   npm run dev
-   ```
+### 2. Membuat ulang data (opsional)
+```bash
+pip install pandas numpy scikit-learn openpyxl
+python process_dataset.py     # butuh KDMP.xlsx di folder yang sama, sekitar 1-2 menit
+```
+Skrip menulis `dashboard_data.json` dan menyalinnya ke `frontend/src/data/dashboard_data.json`.
 
-3. **Jalankan Frontend (Mode Production Preview):**
-   ```bash
-   cd frontend
-   npm run build
-   npm run preview
-   ```
-   Buka peramban di `http://localhost:5173/`.
+---
+
+## Halaman Dashboard (12)
+
+Overview · Data Understanding · Data Processing · Sentiment Analysis · Emoji & Emosi · Saran Publik · Isu & Aspek · Topik & Tren · Analisis Percakapan · Evaluasi Model · Laporan & Ekspor · Alur Data & Teknologi
+
+## Ringkasan Hasil (dari `dashboard_data.json`)
+
+| Kelompok sentimen utama | Jumlah | Persen |
+|---|---|---|
+| Netral | 95.982 | 75,49% |
+| Perlu validasi | 15.204 | 11,96% |
+| Negatif | 9.365 | 7,37% |
+| Positif | 6.588 | 5,18% |
+
+Catatan penting: kategori **netral** sebagian besar berarti aturan kamus belum menemukan kata bersentimen (50,73% dari seluruh komentar "belum terdeteksi"), bukan komentar yang terbukti netral.
+
+## Evaluasi Model — cara membaca
+
+Evaluasi memakai 20.000 komentar berlabel aturan kamus (latih 15.000, uji 5.000, `random_state=42`).
+
+| Model | Akurasi | Macro F1 |
+|---|---|---|
+| Baseline mayoritas (selalu netral) | 85,38% | 30,70% |
+| Multinomial Naive Bayes | 90,18% | 63,27% |
+| Linear SVM | 98,28% | 94,52% |
+
+- Label dibuat oleh aturan kamus yang kata-katanya juga menjadi fitur TF-IDF, sehingga skor mengukur **seberapa mirip model dengan aturan kamus**, bukan kebenaran sentimen.
+- 85,38% data uji berkelas netral, jadi akurasi saja menyesatkan; gunakan **macro F1** dan bandingkan dengan baseline mayoritas.
+- Validasi manual (500 sampel prioritas di notebook, dua penilai, Cohen's Kappa) **belum dilakukan**.
+
+---
+
+## Palet Desain: Crimson Forest
+- **Crimson Red:** `#aa161a`, `#d22c3a`
+- **Forest Green:** `#20524d`, `#499667`
+- **Netral:** `#ffffff`, `#f8fafc`, `#f1f5f9`, `#0f172a`

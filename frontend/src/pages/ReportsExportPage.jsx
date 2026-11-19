@@ -123,7 +123,7 @@ export default function ReportsExportPage({ data }) {
   ];
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* 1. Deskripsi */}
       <SectionHeader
         badge="Data Portability & Reports"
@@ -150,11 +150,11 @@ export default function ReportsExportPage({ data }) {
       )}
 
       {/* 2. Statistik */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Total Komentar Siap Unduh"
-          value={meta.total_unique || 127139}
-          subtext="100% data unik bersih"
+          value={meta.total_unique ?? 0}
+          subtext="Komentar unik setelah deduplikasi comment_id"
           icon={Database}
           colorScheme="forest"
           tooltip="Jumlah baris data hasil pembersihan lengkap"
@@ -176,25 +176,25 @@ export default function ReportsExportPage({ data }) {
           tooltip="Pemrosesan ekspor langsung di peramban tanpa antrean server"
         />
         <StatCard
-          title="Kepatuhan Privasi Data"
-          value="Anonim Publik"
-          subtext="Hanya data komentar publik TikTok"
+          title="Sumber Data"
+          value="Kaggle"
+          subtext="Dataset publik komentar TikTok KDMP (sinryurifal), bukan hasil scraping mandiri"
           icon={CheckCircle2}
           colorScheme="amber"
-          tooltip="Tidak memuat data privat atau kredensial rahasia pengguna"
+          tooltip="Data berasal dari dataset publik, bukan dikumpulkan sendiri oleh tim"
         />
       </div>
 
       {/* 3. Visualisasi Kartu Ekspor */}
       <div className="space-y-4">
         <div className="flex items-center justify-between pb-2">
-          <h3 className="text-base font-bold text-slate-900 tracking-tight">
+          <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
             Katalog Berkas Hasil Analisis
           </h3>
           <span className="text-xs text-slate-500">Pilih berkas yang ingin disimpan secara lokal</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {exportCards.map((card, idx) => (
             <div 
               key={idx}
@@ -210,7 +210,7 @@ export default function ReportsExportPage({ data }) {
                   </span>
                 </div>
 
-                <h4 className="text-sm font-bold text-slate-900 group-hover:text-crimson-600 transition-colors">
+                <h4 className="text-sm font-semibold text-slate-900 group-hover:text-crimson-600 transition-colors">
                   {card.title}
                 </h4>
 
@@ -238,10 +238,10 @@ export default function ReportsExportPage({ data }) {
       </div>
 
       {/* Print View Preview Box */}
-      <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+      <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
+            <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
               Laporan Cetak Formal (PDF Executive Summary)
             </h3>
             <p className="text-xs text-slate-500">Pratinjau ringkasan siap cetak untuk pelaporan resmi</p>
@@ -257,7 +257,7 @@ export default function ReportsExportPage({ data }) {
         <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 text-xs text-slate-700 font-sans">
           <div className="flex items-start justify-between border-b border-slate-200 pb-3">
             <div>
-              <h4 className="text-base font-extrabold text-slate-900">
+              <h4 className="text-sm font-semibold text-slate-900">
                 LAPORAN ANALISIS SENTIMEN TIKTOK: KOPERASI DESA MERAH PUTIH (KDMP)
               </h4>
               <p className="text-slate-500 text-[11px] mt-0.5">
@@ -272,25 +272,24 @@ export default function ReportsExportPage({ data }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div className="p-3 bg-white rounded-xl border border-slate-200">
               <span className="text-slate-400 block text-[10px] uppercase font-bold">Total Baris Mentah</span>
-              <span className="text-base font-bold text-slate-800 font-mono">{(meta.total_raw || 220051).toLocaleString('id-ID')}</span>
+              <span className="text-base font-bold text-slate-800 font-mono">{(meta.total_raw ?? 0).toLocaleString('id-ID')}</span>
             </div>
             <div className="p-3 bg-white rounded-xl border border-slate-200">
               <span className="text-slate-400 block text-[10px] uppercase font-bold">Komentar Unik</span>
-              <span className="text-base font-bold text-slate-800 font-mono">{(meta.total_unique || 127139).toLocaleString('id-ID')}</span>
+              <span className="text-base font-bold text-slate-800 font-mono">{(meta.total_unique ?? 0).toLocaleString('id-ID')}</span>
             </div>
             <div className="p-3 bg-white rounded-xl border border-slate-200">
               <span className="text-slate-400 block text-[10px] uppercase font-bold">Sentimen Positif</span>
-              <span className="text-base font-bold text-emerald-700 font-mono">{data?.sentiment_primary?.percentages?.positif || 45.2}%</span>
+              <span className="text-base font-bold text-emerald-700 font-mono">{data?.sentiment_primary?.percentages?.positif ?? 0}%</span>
             </div>
             <div className="p-3 bg-white rounded-xl border border-slate-200">
               <span className="text-slate-400 block text-[10px] uppercase font-bold">Sentimen Negatif</span>
-              <span className="text-base font-bold text-rose-700 font-mono">{data?.sentiment_primary?.percentages?.negatif || 32.8}%</span>
+              <span className="text-base font-bold text-rose-700 font-mono">{data?.sentiment_primary?.percentages?.negatif ?? 0}%</span>
             </div>
           </div>
 
           <p className="leading-relaxed text-slate-600">
-            <strong>Kesimpulan Ringkas:</strong> Analisis terhadap 127.139 komentar unik membuktikan bahwa antusiasme masyarakat terhadap program KDMP tinggi pada aspek stabilitas harga sembako dan penciptaan lapangan kerja desa, namun terdapat resistensi kritis pada aspek persaingan dengan warung kelontong tradisional yang membutuhkan komunikasi kebijakan kemitraan inklusif.
-          </p>
+            <strong>Kesimpulan Ringkas:</strong> {`Dari ${(meta.total_unique ?? 0).toLocaleString('id-ID')} komentar unik, aturan kamus mengklasifikasikan ${data?.sentiment_primary?.percentages?.netral ?? 0}% sebagai netral (${data?.sentiment_group?.percentages?.belum_terdeteksi ?? 0}% di antaranya belum terdeteksi polaritasnya), ${data?.sentiment_primary?.percentages?.negatif ?? 0}% negatif, ${data?.sentiment_primary?.percentages?.positif ?? 0}% positif, dan ${data?.sentiment_primary?.percentages?.perlu_validasi ?? 0}% perlu validasi. Di antara komentar berpolaritas, komentar negatif lebih banyak daripada positif. Isu yang paling sering muncul adalah ${data?.aspects?.[0]?.label ?? '-'} dan ${data?.aspects?.[1]?.label ?? '-'}. Label berasal dari aturan kamus otomatis dan belum divalidasi manusia, sehingga hasil dibaca sebagai indikasi pada dataset ini, bukan opini seluruh masyarakat.`}</p>
         </div>
       </div>
 
@@ -300,7 +299,7 @@ export default function ReportsExportPage({ data }) {
         variant="crimson"
         points={[
           `Ketersediaan seluruh hasil kalkulasi dalam format terbuka (CSV dan JSON) menjamin prinsip reproducibility (keterulangan penelitian) yang menjadi pilar sains data modern.`,
-          `Data yang diekspor telah dibersihkan dari informasi sensitif atau atribut privat; hanya memuat teks opini publik, ID agregasi, dan skor sentimen numerik.`,
+          `Seluruh berkas hasil bersumber dari dataset publik Kaggle (sinryurifal), bukan hasil pengumpulan mandiri oleh tim, dan dihitung dari komentar unik setelah deduplikasi comment_id.`,
           `Laporan eksekutif dapat langsung dicetak atau disimpan ke PDF menggunakan fungsi print peramban yang telah dioptimalkan dengan CSS media print khusus.`
         ]}
         recommendations={[

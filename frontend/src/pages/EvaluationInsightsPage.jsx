@@ -30,6 +30,10 @@ import CommentTable from '../components/CommentTable';
 export default function EvaluationInsightsPage({ data }) {
   const models = data?.evaluation?.benchmarks || [];
   const evalStats = data?.evaluation?.sentiment_score_stats || {};
+  const setup = data?.evaluation?.setup || {};
+  const base = models[0] || {};
+  const nb = models[1] || {};
+  const svm = models[2] || {};
   const [selectedModel, setSelectedModel] = useState(models[2] || models[0]);
 
   // Model comparison bar data
@@ -38,80 +42,81 @@ export default function EvaluationInsightsPage({ data }) {
     akurasi: m.accuracy,
     precision: m.precision,
     recall: m.recall,
-    f1_score: m.f1_score
+    f1_score: m.f1_score,
+    macro_f1: m.macro_f1
   }));
 
   // Confusion matrix data for active selected model
-  const cm = selectedModel.confusion_matrix || [
-    [1850, 140, 210],
-    [120, 1620, 260],
-    [240, 310, 2250]
-  ];
+  const cm = selectedModel.confusion_matrix || [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+  const rowSum = (r) => (r || []).reduce((a, b) => a + b, 0);
+  const recallOf = (i) => (rowSum(cm[i]) ? Math.round((cm[i][i] / rowSum(cm[i])) * 1000) / 10 : 0);
   const cmLabels = selectedModel.labels || ['positif', 'negatif', 'netral'];
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* 1. Deskripsi */}
       <SectionHeader
         badge="Quality Assurance & Model Validation"
         badgeColor="forest"
         title="Evaluasi Model, Validasi Metodologi, & Temuan Utama"
-        description="Pengujian komparatif performa algoritma klasifikasi sentimen teks (InSet Lexicon Heuristic, Multinomial Naive Bayes, dan Linear SVM berbasis TF-IDF), evaluasi matriks kebingungan (confusion matrix), serta batas metodologis transparansi data."
+        description="Perbandingan Multinomial Naive Bayes dan Linear SVM berbasis TF-IDF terhadap baseline mayoritas, lengkap dengan matriks konfusi. Seluruh skor dihitung terhadap label aturan kamus otomatis, bukan label manusia."
       />
 
       {/* 2. Statistik */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
-          title="F1-Score Model Terbaik"
-          value={models[2]?.f1_score || 89.4}
+          title="Akurasi Linear SVM"
+          value={svm.accuracy ?? 0}
           suffix="%"
-          subtext="Linear SVM (TF-IDF 5k fitur)"
+          subtext="Terhadap label aturan kamus, bukan kebenaran sentimen"
           icon={Award}
           colorScheme="forest"
-          tooltip="Harmonic mean of precision & recall pada kelas polaritas seimbang"
+          tooltip="Seberapa mirip prediksi SVM dengan label yang dibuat aturan kamus pada data uji"
         />
         <StatCard
-          title="Akurasi InSet Lexicon"
-          value={models[0]?.accuracy || 88.4}
+          title="Baseline Mayoritas"
+          value={base.accuracy ?? 0}
           suffix="%"
-          subtext="Rule-based heuristic baseline"
+          subtext={`Selalu menebak ${setup.majority_class ?? '-'} sudah mencapai angka ini; SVM hanya unggul ${((svm.accuracy ?? 0) - (base.accuracy ?? 0)).toFixed(1)} poin`}
           icon={ShieldCheck}
           colorScheme="crimson"
-          tooltip="Tingkat konsistensi leksikon berbobot InSet terhadap label terverifikasi"
+          tooltip="Akurasi model tanpa kemampuan apa pun yang hanya memilih kelas terbanyak"
         />
         <StatCard
-          title="Rata-rata Skor Sentimen"
-          value={evalStats.mean || "+0.42"}
-          subtext={`Median: ${evalStats.median || 0} • Std: ${evalStats.std || 1.84}`}
+          title="Macro F1 Linear SVM"
+          value={svm.macro_f1 ?? 0}
+          suffix="%"
+          subtext={`Naive Bayes ${nb.macro_f1 ?? 0}% | baseline ${base.macro_f1 ?? 0}%`}
           icon={Cpu}
           colorScheme="blue"
-          tooltip="Kecenderungan nilai sentimen keseluruhan dataset"
+          tooltip="Rata-rata F1 ketiga kelas dengan bobot sama; tidak tertipu oleh kelas netral yang dominan"
         />
         <StatCard
-          title="Sampel Validasi Manual"
-          value="500 Komentar"
-          subtext="Stratified random sampling"
+          title="Validasi Manual"
+          value="Belum"
+          subtext="500 sampel prioritas disiapkan di notebook, belum dinilai penilai manusia"
           icon={Layers}
           colorScheme="amber"
-          tooltip="Sampel prioritas tinjau (ambigu, sarkasme, dan campuran) untuk penilai manusia"
+          tooltip="Skor di halaman ini belum diuji terhadap label manusia"
         />
       </div>
 
       {/* 3. Visualisasi Komparasi Model Benchmark */}
-      <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
+      <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
           <div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
-              Komparasi Metrik Evaluasi: InSet vs Naive Bayes vs Linear SVM
+            <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
+              Komparasi Metrik Evaluasi: Baseline Mayoritas vs Naive Bayes vs Linear SVM
             </h3>
-            <p className="text-xs text-slate-500">Perbandingan akurasi, presisi, perolehan (recall), dan F1-score (%)</p>
+            <p className="text-xs text-slate-500">Akurasi, presisi, recall, dan F1 berbobot kelas (weighted), serta macro F1 (%). Sumbu mulai dari 0.</p>
           </div>
 
           <div className="flex items-center gap-2 text-xs font-semibold">
             <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-forest-600" /> Akurasi</span>
             <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-emerald-500" /> Precision</span>
             <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-amber-500" /> Recall</span>
-            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-crimson-600" /> F1-Score</span>
+            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-crimson-600" /> F1 (weighted)</span>
+            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-slate-600" /> Macro F1</span>
           </div>
         </div>
 
@@ -120,7 +125,7 @@ export default function EvaluationInsightsPage({ data }) {
             <BarChart data={comparisonData} margin={{ top: 20, right: 30, left: 0, bottom: 10 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
               <XAxis dataKey="name" stroke="#1e293b" fontSize={11} />
-              <YAxis domain={[75, 100]} stroke="#94a3b8" fontSize={11} unit="%" />
+              <YAxis domain={[0, 100]} stroke="#94a3b8" fontSize={11} unit="%" />
               <Tooltip 
                 formatter={(val) => [`${val}%`, 'Skor']}
                 contentStyle={{ backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0' }}
@@ -128,17 +133,18 @@ export default function EvaluationInsightsPage({ data }) {
               <Bar dataKey="akurasi" fill="#20524d" name="Akurasi" radius={[4, 4, 0, 0]} />
               <Bar dataKey="precision" fill="#499667" name="Precision" radius={[4, 4, 0, 0]} />
               <Bar dataKey="recall" fill="#f59e0b" name="Recall" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="f1_score" fill="#aa161a" name="F1-Score" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="f1_score" fill="#aa161a" name="F1 (weighted)" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="macro_f1" fill="#475569" name="Macro F1" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
       </div>
 
       {/* Tabel Rincian Spesifikasi Model Benchmark */}
-      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 overflow-hidden space-y-4">
+      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 overflow-hidden space-y-4">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
+            <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
               Tabel Spesifikasi & Karakteristik Algoritma
             </h3>
             <p className="text-xs text-slate-500">Evaluasi kekuatan komputasi, interpretabilitas, dan batas performa</p>
@@ -153,7 +159,8 @@ export default function EvaluationInsightsPage({ data }) {
                 <th className="py-3 px-3">Tipe Model</th>
                 <th className="py-3 px-3">Fitur Masukan</th>
                 <th className="py-3 px-3 text-center">Akurasi</th>
-                <th className="py-3 px-3 text-center">F1-Score</th>
+                <th className="py-3 px-3 text-center">F1 (weighted)</th>
+                <th className="py-3 px-3 text-center">Macro F1</th>
                 <th className="py-3 px-3">Interpretabilitas</th>
                 <th className="py-3 px-3">Catatan Karakteristik</th>
               </tr>
@@ -176,6 +183,9 @@ export default function EvaluationInsightsPage({ data }) {
                   <td className="py-3.5 px-3 text-center font-bold text-crimson-600 font-mono">
                     {m.f1_score}%
                   </td>
+                  <td className="py-3.5 px-3 text-center font-bold text-slate-700 font-mono">
+                    {m.macro_f1}%
+                  </td>
                   <td className="py-3.5 px-3">
                     <span className="px-2 py-0.5 rounded font-semibold text-[11px] bg-slate-100 text-slate-700">
                       {m.interpretability}
@@ -192,10 +202,10 @@ export default function EvaluationInsightsPage({ data }) {
       </div>
 
       {/* Confusion Matrix Interactive Visualizer */}
-      <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+      <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
           <div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
+            <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
               Matriks Konfusi (Confusion Matrix)
             </h3>
             <p className="text-xs text-slate-500">Pemetaan prediksi kelas vs label aktual pada data uji</p>
@@ -219,7 +229,7 @@ export default function EvaluationInsightsPage({ data }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-2">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center pt-2">
           {/* Sebelah Kiri: Matriks 3x3 */}
           <div className="lg:col-span-6">
             <div className="text-center text-xs font-bold text-slate-500 mb-3">
@@ -236,7 +246,7 @@ export default function EvaluationInsightsPage({ data }) {
               {/* Row 1: Positif Actual */}
               <div className="p-2 font-bold text-emerald-700 flex items-center justify-center">Positif</div>
               <div className="p-3 bg-emerald-100/80 text-emerald-900 font-bold font-mono rounded-lg border border-emerald-300">
-                {cm[0]?.[0]} <span className="block text-[9px] font-normal text-emerald-700">True Pos</span>
+                {cm[0]?.[0]} <span className="block text-[10px] font-normal text-emerald-700">True Pos</span>
               </div>
               <div className="p-3 bg-rose-50/50 text-slate-600 font-mono rounded-lg border border-slate-100">
                 {cm[0]?.[1]}
@@ -251,7 +261,7 @@ export default function EvaluationInsightsPage({ data }) {
                 {cm[1]?.[0]}
               </div>
               <div className="p-3 bg-rose-100/80 text-rose-900 font-bold font-mono rounded-lg border border-rose-300">
-                {cm[1]?.[1]} <span className="block text-[9px] font-normal text-rose-700">True Neg</span>
+                {cm[1]?.[1]} <span className="block text-[10px] font-normal text-rose-700">True Neg</span>
               </div>
               <div className="p-3 bg-slate-50 text-slate-600 font-mono rounded-lg border border-slate-100">
                 {cm[1]?.[2]}
@@ -266,32 +276,32 @@ export default function EvaluationInsightsPage({ data }) {
                 {cm[2]?.[1]}
               </div>
               <div className="p-3 bg-slate-200/80 text-slate-900 font-bold font-mono rounded-lg border border-slate-300">
-                {cm[2]?.[2]} <span className="block text-[9px] font-normal text-slate-700">True Net</span>
+                {cm[2]?.[2]} <span className="block text-[10px] font-normal text-slate-700">True Net</span>
               </div>
             </div>
           </div>
 
           {/* Sebelah Kanan: Penjelasan Poin 1, 2, 3, 4 */}
           <div className="lg:col-span-6 space-y-3 bg-[#fbfaf7] p-5 rounded-2xl border border-slate-200/70">
-            <h4 className="text-xs font-bold text-slate-900">
+            <h4 className="text-xs font-semibold text-slate-900">
               Penjelasan Hasil Matriks Konfusi
             </h4>
             <div className="space-y-2.5 text-xs text-slate-700">
               <div className="flex items-start gap-2.5">
                 <span className="w-5 h-5 rounded-full bg-[#edf3ef] text-[#315343] font-bold flex items-center justify-center flex-shrink-0 text-[11px]">1</span>
-                <p><strong>Diagonal Utama:</strong> Angka pada kotak berwarna hijau, merah, dan abu-abu tebal adalah tebakan model yang tepat sesuai dengan label asli komentar.</p>
+                <p><strong>Diagonal Utama:</strong> kotak tebal adalah komentar yang prediksinya sama dengan label aturan kamus.</p>
               </div>
               <div className="flex items-start gap-2.5">
                 <span className="w-5 h-5 rounded-full bg-[#edf3ef] text-[#315343] font-bold flex items-center justify-center flex-shrink-0 text-[11px]">2</span>
-                <p><strong>Ketepatan Deteksi Negatif:</strong> Model mampu membedakan keluhan atau kritik warga dengan sangat tepat dan minim kesalahan salah sasaran.</p>
+                <p><strong>Recall per kelas ({selectedModel.model.split(' (')[0]}):</strong> positif {recallOf(0)}%, negatif {recallOf(1)}%, netral {recallOf(2)}%.</p>
               </div>
               <div className="flex items-start gap-2.5">
                 <span className="w-5 h-5 rounded-full bg-[#edf3ef] text-[#315343] font-bold flex items-center justify-center flex-shrink-0 text-[11px]">3</span>
-                <p><strong>Tantangan Kalimat Netral:</strong> Sedikit kekeliruan terjadi pada komentar netral yang bernada sindiran atau pertanyaan pendek tanpa kata sentimen yang jelas.</p>
+                <p><strong>Kelas netral mendominasi:</strong> {setup.majority_share_test_pct ?? '-'}% data uji berkelas {setup.majority_class ?? '-'}, jadi menebak selalu {setup.majority_class ?? '-'} sudah menghasilkan akurasi {base.accuracy ?? '-'}%.</p>
               </div>
               <div className="flex items-start gap-2.5">
                 <span className="w-5 h-5 rounded-full bg-[#edf3ef] text-[#315343] font-bold flex items-center justify-center flex-shrink-0 text-[11px]">4</span>
-                <p><strong>Kesimpulan Akurasi:</strong> Model mencapai tingkat keberhasilan klasifikasi hingga 89%, menunjukkan hasil analisis sentimen dapat dipercaya untuk pengambilan keputusan.</p>
+                <p><strong>Cara membaca skor:</strong> angka ini mengukur kemiripan model dengan aturan kamus yang membuat labelnya, bukan seberapa benar sentimennya. Hasil belum boleh dipakai sebagai dasar keputusan kebijakan tanpa validasi manusia.</p>
               </div>
             </div>
           </div>
@@ -303,16 +313,17 @@ export default function EvaluationInsightsPage({ data }) {
         title="Catatan Kritis Validasi & Batasan Metodologis"
         variant="crimson"
         points={[
-          `Kesesuaian tinggi antara aturan kamus InSet dan model supervised (Naive Bayes 86,8%, Linear SVM 89,2%) membuktikan bahwa fitur leksikon dan representasi TF-IDF menangkap sinyal sentimen yang konsisten.`,
-          `Linear SVM menghasilkan F1-Score tertinggi (89,4%) karena sifat pemisah hyperplane linear yang sangat efektif pada ruang dimensi matriks teks jarang (sparse high-dimensional TF-IDF).`,
-          `PENTING DITEKANKAN: Seluruh skor akurasi model di atas dihitung terhadap label aturan otomatis notebook. Sesuai etika data science akademik, label kamus adalah indikator eksploratif awal, bukan 'Ground Truth' absolut manusia.`,
-          `Diperlukan validasi manual independen (human annotation) menggunakan protokol Stratified Random Sampling minimal 2 penilai independen untuk mengukur reliabilitas kesepakatan (Cohen's Kappa).`
+          `Akurasi Linear SVM ${svm.accuracy ?? '-'}% dan Naive Bayes ${nb.accuracy ?? '-'}% dihitung terhadap label aturan kamus otomatis. Skor ini mengukur seberapa baik model meniru aturan tersebut, bukan ketepatan sentimen yang sebenarnya.`,
+          `Data uji sangat timpang: ${setup.majority_share_test_pct ?? '-'}% berkelas ${setup.majority_class ?? '-'}. Baseline yang selalu menebak kelas itu sudah mencapai akurasi ${base.accuracy ?? '-'}% tetapi macro F1 hanya ${base.macro_f1 ?? '-'}%. Karena itu macro F1 (SVM ${svm.macro_f1 ?? '-'}%, Naive Bayes ${nb.macro_f1 ?? '-'}%) lebih informatif daripada akurasi.`,
+          `F1 per kelas Naive Bayes: positif ${nb.f1_per_class?.positif ?? '-'}%, negatif ${nb.f1_per_class?.negatif ?? '-'}%, netral ${nb.f1_per_class?.netral ?? '-'}%. Linear SVM: positif ${svm.f1_per_class?.positif ?? '-'}%, negatif ${svm.f1_per_class?.negatif ?? '-'}%, netral ${svm.f1_per_class?.netral ?? '-'}%. Naive Bayes jauh lebih lemah pada kelas positif dan negatif.`,
+          `Label dibuat dari kata-kata kamus yang juga menjadi fitur TF-IDF, sehingga SVM mudah meniru aturan itu. Skor tinggi bukan bukti bahwa sistem memahami sentimen, terutama karena sarkasme dan konteks video tidak tertangkap.`,
+          `Diperlukan validasi manual independen oleh minimal 2 penilai dengan uji Cohen's Kappa. Sampel prioritas 500 komentar disiapkan di notebook tetapi belum dinilai.`
         ]}
         recommendations={[
-          "Lakukan adjudikasi terhadap 500 sampel prioritas tinjau (Cell 16 notebook: sampel_validasi_manual.csv) sebelum merilis laporan resmi evaluasi ke pemangku kebijakan publik.",
-          "Gunakan model hybrid: aturan leksikon untuk penjelasan transparan kata bukti, dan Linear SVM untuk mengklasifikasikan komentar panjang yang memiliki negasi kompleks."
+          "Nilai sampel validasi manual (sampel_validasi_manual.csv dari notebook) oleh minimal dua penilai, hitung Cohen's Kappa, lalu evaluasi ulang model terhadap label konsensus.",
+          "Laporkan macro F1 beserta baseline mayoritas, bukan akurasi saja, dan jangan menyebut skor SVM sebagai akurasi sentimen."
         ]}
-        notes="Evaluasi benchmark dihitung pada dataset terlabel seimbang (train 75%, test 25%, random_state=42) menggunakan scikit-learn standard metrics."
+        notes={`Evaluasi pada ${(setup.sample_size ?? 0).toLocaleString('id-ID')} komentar berlabel (latih ${(setup.n_train ?? 0).toLocaleString('id-ID')}, uji ${(setup.n_test ?? 0).toLocaleString('id-ID')}, random_state=42); komentar berstatus perlu validasi tidak diikutkan. Sumber label: ${setup.label_source ?? '-'}.`}
       />
 
       {/* 5. Detail Data */}

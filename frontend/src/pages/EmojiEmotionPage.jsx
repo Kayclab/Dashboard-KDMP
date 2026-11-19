@@ -31,16 +31,22 @@ import CommentTable from '../components/CommentTable';
 export default function EmojiEmotionPage({ data }) {
   const emojiData = data?.emojis || { summary: [] };
   const emotions = data?.emotions || [];
+  const totalUnique = data?.metadata?.total_unique || 0;
+  const emojiPct = totalUnique ? ((emojiData.total_comments_with_emoji ?? 0) / totalUnique * 100).toFixed(1).replace('.', ',') : '0';
+  const topEmoji = (emojiData.summary || []).slice(0, 3);
+  const contextualSum = (emojiData.summary || []).filter((e) => e.polaritas === 'kontekstual').reduce((a, e) => a + e.frekuensi, 0);
+  const emotionsSorted = [...emotions].sort((a, b) => b.jumlah - a.jumlah);
+  const emoFmt = (n) => Number(n || 0).toLocaleString('id-ID');
   const topEmojis = (emojiData.summary || []).slice(0, 15);
 
   const emojiPolarityData = [
-    { name: 'Emoji Positif (👍, ❤️, 👏)', value: emojiData.positive_count || 14200, color: '#499667' },
-    { name: 'Emoji Negatif (👎, 😡, 😠)', value: emojiData.negative_count || 5120, color: '#aa161a' },
-    { name: 'Emoji Kontekstual (😂, 🤣, 😭)', value: (emojiData.total_comments_with_emoji || 35000) - ((emojiData.positive_count || 14200) + (emojiData.negative_count || 5120)), color: '#f59e0b' },
+    { name: 'Emoji Positif (👍, ❤️, 👏)', value: emojiData.positive_count ?? 0, color: '#499667' },
+    { name: 'Emoji Negatif (👎, 😡, 😠)', value: emojiData.negative_count ?? 0, color: '#aa161a' },
+    { name: 'Emoji Kontekstual (😂, 🤣, 😭)', value: (emojiData.total_comments_with_emoji ?? 0) - ((emojiData.positive_count ?? 0) + (emojiData.negative_count ?? 0)), color: '#f59e0b' },
   ];
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* 1. Deskripsi */}
       <SectionHeader
         badge="Visual & Emotional Expression"
@@ -50,18 +56,18 @@ export default function EmojiEmotionPage({ data }) {
       />
 
       {/* 2. Statistik */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Komentar Menggunakan Emoji"
-          value={emojiData.total_comments_with_emoji || 35420}
-          subtext="27.8% dari total komentar unik"
+          value={emojiData.total_comments_with_emoji ?? 0}
+          subtext={`${emojiPct}% dari total komentar unik`}
           icon={Smile}
           colorScheme="forest"
           tooltip="Komentar yang memuat setidaknya 1 simbol emoji Unicode"
         />
         <StatCard
           title="Indikator Emoji Positif"
-          value={emojiData.positive_count || 14200}
+          value={emojiData.positive_count ?? 0}
           subtext="👍, ❤️, 👏, 😊, 😍, 🙏"
           icon={ThumbsUp}
           colorScheme="forest"
@@ -69,7 +75,7 @@ export default function EmojiEmotionPage({ data }) {
         />
         <StatCard
           title="Indikator Emoji Negatif"
-          value={emojiData.negative_count || 5120}
+          value={emojiData.negative_count ?? 0}
           subtext="👎, 😡, 😠, 😤, 😞, 😢"
           icon={ThumbsDown}
           colorScheme="crimson"
@@ -77,8 +83,8 @@ export default function EmojiEmotionPage({ data }) {
         />
         <StatCard
           title="Emoji Kontekstual / Tawa"
-          value="16.100+"
-          subtext="😂, 🤣, 😭, 😅 (Perlu tinjau konteks)"
+          value={contextualSum}
+          subtext="Kemunculan dari 30 emoji teratas bertanda kontekstual (😂 🤣 😭 😅); makna perlu dilihat dari konteks"
           icon={Laugh}
           colorScheme="amber"
           tooltip="Emoji tawa yang dapat bermakna humor wajar maupun sindiran sarkastik"
@@ -86,12 +92,12 @@ export default function EmojiEmotionPage({ data }) {
       </div>
 
       {/* 3. Visualisasi */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Top 15 Emoji Bar Chart */}
-        <div className="lg:col-span-7 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
+        <div className="lg:col-span-7 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h3 className="text-base font-bold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 15 Emoji Paling Sering Digunakan
               </h3>
               <p className="text-xs text-slate-500">Frekuensi kemunculan simbol emoji pada teks komentar</p>
@@ -132,10 +138,10 @@ export default function EmojiEmotionPage({ data }) {
         </div>
 
         {/* Donut Kategori Emoji */}
-        <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
+        <div className="lg:col-span-5 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h3 className="text-base font-bold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 Komposisi Kelompok Polaritas Emoji
               </h3>
               <p className="text-xs text-slate-500">Perbandingan ekspresi emosi visual</p>
@@ -169,7 +175,7 @@ export default function EmojiEmotionPage({ data }) {
             </ResponsiveContainer>
 
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <span className="text-xl font-black text-slate-800">
+              <span className="text-xl font-bold text-slate-800">
                 {topEmojis[0]?.emoji || '👍'}
               </span>
               <span className="text-[10px] font-bold text-slate-500">
@@ -195,9 +201,9 @@ export default function EmojiEmotionPage({ data }) {
       </div>
 
       {/* 7 Spektrum Emosi Publik */}
-      <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+      <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
         <div className="pb-3 border-b border-slate-100">
-          <h3 className="text-base font-bold text-slate-900 tracking-tight">
+          <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
             Distribusi 7 Spektrum Emosi Komentar
           </h3>
           <p className="text-xs text-slate-500 mt-0.5">Kategori psikologis berdasarkan leksikon afektif bahasa Indonesia</p>
@@ -216,10 +222,10 @@ export default function EmojiEmotionPage({ data }) {
                 <div className="w-5 h-5 rounded-full bg-slate-200/80 text-slate-700 flex items-center justify-center text-[10px] font-bold mb-1.5">
                   {idx + 1}
                 </div>
-                <h4 className="text-xs font-bold text-slate-900 truncate" title={em.label}>
+                <h4 className="text-xs font-semibold text-slate-900 truncate" title={em.label}>
                   {em.label}
                 </h4>
-                <p className="text-lg font-black text-slate-800 mt-1 font-mono">
+                <p className="text-lg font-bold text-slate-800 mt-1 font-mono">
                   {em.jumlah.toLocaleString('id-ID')}
                 </p>
                 <span className="text-[11px] text-slate-500 font-medium">
@@ -236,9 +242,9 @@ export default function EmojiEmotionPage({ data }) {
         title="Interpretasi Ekspresi Emosional & Karakteristik Komentar"
         variant="forest"
         points={[
-          `Emoji jempol (👍) dan hati merah (❤️) menempati peringkat teratas frekuensi emoji, memperkuat temuan bahwa gelombang awal video KDMP disambut dengan antusiasme harapan kemakmuran desa.`,
-          `Namun, tingginya frekuensi emoji tertawa terbahak-bahak (😂, 🤣) bersamaan dengan kata slang 'wkwk' dan 'lawak' sering kali muncul pada komentar mengenai ketidakpercayaan terhadap transparansi pengurus koperasi atau pengalaman program terdahulu yang mangkrak.`,
-          `Emosi 'Harapan & Optimisme' (semoga, harap, sukses) mencapai lebih dari 15.000 komentar, menunjukkan bahwa mayoritas publik sebenarnya menginginkan program ini berhasil asalkan dikelola dengan jujur.`
+          `Tiga emoji paling sering adalah ${topEmoji.map((e) => `${e.emoji} (${emoFmt(e.frekuensi)}, ${e.polaritas})`).join(', ')}. Emoji bertanda kontekstual dapat berarti humor, sindiran, atau kesedihan, sehingga tidak otomatis menunjukkan dukungan atau penolakan.`,
+          `Emoji berpolaritas jelas jauh lebih sedikit: ${emoFmt(emojiData.positive_count)} kemunculan emoji positif dan ${emoFmt(emojiData.negative_count)} emoji negatif, dibandingkan ${emoFmt(contextualSum)} kemunculan emoji kontekstual pada 30 emoji teratas.`,
+          `Indikator emosi terbanyak menurut kamus: ${emotionsSorted.slice(0, 3).map((e) => `${e.label} (${emoFmt(e.jumlah)})`).join(', ')}. Indikator ini memakai kata kunci sederhana dan belum divalidasi manual.`
         ]}
         recommendations={[
           "Pantau lonjakan emoji negatif (😡, 👎) secara real-time pada video baru untuk mendeteksi krisis komunikasi atau keluhan stok barang sebelum meluas.",

@@ -6,9 +6,9 @@ export default function Header({
   activeMenuTitle
 }) {
   return (
-    <header className="px-4 sm:px-8 pt-4 pb-2 flex items-center justify-between">
+    <header className="px-4 lg:pl-5 lg:pr-9 pt-4 pb-3 lg:pb-1 flex items-center justify-between">
       {/* Left: Sunburst Logo + Page Title */}
-      <div className="flex items-center gap-3.5">
+      <div className="flex items-center gap-3.5 lg:h-20">
         <button
           onClick={() => setMobileOpen(true)}
           className="lg:hidden p-2 rounded-2xl bg-white text-slate-700 shadow-xs hover:bg-slate-50 transition-colors"
@@ -26,8 +26,8 @@ export default function Header({
         </div>
 
         <div>
-          <h1 className="text-lg sm:text-xl font-bold text-[#1a2e26] tracking-tight">
-            {activeMenuTitle || 'KDMP Social Media Analytics Dashboard'}
+          <h1 className="text-2xl font-semibold text-[#1a2e26] tracking-tight">
+            {activeMenuTitle || 'Analisis KDMP'}
           </h1>
         </div>
       </div>

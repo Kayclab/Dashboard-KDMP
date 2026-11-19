@@ -12,6 +12,7 @@ import {
   MessageSquare, 
   Award, 
   Workflow, 
+  FileDown,
   ChevronLeft, 
   ChevronRight, 
   X
@@ -28,6 +29,7 @@ export const MENU_ITEMS = [
   { id: 'topic-trend', label: 'Topik & Tren', icon: TrendingUp },
   { id: 'conversation', label: 'Analisis Percakapan', icon: MessageSquare },
   { id: 'evaluation-insights', label: 'Evaluasi Model', icon: Award },
+  { id: 'reports-export', label: 'Laporan & Ekspor', icon: FileDown },
   { id: 'data-flow-tech', label: 'Alur Data & Teknologi', icon: Workflow },
 ];
 
@@ -39,6 +41,7 @@ export default function Sidebar({
   mobileOpen, 
   setMobileOpen 
 }) {
+  const compact = isCollapsed && !mobileOpen;
   return (
     <>
       {/* Mobile Backdrop */}
@@ -55,7 +58,7 @@ export default function Sidebar({
       </AnimatePresence>
 
       {/* Floating White Capsule Sidebar */}
-      <div className="lg:pl-6 lg:py-6 lg:h-screen lg:sticky lg:top-0 z-50 flex items-stretch">
+      <div className="lg:pl-4 lg:py-4 lg:h-screen lg:sticky lg:top-0 z-50 flex items-stretch">
         <motion.aside
           initial={false}
           animate={{ 
@@ -67,8 +70,8 @@ export default function Sidebar({
           } transition-transform lg:transition-none`}
         >
           {/* Top Logo / App Icon - Fully visible without clipping */}
-          <div className="h-20 flex items-center justify-between px-3.5 border-b border-slate-100/60 flex-shrink-0">
-            <div className="flex items-center gap-3">
+          <div className={`h-20 flex items-center border-b border-slate-100/60 flex-shrink-0 ${compact ? 'justify-center px-0' : 'justify-between px-3.5'}`}>
+            <div className="flex items-center justify-center gap-3">
               <button 
                 onClick={() => setIsCollapsed(!isCollapsed)}
                 className="w-10 h-10 rounded-2xl bg-[#1a2e26] text-white flex items-center justify-center flex-shrink-0 hover:bg-[#315343] transition-colors shadow-xs"
@@ -89,11 +92,11 @@ export default function Sidebar({
                   exit={{ opacity: 0 }}
                   className="min-w-0"
                 >
-                  <h2 className="font-bold text-sm text-[#1a2e26] tracking-tight leading-tight truncate">
-                    KDMP Analytics
+                  <h2 className="font-semibold text-sm text-[#1a2e26] tracking-tight leading-tight truncate">
+                    Analisis KDMP
                   </h2>
-                  <p className="text-[11px] text-[#737c76] font-medium truncate">
-                    TikTok Dashboard
+                  <p className="text-[11px] text-[#737c76] font-normal truncate">
+                    Komentar TikTok
                   </p>
                 </motion.div>
               )}
@@ -122,11 +125,11 @@ export default function Sidebar({
                     setMobileOpen(false);
                   }}
                   title={item.label}
-                  className={`relative w-full flex items-center gap-3 p-2.5 rounded-2xl text-xs font-semibold transition-all duration-200 group text-left ${
+                  className={`relative w-full flex items-center gap-3 p-2.5 rounded-2xl text-xs font-medium transition-all duration-200 group text-left ${
                     isActive
                       ? 'bg-[#1a2e26] text-white shadow-sm'
                       : 'text-[#737c76] hover:bg-[#f6f5ef] hover:text-[#1a2e26]'
-                  } ${isCollapsed && !mobileOpen ? 'justify-center px-0' : ''}`}
+                  } ${compact ? 'justify-center px-0' : ''}`}
                 >
                   <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
                     isActive 

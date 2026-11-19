@@ -34,31 +34,31 @@ export default function DataUnderstandingPage({ data }) {
 
   // Data schema table
   const schemaDetails = [
-    { name: "video_id", type: "String / BigInt", unique: meta.total_videos || 38, nulls: audit.null_counts.video_id || 0, desc: "ID unik video TikTok yang menjadi sumber tanggapan publik" },
-    { name: "comment_id", type: "String / BigInt", unique: meta.total_unique || 127139, nulls: audit.null_counts.comment_id || 0, desc: "ID unik komentar pada platform TikTok (primary key dedup)" },
-    { name: "parent_comment_id", type: "String / BigInt", unique: 4120, nulls: audit.null_counts.parent_comment_id || 0, desc: "ID komentar induk; berisi jika komentar berstatus balasan" },
-    { name: "level", type: "String / Int", unique: 2, nulls: audit.null_counts.level || 0, desc: "Tingkat hirarki komentar (level 1 = utama, level 2 = balasan)" },
-    { name: "username", type: "String", unique: meta.total_accounts || 98450, nulls: audit.null_counts.username || 0, desc: "Handle akun TikTok pengunggah komentar" },
-    { name: "nickname", type: "String", unique: 92310, nulls: audit.null_counts.nickname || 0, desc: "Nama tampilan (display name) akun pengguna" },
-    { name: "comment", type: "String (Text)", unique: 118420, nulls: audit.null_counts.comment || 0, desc: "Teks isi komentar mentah yang diunggah pengguna" },
-    { name: "create_time", type: "Datetime", unique: 124800, nulls: audit.null_counts.create_time || 0, desc: "Waktu komentar diposting (YYYY-MM-DD HH:MM:SS)" },
+    { name: "video_id", type: "String / BigInt", unique: meta.total_videos ?? 0, nulls: audit.null_counts.video_id || 0, desc: "ID unik video TikTok yang menjadi sumber tanggapan publik" },
+    { name: "comment_id", type: "String / BigInt", unique: meta.total_unique ?? 0, nulls: audit.null_counts.comment_id || 0, desc: "ID unik komentar pada platform TikTok (primary key dedup)" },
+    { name: "parent_comment_id", type: "String / BigInt", unique: audit.unique_counts.parent_comment_id ?? 0, nulls: audit.null_counts.parent_comment_id || 0, desc: "ID komentar induk; berisi jika komentar berstatus balasan" },
+    { name: "level", type: "String / Int", unique: 2, nulls: audit.null_counts.level || 0, desc: "Tingkat hirarki komentar (kolom level kosong pada baris salinan; nilai 0 = komentar utama, 1 = balasan)" },
+    { name: "username", type: "String", unique: meta.total_accounts ?? 0, nulls: audit.null_counts.username || 0, desc: "Handle akun TikTok pengunggah komentar" },
+    { name: "nickname", type: "String", unique: audit.unique_counts.nickname ?? 0, nulls: audit.null_counts.nickname || 0, desc: "Nama tampilan (display name) akun pengguna" },
+    { name: "comment", type: "String (Text)", unique: audit.unique_counts.comment ?? 0, nulls: audit.null_counts.comment || 0, desc: "Teks isi komentar mentah yang diunggah pengguna" },
+    { name: "create_time", type: "Datetime", unique: audit.unique_counts.create_time ?? 0, nulls: audit.null_counts.create_time || 0, desc: "Waktu komentar diposting (YYYY-MM-DD HH:MM:SS)" },
   ];
 
   // Missing values chart data
   const nullChartData = Object.entries(audit.null_counts || {}).map(([key, val]) => ({
     kolom: key,
     kosong: val,
-    persen: Number(((val / (meta.total_raw || 220051)) * 100).toFixed(2))
+    persen: Number(((val / (meta.total_raw ?? 0)) * 100).toFixed(2))
   }));
 
   // Deduplication pie data
   const dedupData = [
-    { name: 'Komentar Unik', value: meta.total_unique || 127139, color: '#20524d', pct: ((meta.total_unique / meta.total_raw) * 100).toFixed(1) },
-    { name: 'Salinan Duplikat', value: meta.duplicates_removed || 92912, color: '#aa161a', pct: ((meta.duplicates_removed / meta.total_raw) * 100).toFixed(1) },
+    { name: 'Komentar Unik', value: meta.total_unique ?? 0, color: '#20524d', pct: ((meta.total_unique / meta.total_raw) * 100).toFixed(1) },
+    { name: 'Salinan Duplikat', value: meta.duplicates_removed ?? 0, color: '#aa161a', pct: ((meta.duplicates_removed / meta.total_raw) * 100).toFixed(1) },
   ];
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* 1. Deskripsi */}
       <SectionHeader
         badge="Data Profiling"
@@ -68,10 +68,10 @@ export default function DataUnderstandingPage({ data }) {
       />
 
       {/* 2. Statistik */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Total Baris Mentah"
-          value={meta.total_raw || 220051}
+          value={meta.total_raw ?? 0}
           subtext="Hasil pembacaan file KDMP.xlsx"
           icon={FileSpreadsheet}
           colorScheme="neutral"
@@ -79,7 +79,7 @@ export default function DataUnderstandingPage({ data }) {
         />
         <StatCard
           title="Komentar Unik Terverifikasi"
-          value={meta.total_unique || 127139}
+          value={meta.total_unique ?? 0}
           subtext={`${((meta.total_unique / meta.total_raw) * 100).toFixed(1)}% dari total raw`}
           icon={CheckCircle2}
           colorScheme="forest"
@@ -87,7 +87,7 @@ export default function DataUnderstandingPage({ data }) {
         />
         <StatCard
           title="Baris Duplikat Dikeluarkan"
-          value={meta.duplicates_removed || 92912}
+          value={meta.duplicates_removed ?? 0}
           subtext={`${((meta.duplicates_removed / meta.total_raw) * 100).toFixed(1)}% redundansi data`}
           icon={Copy}
           colorScheme="crimson"
@@ -104,12 +104,12 @@ export default function DataUnderstandingPage({ data }) {
       </div>
 
       {/* 3. Visualisasi */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Deduplikasi & Komposisi */}
-        <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
+        <div className="lg:col-span-5 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h3 className="text-base font-bold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 Rasio Deduplikasi Data
               </h3>
               <p className="text-xs text-slate-500">Perbandingan komentar unik vs baris salinan</p>
@@ -146,7 +146,7 @@ export default function DataUnderstandingPage({ data }) {
             </ResponsiveContainer>
 
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <span className="text-xl font-black text-slate-800">
+              <span className="text-xl font-bold text-slate-800">
                 {dedupData[0].pct}%
               </span>
               <span className="text-[10px] font-bold text-forest-600">
@@ -158,20 +158,20 @@ export default function DataUnderstandingPage({ data }) {
           <div className="grid grid-cols-2 gap-3 mt-3 pt-4 border-t border-slate-100 text-xs">
             <div className="p-3 rounded-xl bg-forest-50/60 border border-forest-100">
               <p className="text-[10px] font-bold text-forest-700">Unik Dipertahankan</p>
-              <p className="text-base font-black text-forest-800 mt-0.5">{(meta.total_unique || 127139).toLocaleString('id-ID')}</p>
+              <p className="text-base font-bold text-forest-800 mt-0.5">{(meta.total_unique ?? 0).toLocaleString('id-ID')}</p>
             </div>
             <div className="p-3 rounded-xl bg-rose-50/60 border border-rose-100">
               <p className="text-[10px] font-bold text-rose-700">Duplikat Dibuang</p>
-              <p className="text-base font-black text-rose-800 mt-0.5">{(meta.duplicates_removed || 92912).toLocaleString('id-ID')}</p>
+              <p className="text-base font-bold text-rose-800 mt-0.5">{(meta.duplicates_removed ?? 0).toLocaleString('id-ID')}</p>
             </div>
           </div>
         </div>
 
         {/* Audit Missing Value per Kolom */}
-        <div className="lg:col-span-7 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
+        <div className="lg:col-span-7 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h3 className="text-base font-bold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 Audit Nilai Kosong (Missing Values)
               </h3>
               <p className="text-xs text-slate-500">Persentase data kosong pada setiap atribut mentah</p>
@@ -198,16 +198,16 @@ export default function DataUnderstandingPage({ data }) {
 
           <div className="mt-3 pt-3 border-t border-slate-100 text-[11px] text-slate-500 flex items-center justify-between">
             <span>Kolom <code>parent_comment_id</code> kosong pada komentar utama (bukan indikasi data rusak).</span>
-            <span className="font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Atribut Teks & ID 100% Lengkap</span>
+            <span className="font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">{`Teks kosong: ${(audit.null_counts.comment ?? 0).toLocaleString('id-ID')} baris mentah`}</span>
           </div>
         </div>
       </div>
 
       {/* Skema Atribut & Metadata Detail */}
-      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 overflow-hidden">
+      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 overflow-hidden">
         <div className="flex items-center justify-between pb-4 border-b border-slate-100">
           <div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
+            <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
               Struktur Skema Dataset KDMP
             </h3>
             <p className="text-xs text-slate-500">Spesifikasi 8 atribut data masukan dari notebook</p>
@@ -247,7 +247,7 @@ export default function DataUnderstandingPage({ data }) {
                       </span>
                     ) : (
                       <span className="inline-flex items-center gap-1 text-[11px] text-slate-600 font-semibold bg-slate-100 px-2 py-0.5 rounded-full">
-                        {((col.nulls / (meta.total_raw || 220051)) * 100).toFixed(1)}% ({col.nulls.toLocaleString('id-ID')})
+                        {((col.nulls / (meta.total_raw ?? 0)) * 100).toFixed(1)}% ({col.nulls.toLocaleString('id-ID')})
                       </span>
                     )}
                   </td>
@@ -266,12 +266,12 @@ export default function DataUnderstandingPage({ data }) {
         title="Interpretasi Kualitas & Karakteristik Data"
         variant="forest"
         points={[
-          `Tingkat duplikasi sebesar 42,22% (92.912 salinan) merupakan konsekuensi umum dari proses scraping komentar TikTok multi-thread pada video dengan engagement tinggi atau paginasi ulang.`,
-          `Seluruh 127.139 baris komentar unik memiliki atribut komentar dan timestamp yang utuh, memastikan tidak ada data sentimen yang hilang atau terdistorsi akibat nilai kosong.`,
-          `Keberadaan 98.450 akun unik pada 38 video menunjukkan jangkauan percakapan yang tersebar luas (rata-rata 1,29 komentar per pengguna), meminimalkan risiko manipulasi opini oleh segelintir buzzer.`
+          `Tingkat duplikasi sebesar ${((meta.duplicates_removed / meta.total_raw) * 100).toFixed(2).replace('.', ',')}% (${(meta.duplicates_removed ?? 0).toLocaleString('id-ID')} baris salinan). Audit notebook menunjukkan baris salinan ini identik dengan komentar level 0 (ID, teks, dan waktu sama) dan kolom level-nya kosong; penyebab teknis duplikasinya tidak diketahui dari data.`,
+          `Dari ${(meta.total_unique ?? 0).toLocaleString('id-ID')} baris komentar unik, sebagian tidak memiliki teks: ${(audit.null_counts.comment ?? 0).toLocaleString('id-ID')} baris mentah berisi teks kosong, dan ${(data?.sentiment_detail?.counts?.tidak_ada_teks ?? 0).toLocaleString('id-ID')} komentar unik tidak memiliki teks setelah normalisasi (misalnya hanya stiker atau emoji).`,
+          `Komentar berasal dari ${meta.total_videos ?? '-'} video dan ${(meta.total_accounts ?? 0).toLocaleString('id-ID')} akun unik (rata-rata ${meta.total_accounts ? (meta.total_unique / meta.total_accounts).toFixed(2).replace('.', ',') : '-'} komentar per akun). Sebaran video sangat timpang dan sebagian besar komentar tertulis pada bulan Mei 2026, sehingga hasil tidak mewakili seluruh periode.`
         ]}
         recommendations={[
-          "Deduplikasi berbasis ID primer wajib diterapkan di awal pipeline; jika diabaikan, video viral dengan tingkat duplikat tinggi akan mendominasi dan menggeser distribusi polaritas sebenarnya.",
+          "Deduplikasi berbasis comment_id perlu diterapkan di awal pipeline; jika diabaikan, komentar level 0 terhitung ganda dan memengaruhi seluruh angka.",
           "Nilai kosong pada parent_comment_id harus dimanfaatkan secara eksplisit untuk memetakan arsitektur percakapan (komentar utama vs balasan bertingkat)."
         ]}
         notes="Audit dilakukan menggunakan pandas isna() dan nunique() sesuai implementasi Cell 4 di notebook KDMP_Explorasi_Lanjutan_Dashboard_v3."

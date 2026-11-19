@@ -54,13 +54,13 @@ export default function CommentTable({
   };
 
   return (
-    <div className="bg-white rounded-[28px] shadow-xs border border-transparent p-6 mt-6 overflow-hidden">
+    <div className="bg-white rounded-[28px] shadow-xs border border-transparent p-5 mt-6 overflow-hidden">
       {/* Header & Controls */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-100">
         <div>
           <div className="flex items-center gap-2">
             <MessageSquare className="w-5 h-5 text-[#315343]" />
-            <h3 className="text-base font-bold text-[#1a2e26] tracking-tight">
+            <h3 className="text-sm font-semibold text-[#1a2e26] tracking-tight">
               {title}
             </h3>
           </div>
@@ -225,11 +225,11 @@ export default function CommentTable({
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white rounded-[28px] max-w-lg w-full p-6 shadow-2xl border border-slate-100 space-y-4"
+              className="bg-white rounded-[28px] max-w-lg w-full p-5 shadow-2xl border border-slate-100 space-y-4"
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <h4 className="text-base font-bold text-[#1a2e26]">@{selectedComment.username}</h4>
+                  <h4 className="text-sm font-semibold text-[#1a2e26]">@{selectedComment.username}</h4>
                   <p className="text-xs text-[#737c76]">Detail Komentar TikTok</p>
                 </div>
                 {sentimentBadge(selectedComment.sentiment_primary)}
