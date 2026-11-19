@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: #e5e3da;
+  }
+  body {
+    background-color: #ecebe4;
+    color: #1a2e26;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+/* Custom Scrollbar - Warm Sage */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #e4e2d8;
+}
+::-webkit-scrollbar-thumb {
+  background: #bcc3be;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8e9b93;
+}
+
+/* Smooth Card Styles */
+.card-clean {
+  background-color: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.025);
+  border: 1px solid rgba(230, 228, 220, 0.6);
+}
+
+.gradient-forest {
+  background: linear-gradient(135deg, #20524d 0%, #499667 100%);
+}
+
+.gradient-crimson {
+  background: linear-gradient(135deg, #aa161a 0%, #d22c3a 100%);
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body {
+    background: white !important;
+  }
+}
