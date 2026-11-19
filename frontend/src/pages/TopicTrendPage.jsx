@@ -39,6 +39,7 @@ export default function TopicTrendPage({ data }) {
   const nextHour = peak ? `${String((parseInt(peak.hour, 10) + 1) % 24).padStart(2, '0')}:00` : '';
   const topicsBySize = [...topics].sort((a, b) => b.jumlah - a.jumlah);
   const entityTopics = topics.filter((t) => /indomaret|alfamart|warung/.test(t.kata_kunci || ''));
+  const clusterTotal = topics.reduce((a, t) => a + (t.jumlah || 0), 0);
   const bigramHeight = Math.max(320, bigrams.length * 30 + 60);
 
   const videoChartData = videos.map(v => ({
@@ -108,7 +109,7 @@ export default function TopicTrendPage({ data }) {
               <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                 Distribusi 8 Cluster Topik (K-Means)
               </h3>
-              <p className="text-xs text-slate-500">Jumlah komentar dan kata kunci penentu pada setiap cluster</p>
+              <p className="text-xs text-slate-500">{`Jumlah komentar dan kata kunci tiap cluster, dihitung pada sampel acak ${clusterTotal.toLocaleString('id-ID')} dari ${(data?.metadata?.total_unique ?? 0).toLocaleString('id-ID')} komentar`}</p>
             </div>
             <span className="p-2 rounded-xl bg-forest-50 text-forest-600">
               <Layers className="w-4 h-4" />
@@ -173,7 +174,7 @@ export default function TopicTrendPage({ data }) {
         title="Interpretasi Pola Tematik & Waktu Komentar"
         variant="forest"
         points={[
-          `Klaster terbesar (Cluster ${(topicsBySize[0]?.cluster ?? 0) + 1}) memuat ${topicsBySize[0]?.persen ?? 0}% komentar dengan kata kunci: ${(topicsBySize[0]?.kata_kunci || '').split(', ').slice(0, 7).join(', ')}. Kata kunci yang umum seperti ini menandakan klaster berisi percakapan singkat umum, bukan topik yang spesifik.`,
+          `Klaster terbesar (Cluster ${(topicsBySize[0]?.cluster ?? 0) + 1}) memuat ${topicsBySize[0]?.persen ?? 0}% dari sampel ${clusterTotal.toLocaleString('id-ID')} komentar yang dikelompokkan, dengan kata kunci: ${(topicsBySize[0]?.kata_kunci || '').split(', ').slice(0, 7).join(', ')}. Kata kunci yang umum seperti ini menandakan klaster berisi percakapan singkat umum, bukan topik yang spesifik.`,
           `Klaster dengan kata kunci entitas yang jelas lebih kecil: ${entityTopics.map((t) => `Cluster ${t.cluster + 1} (${(t.kata_kunci || '').split(', ').slice(0, 3).join(', ')}) ${t.persen}%`).join('; ') || '-'}.`,
           `Frasa dua kata paling sering: ${bigrams.slice(0, 3).map((b) => `"${b.frasa}" (${b.jumlah.toLocaleString('id-ID')})`).join(', ')}. Jam tersibuk komentar adalah ${peak ? `${peak.hour} - ${nextHour}` : '-'}.`
         ]}
@@ -181,7 +182,7 @@ export default function TopicTrendPage({ data }) {
           "Sampaikan penjelasan secara berkala bahwa koperasi desa hadir untuk memasok barang murah bagi warung warga, bukan untuk menyaingi usaha kecil.",
           "Gunakan bahasa yang sederhana dan ramah dalam setiap konten video agar masyarakat merasa terayomi dan terinformasi dengan jelas."
         ]}
-        notes="Klusterisasi menggunakan KMeans dengan TF-IDF Vectorizer (ngram 1-2, 10.000 max features, random_state=42) sesuai implementasi Cell 26 notebook."
+        notes="Klusterisasi menggunakan KMeans dengan TF-IDF Vectorizer (ngram 1-2, 10.000 max features, random_state=42) pada sampel acak 40.000 komentar (bukan seluruh data), sesuai implementasi notebook."
       />
 
       {/* 5. Detail Data */}

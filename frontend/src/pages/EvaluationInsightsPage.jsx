@@ -111,7 +111,7 @@ export default function EvaluationInsightsPage({ data }) {
             <p className="text-xs text-slate-500">Akurasi, presisi, recall, dan F1 berbobot kelas (weighted), serta macro F1 (%). Sumbu mulai dari 0.</p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-semibold">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold">
             <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-forest-600" /> Akurasi</span>
             <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-emerald-500" /> Precision</span>
             <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-amber-500" /> Recall</span>

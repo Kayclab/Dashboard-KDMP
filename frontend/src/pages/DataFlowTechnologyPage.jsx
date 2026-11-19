@@ -71,7 +71,7 @@ export default function DataFlowTechnologyPage({ data }) {
         { name: "Regex Data Cleaning", role: "Pembersihan URL, user handle (@user), hashtag (#tag), tanda kurung stiker, dan tanda baca non-alfanumerik.", icon: "🧹", level: "Cleaner" },
         { name: "Character Reduction", role: "Normalisasi huruf berulang berlebihan (>2 menjadi 2 karakter, contoh: 'mantaaaap' -> 'mantaap').", icon: "✂️", level: "Slang Reducer" },
         { name: "Tokenization", role: "Pemecahan kalimat komentar menjadi satuan token kata independen untuk ekstraksi fitur leksikal.", icon: "🧩", level: "Tokenizer" },
-        { name: "Stopword Removal", role: "Penyaringan 32 kata hubung umum bahasa Indonesia yang tidak memiliki muatan opini evaluatif.", icon: "🛡️", level: "Filter" }
+        { name: "Stopword Removal", role: "Penyaringan 41 kata hubung umum bahasa Indonesia yang tidak memiliki muatan opini evaluatif.", icon: "🛡️", level: "Filter" }
       ]
     },
     {

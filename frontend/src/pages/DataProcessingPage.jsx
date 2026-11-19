@@ -58,7 +58,7 @@ export default function DataProcessingPage({ data }) {
     },
     {
       title: "5. Tokenisasi & Stopword Filtering",
-      desc: "Memecah teks menjadi token kata dan mengeliminasi 32 kata hubung non-esensial (yang, dan, di, dari, dll).",
+      desc: "Memecah teks menjadi token kata dan mengeliminasi 41 kata hubung non-esensial (yang, dan, di, dari, dll).",
       example_before: "dan ini yang sangat bagus untuk para pedagang",
       example_after: "['sangat', 'bagus', 'pedagang']"
     }
